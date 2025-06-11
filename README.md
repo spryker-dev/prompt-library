@@ -41,7 +41,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## Issues / Suggestions
 
-Use the [issue template](.github/ISSUE_TEMPLATE/new_prompt_suggestion.md) to propose:
+Use the [New Prompt Suggestion form](../../issues/new?template=new_prompt_suggestion.yml) to propose:
 - A new category
 - Prompt improvements
 - General feedback

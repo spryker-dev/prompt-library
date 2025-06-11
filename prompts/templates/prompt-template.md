@@ -17,4 +17,4 @@ Use this prompt during code review for legacy functions or unfamiliar modules.
 > "This function computes the hash for incoming requests but lacks input validation. Consider..."
 
 ### Author
-Alex G – May 2025
+Your Name

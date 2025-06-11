@@ -16,3 +16,7 @@ body:
     attributes:
       label: Example Output
       placeholder: "Enter the prompt output example"
+  - type: textarea
+    attributes:
+      label: Author
+      placeholder: "Feel free to provide your github username here"
