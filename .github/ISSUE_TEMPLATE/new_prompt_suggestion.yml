@@ -13,22 +13,6 @@ body:
       label: Tags (comma-separated)
       description: "Add tags to help categorize this prompt. Use commas to separate multiple tags."
       placeholder: "facade, plugin, api, rest, glue, etc."
-  - type: checkboxes
-    attributes:
-      label: Tags (list)
-      description: "Select tags to help categorize this prompt."
-      options:
-        - label: zed
-        - label: glue
-        - label: client
-        - label: yves
-        - label: shared
-        - label: business
-        - label: facade
-        - label: factory
-        - label: communication
-        - label: presentation
-        - label: persistence
   - type: textarea
     attributes:
       label: Prompt
