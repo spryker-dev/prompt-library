@@ -10,6 +10,11 @@ body:
       placeholder: "What is this prompt for?"
   - type: textarea
     attributes:
+      label: Tags (comma-separated)
+      description: "Add tags to help categorize this prompt. Use commas to separate multiple tags."
+      placeholder: "facade, plugin, api, rest, glue, etc."
+  - type: textarea
+    attributes:
       label: Prompt
       placeholder: "Enter your prompt here"
   - type: textarea
