@@ -73,4 +73,4 @@ Create propel schema definition for table(tables) for the feature Company Catalo
 ```
 
 ### Author
-Veronika Golska
+@geronica90 
