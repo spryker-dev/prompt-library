@@ -1,6 +1,6 @@
 # Prompt Template
 
-## Prompt Title
+### Prompt Title
 Give a concise, descriptive name for your prompt that clearly indicates its purpose.
 
 ### Prompt Description
