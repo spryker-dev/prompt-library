@@ -1,12 +1,13 @@
 # Prompt Template
 
 ## Prompt Title
+Give a concise, descriptive name for your prompt that clearly indicates its purpose.
 
 ### Prompt Description
 Give a brief description of what this prompt is designed to achieve.
 
 ### Tags (comma-separated)
-facade, plugin, api, rest, glue, test, unit, data-import, refactoring, etc.
+code-review, refactoring, optimization
 
 ### When to Use
 Use this prompt during code review for legacy functions or unfamiliar modules.
@@ -20,10 +21,10 @@ Use this prompt during code review for legacy functions or unfamiliar modules.
 > "This function computes the hash for incoming requests but lacks input validation. Consider..."
 
 ### LLM
-Claude 3.7 Sonnet, GPT-4o, GPT-4 Turbo, etc.
+Claude 3.7 Sonnet
 
 ### AI Assistant
-Windsurf, Cursor, GitHub Copilot, etc.
+Windsurf
 
 ### Author
 Your Name
