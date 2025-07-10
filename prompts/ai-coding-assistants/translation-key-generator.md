@@ -8,6 +8,9 @@ A prompt for generating translations for specific keys across multiple locales i
 
 This prompt helps developers add translations for missing keys in translation files. It focuses on understanding the context of the keys and providing accurate translations that maintain consistency with existing translation patterns in the project.
 
+### Tags (comma-separated)
+translation, i18n, localization, key-generator
+
 ## When to Use
 
 When you need to add translations for new keys across multiple locales
@@ -52,8 +55,12 @@ permission.name.UnassignSspAssetPermissionPlugin,Unassign business unit ssp asse
 permission.name.UnassignSspAssetPermissionPlugin,Geschäftseinheit-SSP-Assets aufheben,de_DE
 permission.name.UnassignSspAssetPermissionPlugin,Desasignar activos ssp de la unidad de negocio,es_ES
 permission.name.UnassignSspAssetPermissionPlugin,Annuler l'attribution des actifs ssp de l'unité commerciale,fr_FR
-```
 
-## Author
+### LLM
+Claude 3.7 Sonnet
 
+### AI Assistant
+Windsurf
+
+### Author
 @geronica90 

@@ -6,7 +6,10 @@ A prompt for creating Symfony forms based on transfer object properties, includi
 
 ## Prompt Description
 
-This prompt helps developers generate Symfony form classes that correspond to transfer objects in Spryker applications. It focuses on creating forms with proper field constants, appropriate input types based on property types, and data providers when needed.
+This prompt helps developers generate Symfony form classes that correspond to transfer objects in Spryker applications. It focuses on creating forms with proper field mapping and type handling.
+
+### Tags (comma-separated)
+symfony, form, generator, validation
 
 ## When to Use
 
@@ -77,8 +80,12 @@ class ProductTemplateForm extends AbstractType
             ->addApprovalStatusField(builder: $builder);
     }
 }
-```
 
-## Author
+### LLM
+Claude 3.7 Sonnet
 
+### AI Assistant
+Windsurf
+
+### Author
 @geronica90 
