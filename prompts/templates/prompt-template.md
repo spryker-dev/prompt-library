@@ -5,8 +5,8 @@
 ### Prompt Description
 Give a brief description of what this prompt is designed to achieve.
 
-### Tags
-code-review, debugging, optimization, legacy-code
+### Tags (comma-separated)
+facade, plugin, api, rest, glue, test, unit, data-import, refactoring, etc.
 
 ### When to Use
 Use this prompt during code review for legacy functions or unfamiliar modules.

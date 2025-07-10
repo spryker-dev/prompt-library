@@ -12,7 +12,7 @@ body:
     attributes:
       label: Tags (comma-separated)
       description: "Add tags to help categorize this prompt. Use commas to separate multiple tags."
-      placeholder: "facade, plugin, api, rest, glue, etc."
+      placeholder: "facade, plugin, api, rest, glue, test, unit, data-import, refactoring, etc."
   - type: textarea
     attributes:
       label: Prompt
