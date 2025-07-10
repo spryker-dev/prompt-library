@@ -23,5 +23,15 @@ body:
       placeholder: "Enter the prompt output example"
   - type: textarea
     attributes:
+      label: LLM
+      description: "Which Large Language Models work well with this prompt?"
+      placeholder: "Claude 3.7 Sonnet, GPT-4o, GPT-4 Turbo, etc."
+  - type: textarea
+    attributes:
+      label: AI Assistant
+      description: "Which AI coding assistants is this prompt designed for?"
+      placeholder: "Windsurf, Cursor, GitHub Copilot, etc."
+  - type: textarea
+    attributes:
       label: Author
       placeholder: "Feel free to provide your github username here"
