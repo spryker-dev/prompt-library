@@ -5,6 +5,9 @@
 ### Prompt Description
 Give a brief description of what this prompt is designed to achieve.
 
+### Tags
+code-review, debugging, optimization, legacy-code
+
 ### When to Use
 Use this prompt during code review for legacy functions or unfamiliar modules.
 
@@ -15,6 +18,12 @@ Use this prompt during code review for legacy functions or unfamiliar modules.
 
 ### Example Output
 > "This function computes the hash for incoming requests but lacks input validation. Consider..."
+
+### LLM
+Claude 3.7 Sonnet, GPT-4o, GPT-4 Turbo, etc.
+
+### AI Assistant
+Windsurf, Cursor, GitHub Copilot, etc.
 
 ### Author
 Your Name
