@@ -7,24 +7,24 @@ Give a concise, descriptive name for your prompt that clearly indicates its purp
 Give a brief description of what this prompt is designed to achieve.
 
 ### Tags (comma-separated)
-code-review, refactoring, optimization
+Add relevant tags here (e.g. facade, plugin, api, rest, glue, test, unit, data-import, refactoring, etc.)
 
 ### When to Use
-Use this prompt during code review for legacy functions or unfamiliar modules.
+Describe when and in what situations this prompt should be used.
 
 ### Prompt
 ```text
-"Explain this function and suggest any improvements"
+"Enter your prompt text here"
 ```
 
 ### Example Output
-> "This function computes the hash for incoming requests but lacks input validation. Consider..."
+> "Provide an example of the expected output here"
 
 ### LLM
-Claude 3.7 Sonnet
+Specify which LLM(s) work well with this prompt (e.g. Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro, etc.)
 
 ### AI Assistant
-Windsurf
+Specify which AI assistant this was tested with (e.g. Windsurf, Cursor, GitHub Copilot, etc.)
 
 ### Author
 Your Name

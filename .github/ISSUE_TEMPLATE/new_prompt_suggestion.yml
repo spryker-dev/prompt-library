@@ -25,7 +25,7 @@ body:
     attributes:
       label: LLM
       description: "Which Large Language Models work well with this prompt?"
-      placeholder: "Claude 3.7 Sonnet, GPT-4o, GPT-4 Turbo, etc."
+      placeholder: "Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro, etc."
   - type: textarea
     attributes:
       label: AI Assistant
