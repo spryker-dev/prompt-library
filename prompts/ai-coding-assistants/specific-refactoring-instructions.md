@@ -8,6 +8,9 @@ A prompt for providing specific, detailed refactoring instructions that help AI 
 
 This prompt emphasizes the importance of being specific and detailed when asking for code refactoring. Instead of vague requests, it provides clear instructions about what should be extracted, how methods should be named, and what the expected outcome should look like.
 
+### Tags (comma-separated)
+refactoring, code-quality, maintainability, readability
+
 ## When to Use
 
 - When you have complex methods that need to be broken down into smaller, focused functions
@@ -89,8 +92,12 @@ protected function setProductAttributesToItems(array $skuToItemMap, array $produ
         $skuToItemMap[$sku]->setAttributes(attributes: attributes: $productConcreteTransfer->getAttributes());
     }
 }
-```
 
-## Author
+### LLM
+Claude 3.7 Sonnet
 
+### AI Assistant
+Windsurf
+
+### Author
 @geronica90

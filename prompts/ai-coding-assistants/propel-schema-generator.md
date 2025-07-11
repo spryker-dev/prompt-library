@@ -5,6 +5,9 @@
 ### Prompt Description
 This prompt helps generate Propel schema definitions for database tables based on feature requirements. It creates properly structured XML schema files with table definitions, columns, behaviors, and relationships while following Propel ORM conventions.
 
+### Tags (comma-separated)
+propel, schema, database, orm
+
 ### When to Use
 Use this prompt when you need to create database schema definitions for new features.
 
@@ -70,7 +73,12 @@ Create propel schema definition for table(tables) for the feature Company Catalo
 </table>
 
 </database>
-```
+
+### LLM
+Claude 3.7 Sonnet
+
+### AI Assistant
+Windsurf
 
 ### Author
 @geronica90 

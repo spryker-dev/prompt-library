@@ -8,6 +8,9 @@ A prompt for writing comprehensive unit tests using data providers to cover all 
 
 This prompt helps developers create thorough unit tests that utilize data providers to systematically test different scenarios, including positive cases, negative cases, and edge conditions. It emphasizes avoiding code duplication and organizing tests in a clean, readable manner.
 
+### Tags (comma-separated)
+unit-test, phpunit, data-providers, testing
+
 ## When to Use
 
 - When you need comprehensive test coverage for a method with multiple conditions
@@ -137,8 +140,12 @@ class DiscountEligibilityCheckerTest extends Unit
             ->setCurrency($currencyTransfer);
     }
 }
-```
 
-## Author
+### LLM
+Claude 3.7 Sonnet
 
+### AI Assistant
+Windsurf
+
+### Author
 @geronica90

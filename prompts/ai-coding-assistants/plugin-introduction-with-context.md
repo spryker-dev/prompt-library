@@ -8,6 +8,9 @@ A prompt that provides comprehensive context about system architecture, business
 
 This prompt demonstrates the importance of providing rich context when asking AI to create plugins or extensions. It includes details about the existing system, business logic, integration points, and specific technical requirements to ensure the generated code fits seamlessly into the existing architecture.
 
+### Tags (comma-separated)
+plugin, integration, context, architecture
+
 ## When to Use
 
 - When you need to create a plugin that integrates with existing Spryker modules.
@@ -100,8 +103,12 @@ class ShipmentMethodFilter
         return false;
     }
 }
-```
 
-## Author
+### LLM
+Claude 3.7 Sonnet
 
+### AI Assistant
+Windsurf
+
+### Author
 @geronica90
