@@ -8,7 +8,7 @@ A prompt for providing specific, detailed refactoring instructions that help AI 
 
 This prompt emphasizes the importance of being specific and detailed when asking for code refactoring. Instead of vague requests, it provides clear instructions about what should be extracted, how methods should be named, and what the expected outcome should look like.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 refactoring, code-quality, maintainability, readability
 
 ## When to Use

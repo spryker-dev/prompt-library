@@ -5,7 +5,7 @@
 ### Prompt Description
 This prompt helps generate Propel schema definitions for database tables based on feature requirements. It creates properly structured XML schema files with table definitions, columns, behaviors, and relationships while following Propel ORM conventions.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 propel, schema, database, orm
 
 ### When to Use
@@ -81,4 +81,4 @@ Claude 3.7 Sonnet
 Windsurf
 
 ### Author
-@geronica90 
+@geronica90

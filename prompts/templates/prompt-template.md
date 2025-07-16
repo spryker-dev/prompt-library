@@ -1,30 +1,30 @@
 # Prompt Template
 
-### Prompt Title
+## Prompt Title
 Give a concise, descriptive name for your prompt that clearly indicates its purpose.
 
-### Prompt Description
+## Prompt Description
 Give a brief description of what this prompt is designed to achieve.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 Add relevant tags here (e.g. facade, plugin, api, rest, glue, test, unit, data-import, refactoring, etc.)
 
-### When to Use
+## When to Use
 Describe when and in what situations this prompt should be used.
 
-### Prompt
+## Prompt
 ```text
 "Enter your prompt text here"
 ```
 
-### Example Output
+## Example Output
 > "Provide an example of the expected output here"
 
-### LLM
+## LLM
 Specify which LLM(s) work well with this prompt (e.g. Claude 3.7 Sonnet, GPT-4o, Gemini 2.5 Pro, etc.)
 
-### AI Assistant
+## AI Assistant
 Specify which AI assistant this was tested with (e.g. Windsurf, Cursor, GitHub Copilot, etc.)
 
-### Author
+## Author
 Your Name

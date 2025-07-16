@@ -8,7 +8,7 @@ A prompt for generating translations for specific keys across multiple locales i
 
 This prompt helps developers add translations for missing keys in translation files. It focuses on understanding the context of the keys and providing accurate translations that maintain consistency with existing translation patterns in the project.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 translation, i18n, localization, key-generator
 
 ## When to Use
@@ -63,4 +63,4 @@ Claude 3.7 Sonnet
 Windsurf
 
 ### Author
-@geronica90 
+@geronica90

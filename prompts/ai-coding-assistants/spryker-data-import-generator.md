@@ -8,7 +8,7 @@ A prompt for creating comprehensive Spryker data import modules including databa
 
 This prompt helps developers create complete data import functionality for new entities in Spryker applications. It covers database schema creation, transfer object generation, import configuration, and the implementation of import logic with CSV parsing and validation.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 data-import, csv, generator, automation
 
 ## When to Use

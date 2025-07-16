@@ -8,7 +8,7 @@ A prompt that provides comprehensive context about system architecture, business
 
 This prompt demonstrates the importance of providing rich context when asking AI to create plugins or extensions. It includes details about the existing system, business logic, integration points, and specific technical requirements to ensure the generated code fits seamlessly into the existing architecture.
 
-### Tags (comma-separated)
+## Tags (comma-separated)
 plugin, integration, context, architecture
 
 ## When to Use
