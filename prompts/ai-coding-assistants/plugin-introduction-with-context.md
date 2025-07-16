@@ -18,13 +18,21 @@ plugin, integration, context, architecture
 ## Prompt
 
 ```text
-Please, introduce a plugin to {FUNCTIONALITY_DESCRIPTION}. Our goal is to {SPECIFIC_GOAL}. {TECHNICAL_DETAILS}. The {CONFIGURATION_REQUIREMENT}. The {FACADE_METHOD_REQUIREMENT}.
+Please, introduce a plugin to {FUNCTIONALITY_DESCRIPTION}. 
+Our goal is to {SPECIFIC_GOAL}. 
+{TECHNICAL_DETAILS}. 
+The {CONFIGURATION_REQUIREMENT}. 
+The {FACADE_METHOD_REQUIREMENT}.
 ```
 
 ## Example Usage
 
 ```text
-Please, introduce a plugin to filter shipment methods based on item quantity. Our goal is to filter out cheaper shipment methods when the quantity is more than 10 items for the shipment group. Shipment price taken from storeCurrencyPrice property of the ShipmentGroup transfer. The amount of items must be provided via config. The minimum shipment price will be provided via a separate facade method may vary depending on store or currency.
+Please, introduce a plugin to filter shipment methods based on item quantity. 
+Our goal is to filter out cheaper shipment methods when the quantity is more than 10 items for the shipment group. 
+Shipment price taken from storeCurrencyPrice property of the ShipmentGroup transfer. 
+The amount of items must be provided via config. 
+The minimum shipment price will be provided via a separate facade method may vary depending on store or currency.
 ```
 
 ## Example Output

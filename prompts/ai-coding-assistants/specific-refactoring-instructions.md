@@ -19,13 +19,17 @@ refactoring, code-quality, maintainability, readability
 ## Prompt
 
 ```text
-Refactor this method: improve readability by {READABILITY_IMPROVEMENT}, improve performance by {PERFORMANCE_IMPROVEMENT}, {ADDITIONAL_REQUIREMENTS}.
+Refactor this method: improve readability by {READABILITY_IMPROVEMENT}, 
+improve performance by {PERFORMANCE_IMPROVEMENT}, 
+{ADDITIONAL_REQUIREMENTS}.
 ```
 
 ## Example Usage
 
 ```text
-Refactor this method: improve readability by splitting into smaller methods, where possible, but avoid one-line methods, improve performance by using method from facade to retrieve multiple products at once, get rid of if/else.
+Refactor this method: improve readability by splitting into smaller methods, where possible, but avoid one-line methods, 
+improve performance by using method from facade to retrieve multiple products at once, 
+get rid of if/else.
 ```
 
 ## Example Output

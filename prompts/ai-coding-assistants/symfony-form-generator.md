@@ -18,13 +18,17 @@ When you need to create a new Symfony form based on a transfer object with prope
 ## Prompt
 
 ```text
-please introduce new Symfony form in {MODULE_NAME} module based on {TRANSFER_NAME}. please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. Use transfer property names as a filed names.
+please introduce new Symfony form in {MODULE_NAME} module based on {TRANSFER_NAME}. 
+please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. 
+Use transfer property names as a filed names.
 ```
 
 ## Example Usage
 
 ```text
-please introduce new Symfony form in ProductManagement module based on ProductTemplateTransfer. please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. Use transfer property names as a filed names.
+please introduce new Symfony form in ProductManagement module based on ProductTemplateTransfer. 
+please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. 
+Use transfer property names as a filed names.
 ```
 
 ## Example Output

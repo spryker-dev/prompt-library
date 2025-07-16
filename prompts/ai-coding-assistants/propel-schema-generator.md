@@ -13,12 +13,20 @@ Use this prompt when you need to create database schema definitions for new feat
 
 ### Prompt
 ```text
-Create propel schema definition for table(tables) for the feature {FEATURE_NAME}. {FEATURE_DESCRIPTION}. {TABLE_NAME} must have {REQUIRED_FIELDS} (use {BEHAVIOR_NAME} behavior). {ENTITY_A} can have {RELATIONSHIP_TYPE} {ENTITY_B} with {RELATIONSHIP_DETAILS}. Please, do not add any additional indexes or behaviors.
+Create propel schema definition for table(tables) for the feature {FEATURE_NAME}. 
+{FEATURE_DESCRIPTION}. 
+{TABLE_NAME} must have {REQUIRED_FIELDS} (use {BEHAVIOR_NAME} behavior). 
+{ENTITY_A} can have {RELATIONSHIP_TYPE} {ENTITY_B} with {RELATIONSHIP_DETAILS}. 
+Please, do not add any additional indexes or behaviors.
 ```
 
 ### Example Usage
 ```text
-Create propel schema definition for table(tables) for the feature Company Catalog. Company users see their own categories, assigned to company catalog. Catalog must have name, is_active and created/updated at (use timestampable behavior). Company can have many catalogs with assigned categories. Please, do not add any additional indexes or behaviors.
+Create propel schema definition for table(tables) for the feature Company Catalog. 
+Company users see their own categories, assigned to company catalog. 
+Catalog must have name, is_active and created/updated at (use timestampable behavior). 
+Company can have many catalogs with assigned categories. 
+Please, do not add any additional indexes or behaviors.
 ```
 
 ### Example Output

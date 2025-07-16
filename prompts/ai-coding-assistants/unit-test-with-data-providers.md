@@ -22,13 +22,21 @@ unit-test, phpunit, data-providers, testing
 ## Prompt
 
 ```text
-Write a unit test for {CLASS_NAME}::{METHOD_NAME}() using a data provider. Each condition should be covered in a separate case. Include all possible both positive and negative scenarios. Also do not forget to cover edge cases and expected exceptions (e.g. missing {EXCEPTION_CONTEXT}). Avoid code duplication and try to combine everything in 1–2 test methods.
+Write a unit test for {CLASS_NAME}::{METHOD_NAME}() using a data provider. 
+Each condition should be covered in a separate case. 
+Include all possible both positive and negative scenarios. 
+Also do not forget to cover edge cases and expected exceptions (e.g. missing {EXCEPTION_CONTEXT}). 
+Avoid code duplication and try to combine everything in 1–2 test methods.
 ```
 
 ## Example Usage
 
 ```text
-Write a unit test for DiscountEligibilityChecker::isEligible() using a data provider. Each condition should be covered in a separate case. Include all possible both positive and negative scenarios. Also do not forget to cover edge cases and expected exceptions (e.g. missing store in QuoteTransfer). Avoid code duplication and try to combine everything in 1–2 test methods.
+Write a unit test for DiscountEligibilityChecker::isEligible() using a data provider. 
+Each condition should be covered in a separate case. 
+Include all possible both positive and negative scenarios. 
+Also do not forget to cover edge cases and expected exceptions (e.g. missing store in QuoteTransfer). 
+Avoid code duplication and try to combine everything in 1–2 test methods.
 ```
 
 ## Example Output
