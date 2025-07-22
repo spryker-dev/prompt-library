@@ -4,9 +4,7 @@
 
 When a user mentions a tag in the format `#tagname` in their message:
 
-1. **Check for prompt mapping files** in this order:
-   - `prompt-tags.json` (project root)
-   - `.ai-prompts/prompt-tags.json` (submodule)
+1. **Check for prompt mapping file**: `prompt-tags.json` (project root)
 
 2. **If tag found in mapping**:
    - Load the corresponding prompt file
@@ -24,8 +22,7 @@ When a user mentions a tag in the format `#tagname` in their message:
 
 ## File Locations
 
-- Primary: `prompt-tags.json` (project root)
-- Secondary: `.ai-prompts/prompt-tags.json` (submodule)
+- Mapping file: `prompt-tags.json` (project root)
 
 ## Example Workflow
 
