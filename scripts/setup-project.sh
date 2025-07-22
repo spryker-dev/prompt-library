@@ -13,44 +13,16 @@ bash ai-prompts/scripts/generate-tags.sh
 
 # 3. Setup AI assistant rules
 echo "🤖 Setting up AI assistant rules..."
-mkdir -p .windsurf
-mkdir -p ~/.windsurf
 
-# Setup local rules
-if [ -f .windsurf/rules.md ]; then
-    echo "⚠️  Found existing .windsurf/rules.md"
-    echo "📋 Appending prompt library rules..."
-    echo "" >> .windsurf/rules.md
-    echo "# Prompt Library Integration (Auto-added)" >> .windsurf/rules.md
-    cat ai-prompts/.windsurf/rules.md >> .windsurf/rules.md
-    echo "✅ Rules appended to existing file"
-else
-    echo "📋 Creating new rules file..."
-    cp ai-prompts/.windsurf/rules.md .windsurf/rules.md
-    echo "✅ Rules file created"
-fi
-
-# Setup global rules
-GLOBAL_RULES_PATH="$HOME/.codeium/windsurf/memories/global_rules.md"
-if [ -f "$GLOBAL_RULES_PATH" ]; then
-    echo "🌍 Updating global AI rules..."
-    if ! grep -q "Prompt Library Integration" "$GLOBAL_RULES_PATH"; then
-        echo "" >> "$GLOBAL_RULES_PATH"
-        echo "# Prompt Library Integration (Auto-added)" >> "$GLOBAL_RULES_PATH"
-        cat ai-prompts/.windsurf/rules.md >> "$GLOBAL_RULES_PATH"
-        echo "✅ Global rules updated"
-    else
-        echo "ℹ️  Global rules already contain prompt library integration"
-    fi
-else
-    echo "🌍 Creating global AI rules..."
-    mkdir -p "$(dirname "$GLOBAL_RULES_PATH")"
-    cp ai-prompts/.windsurf/rules.md "$GLOBAL_RULES_PATH"
-    echo "✅ Global rules created"
-fi
-echo ""
-echo "💡 You can also manage these through Windsurf UI:"
+echo "📋 To enable tag-based prompts, add these rules to Windsurf:"
 echo "   Settings → Customizations → Rules → Global Rules"
+echo ""
+echo "📄 Copy this content:"
+echo "----------------------------------------"
+cat ai-prompts/.windsurf/rules.md
+echo "----------------------------------------"
+echo ""
+echo "� After adding rules, test with: 'Create plugin #plugin'"
 
 echo ""
 echo "✅ Setup complete!"
@@ -62,7 +34,6 @@ if ! grep -q "prompt-tags.json" .gitignore 2>/dev/null; then
     echo "# AI Prompt Library - auto-generated files" >> .gitignore
     echo "prompt-tags.json" >> .gitignore
     echo "ai-prompts/" >> .gitignore
-    echo ".windsurf/rules.md" >> .gitignore
     echo "✅ Added prompt library files to .gitignore"
 else
     echo "ℹ️  Prompt library files already in .gitignore"
