@@ -3,8 +3,8 @@
 ## Problem
 Copy-pasting prompts is slow and error-prone.
 
-## Solution  
-Use `#tags` to auto-load prompts! 
+## Solution
+Use `#tags` to auto-load prompts!
 
 ## Setup (1 command)
 
@@ -21,14 +21,14 @@ Done! 🎯
 mkdir -p .windsurf
 if [ -f .windsurf/rules.md ]; then
     echo "# Prompt Library Integration" >> .windsurf/rules.md
-    cat .ai-prompts/.windsurf/rules.md >> .windsurf/rules.md
+    cat ai-prompts/.windsurf/rules.md >> .windsurf/rules.md
 else
-    cp .ai-prompts/.windsurf/rules.md .windsurf/rules.md
+    cp ai-prompts/.windsurf/rules.md .windsurf/rules.md
 fi
 
 # Add to .gitignore
 echo "prompt-tags.json" >> .gitignore
-echo ".ai-prompts/" >> .gitignore
+echo "ai-prompts/" >> .gitignore
 ```
 
 ## Usage
@@ -37,7 +37,7 @@ echo ".ai-prompts/" >> .gitignore
 You: "Create plugin #plugin"
 AI: [Auto-loads plugin prompt and generates code]
 
-You: "Setup data import #data-import"  
+You: "Setup data import #data-import"
 AI: [Auto-loads import prompt and creates module]
 ```
 
@@ -59,17 +59,17 @@ grep '".*":' prompt-tags.json
 
 ## Benefits
 
-✅ **Zero setup** - one command  
-✅ **Always current** - auto-generated from prompts  
-✅ **Team consistency** - same prompts for everyone  
+✅ **Zero setup** - one command
+✅ **Always current** - auto-generated from prompts
+✅ **Team consistency** - same prompts for everyone
 ✅ **Fast development** - no copy-paste needed
 
 ## Update
 
 ```bash
 # Update prompt library to latest version
-git submodule update --remote .ai-prompts
-bash .ai-prompts/scripts/generate-tags.sh
+git submodule update --remote ai-prompts
+bash ai-prompts/scripts/generate-tags.sh
 ```
 
 That's it! 🎯

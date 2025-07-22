@@ -11,7 +11,7 @@ When you encounter hashtags (e.g., `#tag1`, `#tag2`, `#tag3`) in user messages:
 ## Key Principles
 
 - **Keep your natural behavior** - explore project structure, analyze patterns, ask clarifying questions
-- **Enhance, don't replace** - use prompts to enrich your knowledge, not override your intelligence  
+- **Enhance, don't replace** - use prompts to enrich your knowledge, not override your intelligence
 - **Stay contextual** - adapt prompts to the specific project and user needs
 - **Be organic** - no robotic announcements, just better-informed responses
 
@@ -27,12 +27,12 @@ When you encounter hashtags (e.g., `#tag1`, `#tag2`, `#tag3`) in user messages:
 **How to use the mapping:**
 1. Read `prompt-tags.json` in project root to get tag → prompt file mappings
 2. For hashtag `#example`, look up the corresponding prompt file path
-3. Load the actual prompt content from `.ai-prompts/prompts/[category]/[filename].md`
+3. Load the actual prompt content from `ai-prompts/prompts/[category]/[filename].md`
 4. Values can be strings (single prompt) or arrays (multiple prompts to choose from)
 
 **File structure:**
 - Mapping: `prompt-tags.json` (project root)
-- Prompts: `.ai-prompts/prompts/[category]/[filename].md`
+- Prompts: `ai-prompts/prompts/[category]/[filename].md`
 
 ## File Location
 
