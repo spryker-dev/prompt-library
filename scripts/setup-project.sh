@@ -31,21 +31,26 @@ else
 fi
 
 # Setup global rules
-if [ -f ~/.windsurf/rules.md ]; then
+GLOBAL_RULES_PATH="$HOME/.codeium/windsurf/memories/global_rules.md"
+if [ -f "$GLOBAL_RULES_PATH" ]; then
     echo "🌍 Updating global AI rules..."
-    if ! grep -q "Prompt Library Integration" ~/.windsurf/rules.md; then
-        echo "" >> ~/.windsurf/rules.md
-        echo "# Prompt Library Integration (Auto-added)" >> ~/.windsurf/rules.md
-        cat ai-prompts/.windsurf/rules.md >> ~/.windsurf/rules.md
+    if ! grep -q "Prompt Library Integration" "$GLOBAL_RULES_PATH"; then
+        echo "" >> "$GLOBAL_RULES_PATH"
+        echo "# Prompt Library Integration (Auto-added)" >> "$GLOBAL_RULES_PATH"
+        cat ai-prompts/.windsurf/rules.md >> "$GLOBAL_RULES_PATH"
         echo "✅ Global rules updated"
     else
         echo "ℹ️  Global rules already contain prompt library integration"
     fi
 else
     echo "🌍 Creating global AI rules..."
-    cp ai-prompts/.windsurf/rules.md ~/.windsurf/rules.md
+    mkdir -p "$(dirname "$GLOBAL_RULES_PATH")"
+    cp ai-prompts/.windsurf/rules.md "$GLOBAL_RULES_PATH"
     echo "✅ Global rules created"
 fi
+echo ""
+echo "💡 You can also manage these through Windsurf UI:"
+echo "   Settings → Customizations → Rules → Global Rules"
 
 echo ""
 echo "✅ Setup complete!"
