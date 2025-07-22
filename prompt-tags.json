@@ -1,0 +1,32 @@
+{
+  "translation": ".ai-prompts/prompts/ai-coding-assistants/translation-key-generator.md",
+  "i18n": ".ai-prompts/prompts/ai-coding-assistants/translation-key-generator.md",
+  "localization": ".ai-prompts/prompts/ai-coding-assistants/translation-key-generator.md",
+  "key-generator": ".ai-prompts/prompts/ai-coding-assistants/translation-key-generator.md",
+  "refactoring": ".ai-prompts/prompts/ai-coding-assistants/specific-refactoring-instructions.md",
+  "code-quality": ".ai-prompts/prompts/ai-coding-assistants/specific-refactoring-instructions.md",
+  "maintainability": ".ai-prompts/prompts/ai-coding-assistants/specific-refactoring-instructions.md",
+  "readability": ".ai-prompts/prompts/ai-coding-assistants/specific-refactoring-instructions.md",
+  "symfony": ".ai-prompts/prompts/ai-coding-assistants/symfony-form-generator.md",
+  "form": ".ai-prompts/prompts/ai-coding-assistants/symfony-form-generator.md",
+  "generator": [
+    ".ai-prompts/prompts/ai-coding-assistants/symfony-form-generator.md",
+    ".ai-prompts/prompts/ai-coding-assistants/spryker-data-import-generator.md"
+  ],
+  "validation": ".ai-prompts/prompts/ai-coding-assistants/symfony-form-generator.md",
+  "unit-test": ".ai-prompts/prompts/ai-coding-assistants/unit-test-with-data-providers.md",
+  "phpunit": ".ai-prompts/prompts/ai-coding-assistants/unit-test-with-data-providers.md",
+  "data-providers": ".ai-prompts/prompts/ai-coding-assistants/unit-test-with-data-providers.md",
+  "testing": ".ai-prompts/prompts/ai-coding-assistants/unit-test-with-data-providers.md",
+  "plugin": ".ai-prompts/prompts/ai-coding-assistants/plugin-introduction-with-context.md",
+  "integration": ".ai-prompts/prompts/ai-coding-assistants/plugin-introduction-with-context.md",
+  "context": ".ai-prompts/prompts/ai-coding-assistants/plugin-introduction-with-context.md",
+  "architecture": ".ai-prompts/prompts/ai-coding-assistants/plugin-introduction-with-context.md",
+  "data-import": ".ai-prompts/prompts/ai-coding-assistants/spryker-data-import-generator.md",
+  "csv": ".ai-prompts/prompts/ai-coding-assistants/spryker-data-import-generator.md",
+  "automation": ".ai-prompts/prompts/ai-coding-assistants/spryker-data-import-generator.md",
+  "propel": ".ai-prompts/prompts/ai-coding-assistants/propel-schema-generator.md",
+  "schema": ".ai-prompts/prompts/ai-coding-assistants/propel-schema-generator.md",
+  "database": ".ai-prompts/prompts/ai-coding-assistants/propel-schema-generator.md",
+  "orm": ".ai-prompts/prompts/ai-coding-assistants/propel-schema-generator.md"
+}
