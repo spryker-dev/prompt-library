@@ -1,3 +1,0 @@
-[submodule ".ai-prompts"]
-	path = .ai-prompts
-	url = https://github.com/spryker-dev/prompt-library
