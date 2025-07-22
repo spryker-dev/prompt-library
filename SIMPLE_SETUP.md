@@ -28,6 +28,7 @@ fi
 
 # Add to .gitignore
 echo "prompt-tags.json" >> .gitignore
+echo ".ai-prompts/" >> .gitignore
 ```
 
 ## Usage

@@ -37,9 +37,11 @@ if ! grep -q "prompt-tags.json" .gitignore 2>/dev/null; then
     echo "" >> .gitignore
     echo "# AI Prompt Library - auto-generated files" >> .gitignore
     echo "prompt-tags.json" >> .gitignore
-    echo "✅ Added prompt-tags.json to .gitignore"
+    echo ".ai-prompts/" >> .gitignore
+    echo ".gitmodules" >> .gitignore
+    echo "✅ Added prompt library files to .gitignore"
 else
-    echo "ℹ️  prompt-tags.json already in .gitignore"
+    echo "ℹ️  Prompt library files already in .gitignore"
 fi
 
 echo ""
