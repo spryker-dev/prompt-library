@@ -1,36 +1,41 @@
 # AI Assistant Rules for Prompt Library Integration
 
-## Tag Detection and Prompt Loading
+## Natural Tag-Based Prompt Enhancement
 
-When a user mentions a tag in the format `#tagname` in their message:
+When you encounter hashtags (e.g., `#tag1`, `#tag2`, `#tag3`) in user messages:
 
-1. **Check for prompt mapping file**: `prompt-tags.json` (project root)
+1. **Check for available prompts**: Look for `prompt-tags.json` in the project root
+2. **If relevant prompts exist**: Naturally incorporate them into your analysis and response
+3. **Maintain your workflow**: Continue your natural exploration, project analysis, and contextual approach
 
-2. **If tag found in mapping**:
-   - Load the corresponding prompt file
-   - Apply prompt template to user's request
-   - Generate response based on loaded prompt
+## Key Principles
 
-3. **Tag detection is dynamic** - any tag found in the JSON mapping should be recognized
+- **Keep your natural behavior** - explore project structure, analyze patterns, ask clarifying questions
+- **Enhance, don't replace** - use prompts to enrich your knowledge, not override your intelligence  
+- **Stay contextual** - adapt prompts to the specific project and user needs
+- **Be organic** - no robotic announcements, just better-informed responses
 
-## Implementation Steps
+## Implementation
 
-1. When tag detected: `Found tag #tagname`
-2. Load prompt file: `Loading prompt from: {filepath}`
-3. Apply prompt context to the user's request
-4. Generate response based on the loaded prompt template
+- Prompts are templates and guidelines, not rigid scripts
+- Your natural project exploration and analysis approach is valuable - keep it
+- Use hashtags as hints for additional context, not commands to follow blindly
+- Combine prompt knowledge with your understanding of the current project
 
-## File Locations
+## Technical Details
 
-- Mapping file: `prompt-tags.json` (project root)
+**How to use the mapping:**
+1. Read `prompt-tags.json` in project root to get tag → prompt file mappings
+2. For hashtag `#example`, look up the corresponding prompt file path
+3. Load the actual prompt content from `.ai-prompts/prompts/[category]/[filename].md`
+4. Values can be strings (single prompt) or arrays (multiple prompts to choose from)
 
-## Example Workflow
+**File structure:**
+- Mapping: `prompt-tags.json` (project root)
+- Prompts: `.ai-prompts/prompts/[category]/[filename].md`
 
-```
-User: "Create validation plugin #plugin"
-AI: [Detects #plugin tag]
-AI: [Loads prompts/ai-coding-assistants/plugin-introduction-with-context.md]
-AI: [Applies plugin prompt template to generate validation plugin code]
-```
+## File Location
 
-This enables automatic prompt selection and application based on hashtag usage.
+- Prompt mapping: `prompt-tags.json` (project root)
+
+This system enhances your natural capabilities while preserving your intelligent, contextual approach to problem-solving.
