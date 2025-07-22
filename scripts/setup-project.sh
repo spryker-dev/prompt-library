@@ -26,6 +26,6 @@ fi
 echo ""
 echo "📖 Usage:"
 echo "  - Use #tag in your messages to auto-load prompts"
-echo "  - Example: 'Create plugin #plugin'"
+echo "  - Example: 'Create data-import module #data-import for Review entity'"
 echo ""
 echo "🔄 To update: git submodule update --remote && bash ai-prompts/scripts/generate-tags.sh"

@@ -71,11 +71,8 @@ Done! 🎯
 ## Usage
 
 ```
-You: "Create plugin #plugin"
-AI: [Auto-loads plugin prompt and generates code]
-
-You: "Setup data import #data-import"
-AI: [Auto-loads import prompt and creates module]
+You: "Create data-import module #data-import for Review entity"
+AI: [Auto-loads data-import prompt and generates complete module]
 ```
 
 ## Find Available Tags
