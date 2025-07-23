@@ -96,6 +96,7 @@ protected function setProductAttributesToItems(array $skuToItemMap, array $produ
         $skuToItemMap[$sku]->setAttributes(attributes: attributes: $productConcreteTransfer->getAttributes());
     }
 }
+```
 
 ### LLM
 Claude 3.7 Sonnet

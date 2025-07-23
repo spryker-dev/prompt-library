@@ -148,6 +148,7 @@ class DiscountEligibilityCheckerTest extends Unit
             ->setCurrency($currencyTransfer);
     }
 }
+```
 
 ### LLM
 Claude 3.7 Sonnet

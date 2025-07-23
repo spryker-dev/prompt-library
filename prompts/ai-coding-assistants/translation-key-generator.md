@@ -55,6 +55,7 @@ permission.name.UnassignSspAssetPermissionPlugin,Unassign business unit ssp asse
 permission.name.UnassignSspAssetPermissionPlugin,Geschäftseinheit-SSP-Assets aufheben,de_DE
 permission.name.UnassignSspAssetPermissionPlugin,Desasignar activos ssp de la unidad de negocio,es_ES
 permission.name.UnassignSspAssetPermissionPlugin,Annuler l'attribution des actifs ssp de l'unité commerciale,fr_FR
+```
 
 ### LLM
 Claude 3.7 Sonnet

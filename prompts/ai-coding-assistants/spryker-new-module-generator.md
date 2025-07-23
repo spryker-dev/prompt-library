@@ -120,6 +120,34 @@ Check src/Zed/Sales as an example of a module with a similar structure.
 
 ## Example Output
 
+```text
+src/
+└── Zed/
+    └── ProductReview/
+        ├── Business/
+        │   ├── Model/
+        │   │   └── (Business model classes: e.g. ProductReviewWriter.php, ProductReviewReader.php, etc.)
+        │   ├── ProductReviewBusinessFactory.php
+        │   ├── ProductReviewFacade.php
+        │   └── ProductReviewFacadeInterface.php
+        ├── Communication/
+        │   └── Plugin/
+        ├── Persistence/
+        │   ├── Propel/
+        │   │   └── Schema/
+        │   │       └── spy_product_review.schema.xml
+        │   ├── ProductReviewEntityManager.php
+        │   ├── ProductReviewEntityManagerInterface.php
+        │   ├── ProductReviewRepository.php
+        │   └── ProductReviewRepositoryInterface.php
+        └── ProductReviewDependencyProvider.php
+src/
+└── Shared/
+    └── ProductReview/
+        └── Transfer/
+            └── product_review.transfer.xml
+```
+
 ### Technical Details
 
 - **LLM**: Claude 3.7 Sonnet

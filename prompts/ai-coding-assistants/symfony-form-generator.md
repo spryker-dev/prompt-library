@@ -84,6 +84,7 @@ class ProductTemplateForm extends AbstractType
             ->addApprovalStatusField(builder: $builder);
     }
 }
+```
 
 ### LLM
 Claude 3.7 Sonnet
