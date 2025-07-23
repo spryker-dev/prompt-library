@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Setup script for integrating prompt library into a new project
 
 echo "🚀 Setting up Prompt Library Integration..."
@@ -9,7 +9,7 @@ git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
 
 # Generate tag index
 echo "🏷️  Generating tag index..."
-bash ai-prompts/scripts/generate-tags.sh
+bash ai-prompts/bin/generate-tags
 
 # Add to .gitignore
 echo "📝 Updating .gitignore..."
@@ -17,10 +17,9 @@ if ! grep -q "prompt-tags.json" .gitignore 2>/dev/null; then
     echo "" >> .gitignore
     echo "# AI Prompt Library - auto-generated files" >> .gitignore
     echo "prompt-tags.json" >> .gitignore
-    echo "ai-prompts/" >> .gitignore
-    echo "✅ Added prompt library files to .gitignore"
+    echo "✅ Added auto-generated files to .gitignore"
 else
-    echo "ℹ️  Prompt library files already in .gitignore"
+    echo "ℹ️  Auto-generated files already in .gitignore"
 fi
 
 echo ""
@@ -28,4 +27,4 @@ echo "📖 Usage:"
 echo "  - Use #tag in your messages to auto-load prompts"
 echo "  - Example: 'Create data-import module #data-import for Review entity'"
 echo ""
-echo "🔄 To update: git submodule update --remote && bash ai-prompts/scripts/generate-tags.sh"
+echo "🔄 To update: git submodule update --remote && bash ai-prompts/bin/generate-tags"

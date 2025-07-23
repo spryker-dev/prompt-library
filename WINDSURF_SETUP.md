@@ -7,19 +7,35 @@ Auto-load expert prompts using hashtags in your Windsurf messages. Instead of co
 
 ## Setup
 
-### 1. Run Setup Script
+### Option 1: Automatic Setup (Recommended)
 Navigate to your project directory and run:
 ```bash
 cd your-project-directory
-bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/scripts/setup-project.sh)
+bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
 ```
 
-This will:
+### Option 2: Manual Setup
+If you prefer manual installation:
+
+```bash
+# 1. Add as git submodule
+git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
+
+# 2. Generate tags mapping
+bash ai-prompts/bin/generate-tags
+
+# 3. Update .gitignore
+echo "" >> .gitignore
+echo "# AI Prompt Library - auto-generated files" >> .gitignore
+echo "prompt-tags.json" >> .gitignore
+```
+
+Both methods will:
 - Add prompt library as git submodule in `ai-prompts/`
 - Generate `prompt-tags.json` with available tags
-- Update `.gitignore` to exclude generated files
+- Update `.gitignore` to exclude auto-generated `prompt-tags.json`
 
-### 2. Add AI Rules to Windsurf
+### 2. Add Windsurf AI Rules
 Go to: **Windsurf Settings → Customizations → Rules → Global Rules**
 
 Copy and paste this content:
@@ -106,7 +122,7 @@ grep '".*":' prompt-tags.json
 ```bash
 # Update prompt library to latest version
 git submodule update --remote ai-prompts
-bash ai-prompts/scripts/generate-tags.sh
+bash ai-prompts/bin/generate-tags
 ```
 
 That's it! 🎯

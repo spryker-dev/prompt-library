@@ -5,7 +5,6 @@ echo "🏷️  Generating prompt tags mapping..."
 
 # Use Python for better JSON handling
 python3 -c "
-import os
 import json
 import re
 from pathlib import Path
