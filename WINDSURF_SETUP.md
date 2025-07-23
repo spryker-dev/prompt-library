@@ -1,7 +1,9 @@
-# 🚀 Smart Prompt Tags
+# 🚀 Spryker Prompt Library Integration for Windsurf
 
 ## Overview
-Auto-load expert prompts using hashtags in your messages. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
+Auto-load expert prompts using hashtags in your Windsurf messages. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
+
+> **Note:** This setup is specifically designed for Windsurf AI editor. For other editors like Cursor, see separate setup guides.
 
 ## Setup
 
@@ -18,7 +20,7 @@ This will:
 - Update `.gitignore` to exclude generated files
 
 ### 2. Add AI Rules to Windsurf
-Go to: **Settings → Customizations → Rules → Global Rules**
+Go to: **Windsurf Settings → Customizations → Rules → Global Rules**
 
 Copy and paste this content:
 
