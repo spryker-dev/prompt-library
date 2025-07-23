@@ -81,6 +81,7 @@ Please, do not add any additional indexes or behaviors.
 </table>
 
 </database>
+```
 
 ### LLM
 Claude 3.7 Sonnet
