@@ -10,6 +10,13 @@ This library helps engineering teams:
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
 
+## 🏃‍♂️ Quick Start
+
+**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for:
+- One-command setup with automatic AI assistant integration
+- How to use hashtags like `#data-import` to auto-load prompts
+- Support for Windsurf, Cursor, GitHub Copilot and other AI editors
+
 ## Structure
 
 Prompts are grouped by domain (feel free to introduce a new domain if needed):
