@@ -3,7 +3,7 @@
 ## Overview
 Auto-load expert prompts using hashtags. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
 
-> **Multi-editor support:** This system works with Windsurf, Cursor, VS Code + Copilot, PhpStorm + Copilot, and other AI assistants.
+> **Multi-editor support:** This system works with Windsurf, Cursor, GitHub Copilot, and other AI assistants.
 
 ## Setup
 
@@ -125,10 +125,10 @@ grep '".*":' prompt-tags.json
 
 ## Benefits
 
-✅ **Easy setup** - one command
-✅ **Always current** - auto-generated from prompts
-✅ **Team consistency** - same prompts for everyone
-✅ **Fast development** - no copy-paste needed
+✅ **Easy setup** - one command <br>
+✅ **Always current** - auto-generated from prompts <br>
+✅ **Team consistency** - same prompts for everyone <br>
+✅ **Fast development** - no copy-paste needed <br>
 
 ## Update
 
