@@ -1,9 +1,9 @@
-# 🚀 Spryker Prompt Library Integration for Windsurf
+# 🚀 Spryker Prompt Library Integration
 
 ## Overview
-Auto-load expert prompts using hashtags in your Windsurf messages. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
+Auto-load expert prompts using hashtags. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
 
-> **Note:** This setup is specifically designed for Windsurf AI editor. For other editors like Cursor, see separate setup guides.
+> **Multi-editor support:** This system works with Windsurf, Cursor, VS Code + Copilot, PhpStorm + Copilot, and other AI assistants.
 
 ## Setup
 
@@ -35,10 +35,23 @@ Both methods will:
 - Generate `prompt-tags.json` with available tags
 - Update `.gitignore` to exclude auto-generated `prompt-tags.json`
 
-### 2. Add Windsurf AI Rules
-Go to: **Windsurf Settings → Customizations → Rules → Global Rules**
+### 2. Configure AI Assistant Rules
 
-Copy and paste this content:
+Choose your AI editor and follow the corresponding setup:
+
+#### **Windsurf**
+Go to: **Settings → Customizations → Rules → Global Rules**
+
+#### **Cursor**
+Go to: **Settings → Rules** or create `.cursor/rules` files in your project
+
+#### **VS Code + GitHub Copilot**
+Create file: `.github/copilot-instructions.md` in your project root
+
+#### **PhpStorm + GitHub Copilot**
+Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions**
+
+**Copy and paste this content into your chosen location:**
 
 ```markdown
 # AI Assistant Rules for Prompt Library Integration
@@ -106,13 +119,13 @@ grep '".*":' prompt-tags.json
 ## How It Works
 
 1. Setup adds prompt library as git submodule and generates tag mapping
-2. You add AI rules to Windsurf global settings
+2. You add AI rules to settings
 3. AI detects `#tag` (example) and loads corresponding prompt
 4. Prompt is applied to your request automatically
 
 ## Benefits
 
-✅ **Zero setup** - one command
+✅ **Easy setup** - one command
 ✅ **Always current** - auto-generated from prompts
 ✅ **Team consistency** - same prompts for everyone
 ✅ **Fast development** - no copy-paste needed
