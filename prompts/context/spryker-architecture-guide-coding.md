@@ -29,7 +29,7 @@ This document outlines the core coding standards for Spryker projects. It is des
     - **NEVER** use `final` on classes.
 - **Dependency Injection:**
     - Use constructor injection.
-    - Use PHP 8 constructor property promotion: `public function __construct(protected SomeInterface $some) {}`.
+    - Use PHP 8 constructor property promotion: `public function __construct(protected SomeInterface $someInterface) {}`.
     - Always depend on interfaces, not concrete classes.
 
 ## 3. Methods & Functions

@@ -1,5 +1,3 @@
-Of course. Here is the revised guide, optimized for AI agents by removing the documentation links.
-
 # Spryker Architecture Guide for AI Agents
 
 This guide provides a concise, machine-readable summary of Spryker's architectural principles, focusing on public API contracts and development best practices. Use this for code generation and automated code reviews.
