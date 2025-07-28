@@ -2,6 +2,9 @@
 
 This document outlines the core coding standards for Spryker projects. It is designed for automated code review and generation.
 
+Internal docs:
+- https://spryker.atlassian.net/wiki/spaces/CORE/pages/955384454/Coding+Guidelines
+
 ---
 
 ## 1. Code Style & Linting

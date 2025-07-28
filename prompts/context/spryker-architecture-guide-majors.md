@@ -2,6 +2,10 @@
 
 This guide defines what constitutes a major version change in Spryker and provides tactics to avoid them where possible. Use this for code review and to make architectural decisions that maintain backward compatibility.
 
+Internal docs:
+- https://spryker.atlassian.net/wiki/spaces/CORE/pages/3048767586/Is+my+module+change+major
+- https://spryker.atlassian.net/wiki/spaces/CORE/pages/3038216249/Major+release+avoidance+tactics
+
 ---
 
 ## 1. Database

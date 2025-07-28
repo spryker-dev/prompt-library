@@ -2,6 +2,9 @@
 
 This guide provides a concise, machine-readable summary of Spryker's architectural principles, focusing on public API contracts and development best practices. Use this for code generation and automated code reviews.
 
+Internal docs:
+- 
+
 ---
 
 ## 1. Core Principles: API Contracts
