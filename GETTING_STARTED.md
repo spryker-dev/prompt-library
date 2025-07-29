@@ -24,16 +24,9 @@ git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
 # 2. Generate tags mapping
 bash ai-prompts/bin/generate-tags
 
-# 3. Update .gitignore
-echo "" >> .gitignore
-echo "# AI Prompt Library - auto-generated files" >> .gitignore
-echo "prompt-tags.json" >> .gitignore
-```
-
 Both methods will:
 - Add prompt library as git submodule in `ai-prompts/`
 - Generate `prompt-tags.json` with available tags
-- Update `.gitignore` to exclude auto-generated `prompt-tags.json`
 
 ### 2. Configure AI Assistant Rules
 
@@ -60,7 +53,7 @@ Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instr
 
 When you encounter hashtags (e.g., `#tag1`, `#tag2`, `#tag3` - examples) in user messages:
 
-1. **Check for available prompts**: Look for `prompt-tags.json` in the project root
+1. **Check for available prompts**: Look for `prompt-tags.json` in ai-prompts submodule
 2. **If relevant prompts exist**: Naturally incorporate them into your analysis and response
 3. **Maintain your workflow**: Continue your natural exploration, project analysis, and contextual approach
 
@@ -81,18 +74,18 @@ When you encounter hashtags (e.g., `#tag1`, `#tag2`, `#tag3` - examples) in user
 ## Technical Details
 
 **How to use the mapping:**
-1. Read `prompt-tags.json` in project root to get tag → prompt file mappings
+1. Read `prompt-tags.json` in ai-prompts submodule to get tag → prompt file mappings
 2. For hashtag `#example` (example), look up the corresponding prompt file path
 3. Load the actual prompt content from `ai-prompts/prompts/[category]/[filename].md`
 4. Values can be strings (single prompt) or arrays (multiple prompts to choose from)
 
 **File structure:**
-- Mapping: `prompt-tags.json` (project root)
+- Mapping: `prompt-tags.json` (ai-prompts submodule)
 - Prompts: `ai-prompts/prompts/[category]/[filename].md`
 
 ## File Location
 
-- Prompt mapping: `prompt-tags.json` (project root)
+- Prompt mapping: `prompt-tags.json` (ai-prompts submodule)
 
 This system enhances your natural capabilities while preserving your intelligent, contextual approach to problem-solving.
 ```
@@ -110,10 +103,10 @@ AI: [Auto-loads data-import prompt and generates complete module]
 
 ```bash
 # See all available tags
-cat prompt-tags.json | jq -r 'keys[]' | sed 's/^/#/'
+cat ai-prompts/prompt-tags.json | jq -r 'keys[]' | sed 's/^/#/'
 
 # Or just look at the keys
-grep '".*":' prompt-tags.json
+grep '".*":' ai-prompts/prompt-tags.json
 ```
 
 ## How It Works

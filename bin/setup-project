@@ -11,17 +11,6 @@ git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
 echo "🏷️  Generating tag index..."
 bash ai-prompts/bin/generate-tags
 
-# Add to .gitignore
-echo "📝 Updating .gitignore..."
-if ! grep -q "prompt-tags.json" .gitignore 2>/dev/null; then
-    echo "" >> .gitignore
-    echo "# AI Prompt Library - auto-generated files" >> .gitignore
-    echo "prompt-tags.json" >> .gitignore
-    echo "✅ Added auto-generated files to .gitignore"
-else
-    echo "ℹ️  Auto-generated files already in .gitignore"
-fi
-
 echo ""
 echo "📖 Usage:"
 echo "  - Use #tag in your messages to auto-load prompts"
