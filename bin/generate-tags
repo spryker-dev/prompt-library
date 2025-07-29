@@ -1,6 +1,10 @@
 #!/bin/bash
 # Generate tag-to-prompt mapping from all markdown files
 
+# Change to the project root (parent of this script's directory)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/.." || exit 1
+
 echo "🏷️  Generating prompt tags mapping..."
 
 # Use Python for better JSON handling
@@ -30,7 +34,7 @@ def main():
     tags_mapping = {}
 
     # Find all markdown files (excluding templates and README)
-    prompts_dir = Path('ai-prompts/prompts')
+    prompts_dir = Path('prompts')
     if not prompts_dir.exists():
         prompts_dir = Path('prompts')  # Fallback for direct execution
 

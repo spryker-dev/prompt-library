@@ -6,3 +6,4 @@
 *.AppleDB
 *.AppleDesktop
 .DS_Store
+prompt-tags.json
