@@ -23,13 +23,14 @@ git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
 
 # 2. Generate tags mapping
 bash ai-prompts/bin/generate-tags
+```
 
 Both methods will:
 - Add prompt library as git submodule in `ai-prompts/`
 - Generate `prompt-tags.json` with available tags
 
-### 2. Configure AI Assistant Rules
-
+### Configure AI Assistant Rules
+```bash
 Choose your AI editor and follow the corresponding setup:
 
 #### **Windsurf**
