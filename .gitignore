@@ -7,3 +7,6 @@
 *.AppleDesktop
 .DS_Store
 prompt-tags.json
+prompt_mcp/embeddings_cache.pkl
+__pycache__/
+prompt_library.egg-info/
