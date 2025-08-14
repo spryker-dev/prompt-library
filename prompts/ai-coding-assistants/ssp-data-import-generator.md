@@ -9,23 +9,23 @@ A prompt for creating comprehensive Spryker data importer functionality inside t
 This prompt helps developers create complete data import functionality for new and existing entities in Spryker applications. It covers database schema creation, transfer object generation, import configuration, and the implementation of import logic with CSV parsing and validation.
 
 ## Tags (comma-separated)
-data-import, csv, generator, automation
+data-import, csv, generator, automation, ssp
 
 ## When to Use
 
-When you need to create a complete data import system for a new entity in Spryker with database schema, transfers, and import logic
+When you need to create a complete data import system for a new or existing entity in Spryker with database schema, transfers, and import logic
 
 ## Prompt
 
 ```text
-Please create data importer for the {ENTITY}. use data importer for {EXAMPLE_ENTITY} as an example 
+Please create data importer for the {ENTITY} inside the module {MODULE_NAME}. use data importer for {EXAMPLE_ENTITY} as an example 
 
 ```
 
 ## Example Usage
 
 ```text
-pls create data importer for the ssp assets. use data importer for inquiries as an example
+pls create data importer for the ssp assets inside the module SelfServicePortal. use data importer for inquiries as an example
 ```
 
 ## Example Output
