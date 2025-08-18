@@ -27,8 +27,16 @@ For example, you want to generate some module with spryker-prompt mcp.
 For a better experience we recomment to add `Use spryker prompts` to the end of the prompt.
 
 ## Upgrade package
+Run the command.
 ```shell
-uv tool upgrade prompt-mcp --from git+https://github.com/spryker-dev/prompt-library
+uvx --from git+https://github.com/spryker-dev/prompt-library@feature/prompt-mcp-improvements prompt-mcp
+```
+Wait until the command is finished. It should look like this:
+```text
+uvx --from git+https://github.com/spryker-dev/prompt-library prompt-mcp
+Updated https://github.com/spryker-dev/prompt-library (d2b45720795cd18522a2bd07045915def1c13d41)
+Built prompt-library @ git+https://github.com/spryker-dev/prompt-library@d2b45720795cd18522a2bd07045915def1c13d41
+Installed 34 packages in 47ms
 ```
 
 ## Installation for development
