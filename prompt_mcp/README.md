@@ -24,7 +24,7 @@ A short guide to quickly start using the Spryker Prompts MCP server.
     ```
 3. Use it. \
 For example, you want to generate some module with spryker-prompt mcp.
-For a better experience we recomment to add `Use spryker prompts` to the end of the prompt. \
+For a better experience we recommend adding `Use spryker prompts` to the end of the prompt. \
 #### Example:
 ```text
 Please give me a prompt to implement a customer data import module with basic fields. Use spryker prompts.
