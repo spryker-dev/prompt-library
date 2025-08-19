@@ -1,74 +1,118 @@
 from mcp.server.fastmcp import FastMCP
 from .prompt_loader import PromptLoader
-from .semantic_search import SemanticSearch
+import logging
 
+# Initialize logger
+logger = logging.getLogger(__name__)
+
+# Initialize prompt loader
 prompt_loader = PromptLoader()
-prompt_loader.load_prompts()
-prompts = prompt_loader.get_all_prompts()
-semantic_search = SemanticSearch(prompts)
 
-def reload_semantic_search():
-    global prompts, semantic_search
-    prompt_loader.force_reload()
-    prompts = prompt_loader.get_all_prompts()
-    semantic_search = SemanticSearch(prompts)
+
+def _initialize_prompts():
+    """Initialize prompts with error handling."""
+    try:
+        prompt_loader.load_prompts()
+        return True
+    except Exception as e:
+        logger.error(f"Failed to initialize prompts: {e}")
+        return False
+
+
+# Initialize prompts on startup
+_initialize_prompts()
 
 mcp = FastMCP("Spryker Prompts MCP")
 
-@mcp.tool()
-def search_prompts(query: str, limit: int = 3):
-    """Semantic search for prompts. Returns full prompt content for top matches."""
-    results = semantic_search.search(query, limit)
-
-    return {
-        "results": [
-            {
-                "filename": p["filename"],
-                "title": p["title"],
-                "description": p["description"],
-                "tags": p["tags"],
-                "content": p["content"],
-                "score": score,
-            }
-            for p, score in results
-        ]
-    }
 
 @mcp.tool()
-def get_prompt(filename: str):
+def get_prompt(filename: str) -> dict:
     """Get a specific prompt by filename."""
-    prompt = prompt_loader.get_prompt_by_filename(filename)
+    try:
+        prompt = prompt_loader.get_prompt_by_filename(filename)
 
-    if not prompt:
-        return {"error": f"Prompt '{filename}' not found."}
+        if not prompt:
+            return {"error": f"Prompt '{filename}' not found."}
 
-    return {
-        "filename": prompt["filename"],
-        "title": prompt["title"],
-        "description": prompt["description"],
-        "tags": prompt["tags"],
-        "content": prompt["content"],
-    }
+        return {
+            "filename": prompt["filename"],
+            "title": prompt["title"],
+            "description": prompt["description"],
+            "tags": prompt["tags"],
+            "content": prompt["content"],
+        }
+    except Exception as e:
+        logger.error(f"Error retrieving prompt '{filename}': {e}")
+        return {"error": f"Failed to retrieve prompt: {str(e)}"}
+
 
 @mcp.tool()
-def list_prompts():
+def list_prompts() -> dict:
     """List all available prompts with brief descriptions."""
+    try:
+        # Get fresh data from prompt_loader instead of using global variable
+        all_prompts = prompt_loader.get_all_prompts()
 
-    return {
-        "prompts": [
-            {
-                "filename": p["filename"],
-                "title": p["title"],
-                "description": p["description"],
-                "tags": p["tags"],
-            }
-            for p in prompts
-        ]
-    }
+        return {
+            "prompts": [
+                {
+                    "filename": p["filename"],
+                    "title": p["title"],
+                    "description": p["description"],
+                    "tags": p["tags"],
+                }
+                for p in all_prompts
+            ]
+        }
+    except Exception as e:
+        logger.error(f"Error listing prompts: {e}")
+        return {"error": f"Failed to list prompts: {str(e)}"}
+
 
 @mcp.tool()
-def reload_prompts():
-    """Reload all prompts from disk and update semantic search."""
-    reload_semantic_search()
-    return {"status": "reloaded", "prompt_count": len(prompts)}
+def reload_prompts() -> dict:
+    """Reload all prompts from disk."""
+    try:
+        prompt_loader.force_reload()
+        all_prompts = prompt_loader.get_all_prompts()
 
+        return {
+            "status": "reloaded",
+            "prompt_count": len(all_prompts)
+        }
+    except Exception as e:
+        logger.error(f"Error reloading prompts: {e}")
+        return {
+            "status": "error",
+            "error": f"Failed to reload prompts: {str(e)}"
+        }
+
+
+@mcp.tool()
+def search_prompts(query: str) -> dict:
+    """Search prompts by title, description, or tags."""
+    try:
+        all_prompts = prompt_loader.get_all_prompts()
+        query_lower = query.lower()
+
+        matching_prompts = []
+        for prompt in all_prompts:
+            # Search in title, description, and tags
+            if (query_lower in prompt["title"].lower() or
+                query_lower in prompt["description"].lower() or
+                any(query_lower in tag.lower() for tag in prompt.get("tags", []))):
+                matching_prompts.append({
+                    "filename": prompt["filename"],
+                    "title": prompt["title"],
+                    "description": prompt["description"],
+                    "tags": prompt["tags"],
+                })
+
+        return {
+            "query": query,
+            "matches": matching_prompts,
+            "count": len(matching_prompts)
+        }
+    except Exception as e:
+        logger.error(f"Error searching prompts: {e}")
+        return {"error": f"Failed to search prompts: {str(e)}"}
