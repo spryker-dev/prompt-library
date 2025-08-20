@@ -53,10 +53,6 @@ Use the [New Prompt Suggestion form](../../issues/new?template=new_prompt_sugges
 - Prompt improvements
 - General feedback
 
-## License
-
-This repository is internal and subject to the Spryker Policy.
-
 ---
 
 Let’s build smarter—together!
