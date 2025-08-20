@@ -1,4 +1,4 @@
-# Prompt MCP
+# Spryker Prompt MCP
 
 ## Getting Started
 A short guide to quickly start using the Spryker Prompts MCP server.
