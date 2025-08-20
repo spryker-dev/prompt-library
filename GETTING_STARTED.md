@@ -29,6 +29,11 @@ Both methods will:
 - Add prompt library as git submodule in `ai-prompts/`
 - Generate `prompt-tags.json` with available tags
 
+### Configure Spryker Prompt MCP Server
+
+As an alternative/addition to the tags generation, you can configure the Spryker Prompt MCP server to enable AI agent to search for prompts.
+See our [Spryker Prompt MCP Server Setup](prompt_mcp/README.md)
+
 ### Configure AI Assistant Rules
 ```bash
 Choose your AI editor and follow the corresponding setup:
