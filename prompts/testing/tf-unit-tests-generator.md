@@ -13,7 +13,7 @@ tests, unit-test, tf-modules, automation
 
 ## When to Use
 
-When you need to create a set of unit tests for a newly created or existing TF module in `/spryker/tfcloud-modules` repository. The prompt should be used from the inside of this repository as it needs to read source files to create tests.
+When you need to create a set of unit tests for a newly created or existing TF module in the TF modules repository. The prompt should be used from the inside of this repository as it needs to read source files to create tests.
 
 ## Prompt
 
@@ -45,9 +45,6 @@ When you need to create a set of unit tests for a newly created or existing TF m
 
 ## Example Output
 
-
-```
-
 1. What Needs to be Tested (Unit Test Requirements)
    lists the following:
       - what is tested
@@ -64,12 +61,87 @@ efs/
 
 3. How to Run and Setup Tests
  (explains how to do this)
+
+Example of the test file
+```
+provider "aws" {
+  region                    = "eu-west-1"
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  skip_requesting_account_id  = true
+}
+
+variables {
+  project_name                             = "test-project"
+  private_subnet_ids                       = ["subnet-12345678", "subnet-87654321"]
+  sftp_enable                              = true  # Enabled for testing SFTP features
+  efs_sg                                   = "sg-87654321"
+  efs_infrequent_access_transition_policy  = "AFTER_30_DAYS"
+  rabbitmq_throughput_mode                 = "bursting"
+  rabbitmq_provisioned_throughput_in_mibps  = 100
+}
+
+run "verify_rabbitmq_filesystem" {
+  command = plan
+
+  assert {
+    condition     = aws_efs_file_system.rabbitmq_fs.encrypted == false
+    error_message = "RabbitMQ EFS must be encrypted"
+  }
+
+  assert {
+    condition     = aws_efs_file_system.rabbitmq_fs.lifecycle_policy[0].transition_to_ia == var.efs_infrequent_access_transition_policy
+    error_message = "RabbitMQ EFS lifecycle policy does not match input"
+  }
+
+  assert {
+    condition     = aws_efs_file_system.rabbitmq_fs.tags["Name"] == "${var.project_name}-rabbitmq"
+    error_message = "RabbitMQ EFS Name tag is not as expected"
+  }
+}
+
+run "verify_sftp_filesystem" {
+  command = plan
+
+  assert {
+    condition     = aws_efs_file_system.sftp_fs[0].creation_token == "${var.project_name}-efs-sftp"
+    error_message = "SFTP creation token mismatch"
+  }
+
+  assert {
+    condition     = aws_efs_file_system.sftp_fs[0].encrypted == false
+    error_message = "SFTP EFS encryption should be disabled"
+  }
+
+  assert {
+    condition     = aws_efs_file_system.sftp_fs[0].performance_mode == "generalPurpose"
+    error_message = "SFTP performance mode should be generalPurpose"
+  }
+
+  assert {
+    condition     = aws_efs_file_system.sftp_fs[0].tags["App"] == "sftp"
+    error_message = "SFTP EFS App tag not set correctly"
+  }
+}
+
+run "verify_mount_targets" {
+  command = plan
+
+  assert {
+    condition     = length(aws_efs_mount_target.rabbitmq_efs_mt[*]) == length(var.private_subnet_ids)
+    error_message = "Number of RabbitMQ mount targets does not match number of private subnets"
+  }
+
+
+  assert {
+    condition     = length(aws_efs_mount_target.sftp_efs_mt[*]) == length(var.private_subnet_ids)
+    error_message = "Number of SFTP mount targets does not match number of private subnets"
+  }
+}
 ```
 
 ### LLM
-Claude 3.7 Sonnet
-o3-mini
-GPT-4o
+Claude 3.7 Sonnet, o3-mini, GPT-4o
 
 ### AI Assistant
 VS Code + GitHub Copilot
