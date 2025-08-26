@@ -68,17 +68,13 @@ When you need to create a set of integration tests for a newly created or existi
 
 2. Test Files
 (creates a single file with all tests that can be put here)
-
+```
 efs/
-
 ├── tests/
-
    ├── integration.tftest.hcl (file contents is provided)
-
    └── setup/
-
       └──main.tf
-
+```
 
 
 3. How to Run and Setup Tests
