@@ -54,11 +54,11 @@ When you need to create a set of unit tests for a newly created or existing TF m
 
 2. Unit Test File
 (creates a single file with all tests that can be put here)
-
+```
 efs/
 ├── tests/
    └── unit.tftest.hcl (file contents is provided)
-
+```
 3. How to Run and Setup Tests
  (explains how to do this)
 
