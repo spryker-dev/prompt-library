@@ -1,0 +1,129 @@
+---
+description: 
+globs: *.php,*.transfer.xml,*.schema.xml
+alwaysApply: false
+---
+# PHP & Spryker Development Rules
+
+## General PHP Rules
+- Use PHP 8.1+ features (typed properties, match expressions)
+- Follow PSR-12 coding standards strictly
+- Follow Spryker's directory structure and naming conventions
+- Implement proper error handling with custom exceptions
+- Use try-catch blocks for expected exceptions
+- Utilize Spryker Propel ORM for database interactions
+- Always use constructor property promotion with protected visibility
+- Use list<T> instead of array<T> for typed arrays
+- Use constructor property promotion for new classes
+
+## Spryker-Specific Conventions
+- No doc blocks for classes and interfaces
+- Don't remove existing document blocks from original files
+- Variables for Transfer objects: camelCase ending with "Transfer" (e.g., `$exampleTransfer`)
+- Always include Spryker copyright header:
+```php
+<?php
+
+/**
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+```
+
+## Documentation Standards
+- All code must be complete with proper PSR-12 compliant doc blocks
+- Specifications only for methods in `*FacadeInterface.php`, `*Config.php`, or `*Plugin.php` files
+- Protected/private methods: only parameter and return type doc blocks
+- Copy existing document blocks when applicable
+
+### Plugin Method Documentation:
+```php
+/**
+ * {@inheritDoc}
+ * - Formats the file size into a human-readable format.
+ *
+ * @api
+ *
+ * @param \Twig\Environment $twig
+ * @param \Spryker\Service\Container\ContainerInterface $container
+ *
+ * @return \Twig\Environment
+ */
+```
+
+### FacadeInterface Method Documentation:
+```php
+/**
+ * Specification:
+ * - Deletes a collection of file attachments from the storage by delete criteria.
+ * - Uses the transaction mechanism.
+ * - Uses `FileAttachmentCollectionDeleteCriteriaTransfer.fileIds` to filter file attachments by `fileIds`.
+ * - Returns `FileAttachmentCollectionDeleteCriteriaTransfer.ErrorTransfer[]` filled with validation errors.
+ *
+ * @api
+ *
+ * @param \Generated\Shared\Transfer\FileAttachmentCollectionDeleteCriteriaTransfer $fileAttachmentCollectionDeleteCriteriaTransfer
+ *
+ * @return \Generated\Shared\Transfer\FileAttachmentCollectionResponseTransfer
+ */
+```
+
+## Constructor Property Promotion Example:
+```php
+<?php
+
+/**
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
+namespace SprykerFeature\Zed\SspServiceManagement\Business\ShipmentType;
+
+class ProductShipmentTypeSaver implements ProductShipmentTypeSaverInterface
+{
+    public function __construct(protected SspServiceManagementEntityManagerInterface $sspServiceManagementEntityManager)
+    {
+    }
+}
+```
+
+## Dependency Provider Example:
+```php
+/**
+ * @method \SprykerFeature\Zed\SspServiceManagement\SspServiceManagementConfig getConfig()
+ */
+class SspServiceManagementDependencyProvider extends AbstractBundleDependencyProvider
+{
+    /**
+     * @var string
+     */
+    public const FACADE_SHIPMENT_TYPE = 'FACADE_SHIPMENT_TYPE';
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    public function provideCommunicationLayerDependencies(Container $container): Container
+    {
+        $container = parent::provideCommunicationLayerDependencies($container);
+        $container = $this->addShipmentTypeFacade($container);
+
+        return $container;
+    }
+
+    /**
+     * @param \Spryker\Zed\Kernel\Container $container
+     *
+     * @return \Spryker\Zed\Kernel\Container
+     */
+    protected function addShipmentTypeFacade(Container $container): Container
+    {
+        $container->set(static::FACADE_SHIPMENT_TYPE, static function (Container $container) {
+            return $container->getLocator()->shipmentType()->facade();
+        });
+
+        return $container;
+    }
+}
+``` 
