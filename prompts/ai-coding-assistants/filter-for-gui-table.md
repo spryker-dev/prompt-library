@@ -1,28 +1,32 @@
-# Filter for a Table in the Backoffice
-
-## Description
-
-A comprehensive prompt for adding advanced filters to a Spryker Zed GUI table with proper form fields, translations, and query integration.
-
-## Prompt Description
-
-This prompt helps developers implement advanced filtering functionality for Spryker Zed tables by generating the necessary form fields, controller logic, table queries, and translations. It supports multiple filter types (text, select, multiselect) and handles proper translation keys for internationalization.
-
-## Tags (comma-separated)
-spryker, zed, table, filter, form, symfony, translation, gui
-
-## When to Use
+---
+name: Filter for a Table in the Backoffice
+description: A comprehensive prompt for adding advanced filters to a Spryker Zed GUI table with proper form fields, translations, and query integration.
+promptDescription: This prompt helps developers implement advanced filtering functionality for Spryker Zed tables by generating the necessary form fields, controller logic, table queries, and translations. It supports multiple filter types (text, select, multiselect) and handles proper translation keys for internationalization.
+tags:
+    - spryker
+    - zed
+    - table
+    - filter
+    - form
+    - symfony
+    - translation
+    - gui
 
 When you need to add or update filtering capabilities for a Spryker Zed table with:
-- Multiple filter criteria
+- One or Multiple filter criteria
 - Different input types (text, select, multiselect)
 - Proper translations for multiple locales
 - Integration with existing table queries
 
+
+---
+ACTIVATION-NOTICE: This file contains your full agent operating guidelines.
+
+CRITICAL: Read the full content IN THIS FILE to understand your operating params, start and follow it exactly.
+
 ## Prompt
 
-```text
-ALWAYS start by saying: "I'm René and I help you to implement advanced filters for a Spryker Zed table."
+ALWAYS start by saying: "I'm Pete, a senior developer at Spryker, and I will help you to implement or update advanced filters for a Spryker Zed table."
 
 **IMPORTANT**:
 - This is a task that MUST apply code changes only inside the `vendor/spryker/spryker/Bundles` directory.
@@ -30,28 +34,61 @@ ALWAYS start by saying: "I'm René and I help you to implement advanced filters 
 - Always ask the user for input if there is anything unclear.
 
 
-
 STEP 1: Parse the user's request to extract:
+
 - Module name (look for phrases like "in the [ModuleName] module", "for [ModuleName]Table", etc.)
 - Filter field names (look for quoted strings, "filter" mentions, field names)
 - Table name if mentioned
 
-STEP 2: If module name is not clear from the request, ask:
-**Module Name**: What is the name of the module you want to update? (e.g., ProductManagement, Sales, Customer)
 
-STEP 3: If filter fields are not clear from the request, ask:
-**Filter Criteria**: What are the names of the filter form fields you want to add? (Please provide a comma-separated list, e.g., "Approval Status", "Product Type")
+STEP 2: **Parse and understand the user request**
 
-STEP 4: **Field Types** For each identified filter field ask the user to select the appropriate type with the following question:
+The user may provide detailed information or not, so you have to make sure that we have all data to successfully process the task.
+
+Make sure you have the following information and understood the user request correctly.
+
+Required information:
+- **Module Name** - Check that the user has provided a module name.
+- **Filter Criteria** - Check if the user has provided filter fields he wants to add.
+- **Filter Types** - Check if the user has provided filter types the fields should have.
+- **Data Types** - Check if the user has provided data types the fields should have.
+
+When you think you have all information you need show your thinking to the user and let him approve HALT here and wait for the users response.
+
+When the user approved your thinking, continue with STEP 3 **Translation**
+
+When you do not have all required information, continue with STEP 2.1
+
+
+STEP 2.1: **Module Name**
+
+If the module name is not clear from the request, ask:
+
+What is the name of the module you want to update? (e.g., ProductManagement, Sales, Customer)
+
+**IMPORTANT** When the module name has Gui suffix, then the business-related code can be found in the module that has the same name but without the Gui suffix. For example, a module named like `CustomerGui` will map to the business-related code containing module `Customer`.
+
+
+STEP 2.2: **Filter Criteria**
+
+If filter fields are not clear from the request, ask:
+
+What are the names of the filter form fields you want to add? (Please provide a comma-separated list, e.g., "Approval Status", "Product Type")
+
+
+STEP 2.3: **Field Types**
+
+For each identified filter field ask the user to select the appropriate type with the following question:
 
 Select the filed type appropriate for the filter field [filterFieldName]:
    1. Text input (single text field)
-   2. Select dropdown (single selection)
-   3. Multiselect dropdown (multiple selections allowed)
+   2. Select (single selection)
+   3. Multiselect (multiple selections allowed)
 
 **IMPORTANT**: Only continue when you have the field types approved by the user.
 
-STEP 4.1: **Data Types** For each filter field, ask for the data type that will be used in the transfer object by using the following question:
+
+STEP 2.4: **Data Types** For each filter field, ask for the data type that will be used in the transfer object by using the following question:
 
 What is the expected type for the filter field [filterFieldName]?:
    1. int (integer values)
@@ -61,61 +98,83 @@ What is the expected type for the filter field [filterFieldName]?:
 
 **IMPORTANT**: Only continue when you have the data types approved by the user.
 
-STEP 4.2: Add the approved fields to the transfer definition of the module.
-   1. Check if there is a Transfer Definition that can be used to add the new properties to.
-   2. Ask the user if the one you have found is correct
-   3. When you can not find one ask the user for input
 
-**IMPORTANT**: Only continue when you have the approval from the user.
+STEP 3: **Translation**
 
-STEP 5: For each filter field and both locales (de_DE and en_US), suggest a translation using the English field name as the key and ask for the display name fo the field and the placehoder text that should be shown to the user of filter page above the table:
-"For the filter field '[field_name]' and locale '[locale]', I suggest the translation: '[suggested_translation]'. Is this acceptable or would you prefer a different translation?"
+Each filter field has to have translations in place. We need to have one for the field name which is visible above the form field itself, and we need to have a placeholder rendered inside the form field. For example We have a multiselect form field named "Status" which has multiple statuses shown, and the placeholder value for this should be "Select one or multiple".
 
-**IMPORTANT**: Only continue when you have the approval for those from the user.
+Based on the **Filter Criteria** check if we have a value and a placeholder value for each of them. If not, ask the user to provide you the names. Next step is to get the expected translations for each of them. Provide the user for each **Filter Criteria** the following output and wait for approval HALT.
 
-STEP 6: When you have all required information, execute this task list and CHECK OFF each item as you complete it by changing the checkbox from empty to checked:
+Filter Criteria (en_US): "Status"
+Placeholder (en_US): "Select"
 
-## File Path Patterns for Spryker:
+Filter Criteria (de_DE): "Status"
+Placeholder (de_DE): "Auswählen"
+
+**IMPORTANT** Only continue when you have the approval from the user or a change request has been made.
+
+
+STEP 4: **Implementation**
+
+**IMPORTANT** Implement one step after the other and provide the user your next steps before you start editing files. This MUST be followed for each STEP 4.*
+
+
+STEP 4.1: **Check the current implementation**
+
+You can find all path patterns for the next steps down below. Do not try to use other path patterns when you can't find the files HALT and ask the user for input.
+
+- Check the Controller if it is already using the Filter Criteria.
+- Read the Transfer schema file and check if there is already a transfer definition that you can use. If not, provide the user a list of all transfer names that you can find with the regular expression `name="(.*)"`. The user can also provide a new name if none fits.
+- Check if the Twig filter form templates already exist or if it needs to be created.
+- Check the table class if it already uses any filter.
+- Check if the form class already contains one of the **Filter Criteria** and if they differ from the current plan. For example there is already a select but now a multiselect is requested.
+- Read the PropelORM schema file and check if you can find matching column names for the requested **Filter Criteria**. You can find the column names with the regex `<column name="(.*)"`
+
+Formulate a concrete plan of action and let the user approve before you continue. HALT
+
+
+STEP 4.2: **Transfer definition update**
+
+Alter the transfer schema file by either adding the properties needed to the already existing transfer definition or by adding a complete new transfer definition.
+
+
+STEP 4.3: **Table Filter Form**
+
+Check if there is already a TableFilterForm and reuse this. If this is unclear, provide the user with a list of all forms inside the modules directory. If there is no table filter form you think that matches, add one and use the provided form example down below.
+
+
+STEP 4.4: **Twig filter form**
+
+Check if there is already a twig filter form and reuse this. If there is no table filter form, add one and use the provided form example down below.
+
+STEP 4.5: **Translation**
+
+For each filter field and both locales (de_DE and en_US), alter the locale-related translation file and add the new key value pairs we have discussed.
+
+STEP 4.6: **Update the Query used in the Table class**
+
+The column names from the PropelORM schema map to methods inside the Query class that is used inside the Table class. For example, a filter criteria called "Status" may map to the PropelORM schema `<column="status" ...>` and by that you can use depending on select or multiselect one of:
+
+- `$query->filterByStatus_in($filterCriteriaTransfer->getStatus();`; For multiselect.
+- `$query->filterByStatus($filterCriteriaTransfer->getStatus();`; For select.
+
+The code above has to be wrapped in a method called `applyFilterCriteria` and has to be as described in the example section down below.
+
+
+## File Path Patterns for Spryker
+
 - Controller: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Communication/Controller/IndexController.php`
 - Form: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Communication/Form/TableFilterForm.php`
-- Twig template: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Presentation/Index/index.twig`
+- Twig template: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Presentation/Index|List/index.twig`
+- Twig filter form template: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Presentation/Partials/table-filter-form.twig` The template for this can be found in the templates section down below
 - Table class: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Communication/Table/[TableName]Table.php`
+- PropelORM schema: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Persistence/Propel/Schema/spy_[mModuleName].scheam.xml`
 - Transfer definition: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Shared/[ModuleName]/Transfer/[module_name].transfer.xml`
 - Translation files:
   - `vendor/spryker/spryker/Bundles/[ModuleName]/data/translation/Zed/de_DE.csv`
   - `vendor/spryker/spryker/Bundles/[ModuleName]/data/translation/Zed/en_US.csv`
 
-**IMPORTANT**: Follow the path structure above, if unclear ask the user for input.
-
-**PROGRESS TRACKING**: After completing each task below, show the updated progress by displaying the task list with completed items marked with an X inside square brackets. Use this EXACT format:
-
-CORRECT checkbox format to display:
-- [x] Completed task (use exactly this format with x inside brackets)
-- [ ] Pending task (use exactly this format with space inside brackets)
-
-DO NOT use HTML input elements or any other format. Only use plain text markdown checkboxes.
-
-Task List:
-- [ ] Update IndexController with filter form creation and choice methods
-- [ ] Create/Update TableFilterForm with appropriate field types and validation
-- [ ] Update Twig template to include filter form
-- [ ] Update transfer XML with FilterCriteria definitions for each field
-- [ ] Add translation entries to both de_DE.csv and en_US.csv files
-- [ ] Print next steps information for the user
-
-**IMPORTANT**: After completing EACH individual task, immediately show the user the updated task list with the completed item checked off. Use ONLY markdown checkbox format. For example:
-
-"I have completed updating the IndexController. Here's the current progress:
-
-Task List:
-- [x] Update IndexController with filter form creation and choice methods
-- [ ] Create/Update TableFilterForm with appropriate field types and validation
-- [ ] Update Twig template to include filter form
-- [ ] Update transfer XML with FilterCriteria definitions for each field
-- [ ] Add translation entries to both de_DE.csv and en_US.csv files
-- [ ] Print next steps information for the user
-
-Now moving on to the next task..."
+**IMPORTANT**: Follow the path structure above, if unclear, ask the user for help and HALT.
 
 **FINAL STEP**: After completing all file updates, print this information block for the user:
 
@@ -126,22 +185,22 @@ Now moving on to the next task..."
 
 1. **Generate Transfer Objects** - Run the transfer object generation command:
    - Command: `vendor/bin/console transfer:generate`
-   - This will generate the FilterCriteria transfer objects from the XML definitions
+   - This will generate the FilterCriteria transfer objects from the XML definitions.
 
-2. **Update your Table Query** - Modify your Table class to use the filter criteria from the request:
+2. *Review and finalize the Query** - Modify your Table class to use the filter criteria from the request:
    - File: `vendor/spryker/spryker/Bundles/[ModuleName]/src/Spryker/Zed/[ModuleName]/Communication/Table/[TableName]Table.php`
-   - In your query method, add conditions based on the filter form data
+   - In the `applyFilterCriteria` method, I added the required conditions as comments.
    - Example: `$query->filterByApprovalStatus($filterData['approval_status'])`
 
 3. **Test the Implementation**:
    - Clear cache: `vendor/bin/console cache:clear`
    - Navigate to your Zed table page
-   - Verify that filter form appears and functions correctly
-   - Test that filtering actually affects the table results
+   - Verify that the filter form appears and functions correctly.
+   - Test that filtering actually affects the table results.
 
 4. **Verify Translations**:
-   - Check that translation keys are properly loaded
-   - Test both locales (de_DE and en_US) if applicable
+   - Check that translation keys are properly loaded.
+   - Test both locales (de_DE and en_US) if applicable.
 
 **Files that were updated:**
 - ✅ IndexController.php (filter form creation and choice methods)
@@ -151,7 +210,326 @@ Now moving on to the next task..."
 - ✅ Translation files (de_DE.csv and en_US.csv)
 
 **⚠️ Important**:
-- The transfer object generation and table query logic need to be implemented manually
+- The table query logic has been prepared but needs your final review and activation (uncommenting).
 - Transfer generation is required before the filter functionality will work properly
 ---
+
+---
+### Templates
+
+## Filter Form Template
+
+```twig
+{# @var form \Symfony\Component\Form\FormView #}
+
+{% block table_filter_form %}
+    <div class="table-filter-container spacing-bottom">
+        {{ form_start(form, {attr: {class: 'table-filter-form', id: '[MODULE NAME IN LOWERCASE DASHED FORMAT]-filter-form'}}) }}
+        <div class="row">
+            {% for field in form.children %}
+                <div class="col-md-6 col-lg-3">
+                    {{ form_row(field) }}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <button class="btn btn-outline spacing-right">{{ 'Apply filters' | trans }}</button>
+            <a href="{{ url('[URL FOR THE CONTROLLER]') }}" class="btn btn-link">{{ 'Reset filters' | trans }}</a>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
 ```
+
+## Table class
+
+### The method that has the query logic
+
+```php
+protected function buildQuery(): [QueryClass]
+{
+    // existing code
+
+    $filterCriteriaTransfer = $this->getFilterCriteriaTransfer();
+
+    if ($filterCriteriaTransfer instanceof [FilterCriteriaTransfer]) {
+        $query = $this->applyFilterCriteria($query, $filterCriteriaTransfer);;
+    }
+
+    return $query;
+}
+```
+
+### The applyFilterCriteria method
+```php
+
+protected function applyFilterCriteria([QueryClass] $query, [FilterCriteriaTransfer] $filterCriteriaTransfer): [QueryClass]
+{
+    // Apply the selected filter methods here
+
+    return $query;
+}
+```
+
+
+
+## Form class
+```php
+<?php
+
+/**
+ * Copyright © 2016-present Spryker Systems GmbH. All rights reserved.
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
+namespace Spryker\Zed\Sales\Communication\Form;
+
+use DateTime;
+use Generated\Shared\Transfer\OrderTableCriteriaTransfer;
+use Spryker\Zed\Kernel\Communication\Form\AbstractType;
+use Spryker\Zed\Sales\Communication\Form\DataProvider\TableFilterFormDataProvider;
+use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+/**
+ * @method \Spryker\Zed\Sales\Business\SalesFacadeInterface getFacade()
+ * @method \Spryker\Zed\Sales\Communication\SalesCommunicationFactory getFactory()
+ * @method \Spryker\Zed\Sales\Persistence\SalesQueryContainerInterface getQueryContainer()
+ * @method \Spryker\Zed\Sales\SalesConfig getConfig()
+ * @method \Spryker\Zed\Sales\Persistence\SalesRepositoryInterface getRepository()
+ */
+class TableFilterForm extends AbstractType
+{
+    /**
+     * @var string
+     */
+    protected const FIELD_STATUSES = 'statuses';
+
+    /**
+     * @var string
+     */
+    protected const FIELD_STORES = 'stores';
+
+    /**
+     * @var string
+     */
+    protected const FIELD_ORDER_DATE_FROM = 'order_date_from';
+
+    /**
+     * @var string
+     */
+    protected const FIELD_ORDER_DATE_TO = 'order_date_to';
+
+    /**
+     * @var string
+     */
+    protected const PLACEHOLDER_STATUSES = 'Select Statuses';
+
+    /**
+     * @var string
+     */
+    protected const PLACEHOLDER_STORES = 'Select Stores';
+
+    /**
+     * @var string
+     */
+    protected const LABEL_STORE = 'Store';
+
+    /**
+     * @var string
+     */
+    protected const LABEL_STATUS = 'Status';
+
+    /**
+     * @var string
+     */
+    protected const LABEL_ORDER_DATE_FROM = 'Order date from';
+
+    /**
+     * @var string
+     */
+    protected const LABEL_ORDER_DATE_TO = 'Order date to';
+
+    /**
+     * @var string
+     */
+    protected const DATE_TIME_FORMAT = 'Y-m-d\TH:i';
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix(): string
+    {
+        return '';
+    }
+
+    /**
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
+     *
+     * @return void
+     */
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setRequired([
+            TableFilterFormDataProvider::OPTION_STATUSES,
+            TableFilterFormDataProvider::OPTION_STORES,
+            TableFilterFormDataProvider::OPTION_CURRENT_TIMEZONE,
+        ]);
+
+        $resolver->setDefaults([
+            'data_class' => OrderTableCriteriaTransfer::class,
+            'csrf_protection' => false,
+        ]);
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array<string, mixed> $options
+     *
+     * @return void
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder->setMethod(Request::METHOD_GET);
+
+        $this
+            ->addStatusField($builder, $options)
+            ->addStoreField($builder, $options)
+            ->addOrderDateFromField($builder, $options)
+            ->addOrderDateToField($builder, $options);
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array<string, mixed> $options
+     *
+     * @return $this
+     */
+    protected function addStatusField(FormBuilderInterface $builder, array $options = [])
+    {
+        $builder->add(static::FIELD_STATUSES, ChoiceType::class, [
+            'label' => static::LABEL_STATUS,
+            'placeholder' => static::PLACEHOLDER_STATUSES,
+            'required' => false,
+            'multiple' => true,
+            'expanded' => false,
+            'choices' => $options[TableFilterFormDataProvider::OPTION_STATUSES] ?? [],
+            'attr' => [
+                'class' => 'spryker-form-select2combobox',
+                'data-placeholder' => $this->getFactory()->getTranslatorFacade()->trans(static::PLACEHOLDER_STATUSES),
+                'data-clearable' => true,
+            ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array<string, mixed> $options
+     *
+     * @return $this
+     */
+    protected function addStoreField(FormBuilderInterface $builder, array $options = [])
+    {
+        $builder->add(static::FIELD_STORES, ChoiceType::class, [
+            'label' => static::LABEL_STORE,
+            'placeholder' => static::PLACEHOLDER_STORES,
+            'required' => false,
+            'multiple' => true,
+            'expanded' => false,
+            'choices' => $options[TableFilterFormDataProvider::OPTION_STORES] ?? [],
+            'attr' => [
+                'class' => 'spryker-form-select2combobox',
+                'data-placeholder' => $this->getFactory()->getTranslatorFacade()->trans(static::PLACEHOLDER_STORES),
+                'data-clearable' => true,
+            ],
+        ]);
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array<string, mixed> $options
+     *
+     * @return $this
+     */
+    protected function addOrderDateFromField(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add(static::FIELD_ORDER_DATE_FROM, DateTimeType::class, [
+            'label' => static::LABEL_ORDER_DATE_FROM,
+            'widget' => 'single_text',
+            'required' => false,
+            'html5' => true,
+            'view_timezone' => $options[TableFilterFormDataProvider::OPTION_CURRENT_TIMEZONE],
+        ]);
+
+        $builder->get(static::FIELD_ORDER_DATE_FROM)
+            ->addModelTransformer($this->createDateTimeTransformer());
+
+        return $this;
+    }
+
+    /**
+     * @param \Symfony\Component\Form\FormBuilderInterface $builder
+     * @param array<string, mixed> $options
+     *
+     * @return $this
+     */
+    protected function addOrderDateToField(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add(static::FIELD_ORDER_DATE_TO, DateTimeType::class, [
+            'label' => static::LABEL_ORDER_DATE_TO,
+            'widget' => 'single_text',
+            'required' => false,
+            'html5' => true,
+            'view_timezone' => $options[TableFilterFormDataProvider::OPTION_CURRENT_TIMEZONE],
+        ]);
+
+        $builder->get(static::FIELD_ORDER_DATE_TO)
+            ->addModelTransformer($this->createDateTimeTransformer());
+
+        return $this;
+    }
+
+    /**
+     * @return \Symfony\Component\Form\DataTransformerInterface
+     */
+    protected function createDateTimeTransformer(): DataTransformerInterface
+    {
+        return new CallbackTransformer(
+            function ($dateAsString) {
+                if (!$dateAsString) {
+                    return null;
+                }
+
+                if ($dateAsString instanceof DateTime) {
+                    return $dateAsString;
+                }
+
+                return new DateTime($dateAsString);
+            },
+            function ($dateAsObject) {
+                if (!$dateAsObject) {
+                    return null;
+                }
+
+                if ($dateAsObject instanceof DateTime) {
+                    return $dateAsObject->format(static::DATE_TIME_FORMAT);
+                }
+
+                return $dateAsObject;
+            },
+        );
+    }
+}
+
+```
+
+---
