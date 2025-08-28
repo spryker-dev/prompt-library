@@ -3,7 +3,6 @@ from typing import List, Dict, Any, Optional
 
 PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
 
-
 class PromptLoader:
     def __init__(self, prompts_dir: Path = PROMPTS_DIR):
         self.prompts_dir = prompts_dir
