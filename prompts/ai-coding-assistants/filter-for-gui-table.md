@@ -147,11 +147,16 @@ STEP 4.4: **Twig filter form**
 
 Check if there is already a twig filter form and reuse this. If there is no table filter form, add one and use the provided form example down below.
 
-STEP 4.5: **Translation**
+STEP 4.5: **Twig table page**
+
+Check the `*/index.twig` or `*/list.twig` file if it looks similar to the example provided down below with using molecules and includes rather then rendering the form on its own.
+
+
+STEP 4.6: **Translation**
 
 For each filter field and both locales (de_DE and en_US), alter the locale-related translation file and add the new key value pairs we have discussed.
 
-STEP 4.6: **Update the Query used in the Table class**
+STEP 4.7: **Update the Query used in the Table class**
 
 The column names from the PropelORM schema map to methods inside the Query class that is used inside the Table class. For example, a filter criteria called "Status" may map to the PropelORM schema `<column="status" ...>` and by that you can use depending on select or multiselect one of:
 
@@ -240,6 +245,27 @@ The code above has to be wrapped in a method called `applyFilterCriteria` and ha
     </div>
 {% endblock %}
 ```
+
+### Twig table page
+
+```twig
+{% block content %}
+
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'List of [TABLE NAME]' | trans } %}
+
+        {% block widget_content %}
+
+            {% include '@[MODULE NAME]/Partials/table-filter-form.twig' with { form: tableFilterForm } %}
+
+            {{ [VARIABLE PASSED FROM THE CONTROLLER] | raw }}
+
+        {% endblock %}
+
+    {% endembed %}
+
+{% endblock %}
+```
+
 
 ## Table class
 
