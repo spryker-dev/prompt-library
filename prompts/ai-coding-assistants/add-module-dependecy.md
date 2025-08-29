@@ -356,7 +356,7 @@ use Spryker\Zed\[Current Module]\Dependency\[Dependency Type]\To[Dependent Modul
 
 public function get[Dependent Module][Dependent Type](): [Current Module]To[Dependent Module][Depednency Type]Interface
 {
-    return $this->getProvidedDepednecy([Current Module]DependencyProvider::[Dependency Type]_[Dependent module]);
+    return $this->getProvidedDependency([Current Module]DependencyProvider::[Dependency Type]_[Dependent module]);
 }
 ```
 
