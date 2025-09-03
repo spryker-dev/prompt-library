@@ -3,62 +3,103 @@
 ## Overview
 We provide two ways to integrate the Spryker Prompt Library with your AI development workflow:
 
-1. **Hashtag Integration** - Auto-load prompts using hashtags like `#data-import`
-2. **MCP Server Integration** - AI assistant accesses prompts through MCP server
+1. **MCP Server Integration** - AI assistant accesses prompts through MCP server
+2. **Hashtag Integration** - Auto-load prompts using hashtags like `#data-import`
 
 Choose the approach that best fits your needs.
 
 ---
 
-## Option 1: Hashtag Integration
+## Option 1: MCP Server Integration
 
-Auto-load expert prompts using hashtags. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
+A guide to quickly start using the Spryker Prompts MCP server.
 
-> **Multi-editor support:** This system works with Windsurf, Cursor, GitHub Copilot, and other AI assistants.
+> ⚠️ **Important**: MCP server usage can consume additional credits during operation. Consider disabling the server when not actively using prompts to avoid unnecessary credit usage.
 
-## Setup
+### Quick Start
+1. Install [uv](https://docs.astral.sh/uv/#installation). \
+    When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. \
+    We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
+2. Add the following configuration to your `mcpServers`:
+    ```json
+    {
+        "mcpServers": {
+            "spryker-prompts": {
+                  "command": "path-to/uvx",
+                  "args": [
+                    "--from",
+                    "git+https://github.com/spryker-dev/prompt-library",
+                    "prompt-mcp"
+                  ]
+            }
+        }
+    }
+    ```
+3. Use it. \
+For example, you want to generate some module with spryker-prompt mcp.
+For a better experience we recommend adding `Use spryker prompts` to the end of the prompt. \
+#### Example:
+```text
+Please give me a prompt to implement a customer data import module with basic fields. Use spryker prompts.
+```
+Agent will return a prompt from mcp and modify it to fit your needs.
 
-### Automatic Setup (Recommended)
-Navigate to your project directory and run:
-```bash
-cd your-project-directory
-bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
+### Benefits
+
+✅ **Intelligent discovery** - AI finds relevant prompts automatically \
+✅ **Semantic matching** - No need to remember specific tags \
+✅ **Real-time access** - Direct integration with MCP-compatible assistants \
+✅ **Dynamic adaptation** - Prompts contextually modified for your needs \
+
+### Upgrade package
+Run the command.
+```shell
+uvx --from git+https://github.com/spryker-dev/prompt-library prompt-mcp
+```
+Wait until the command is finished. It should look like this:
+```text
+uvx --from git+https://github.com/spryker-dev/prompt-library prompt-mcp
+Updated https://github.com/spryker-dev/prompt-library (d2b45720795cd18522a2bd07045915def1c13d41)
+Built prompt-library @ git+https://github.com/spryker-dev/prompt-library@d2b45720795cd18522a2bd07045915def1c13d41
+Installed 34 packages in 47ms
 ```
 
-### Manual Setup
-If you prefer manual installation:
-
-```bash
-# 1. Add as git submodule
-git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
-
-# 2. Generate tags mapping
-bash ai-prompts/bin/generate-tags
+### Installation for development
+1. Pull the repository
+2. Install [uv](https://docs.astral.sh/uv/#installation).
+3. `cd /<path to prompt-library dir>/prompt-library && uv pip install`
+4. Add the following configuration to your `mcpServers`:
+```json
+{
+    "mcpServers": {
+        "spryker-prompts": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "/<path to prompt-library dir>/prompt-library",
+                "run",
+                "prompt-mcp"
+            ]
+        }
+    }
+}
 ```
 
-Both methods will:
-- Add prompt library as git submodule in `ai-prompts/`
-- Generate `prompt-tags.json` with available tags
+---
 
-### Configure Spryker Prompt MCP Server
-
-As an alternative/addition to the tags generation, you can configure the Spryker Prompt MCP server to enable AI agent to search for prompts.
-See our [Spryker Prompt MCP Server Setup](prompt_mcp/README.md)
-
-### Configure AI Assistant Rules
-```bash
+#### Configure AI Assistant Rules
 Choose your AI editor and follow the corresponding setup:
 
-#### **Windsurf**
+**Windsurf**
 Go to: **Settings → Customizations → Rules → Global Rules**
 
-#### **Cursor**
+**Cursor**
 Go to: **Settings → Rules** or create `.cursor/rules` files in your project
 
-#### **VS Code + GitHub Copilot**
+**VS Code + GitHub Copilot**
 Create file: `.github/copilot-instructions.md` in your project root
 
-#### **PhpStorm + GitHub Copilot**
+**PhpStorm + GitHub Copilot**
 Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions**
 
 **Copy and paste this content into your chosen location:**
@@ -109,14 +150,14 @@ This system enhances your natural capabilities while preserving your intelligent
 
 Done! 🎯
 
-## Usage
+### Usage
 
 ```
 You: "Create data-import module #data-import for Review entity"
 AI: [Auto-loads data-import prompt and generates complete module]
 ```
 
-## Find Available Tags
+### Find Available Tags
 
 ```bash
 # See all available tags
@@ -126,21 +167,21 @@ cat ai-prompts/prompt-tags.json | jq -r 'keys[]' | sed 's/^/#/'
 grep '".*":' ai-prompts/prompt-tags.json
 ```
 
-## How It Works
+### How It Works
 
 1. Setup adds prompt library as git submodule and generates tag mapping
 2. You add AI rules to settings
 3. AI detects `#tag` (example) and loads corresponding prompt
 4. Prompt is applied to your request automatically
 
-## Benefits
+### Benefits
 
-✅ **Easy setup** - one command <br>
-✅ **Always current** - auto-generated from prompts <br>
-✅ **Team consistency** - same prompts for everyone <br>
-✅ **Fast development** - no copy-paste needed <br>
+✅ **Easy setup** - one command \
+✅ **Always current** - auto-generated from prompts \
+✅ **Team consistency** - same prompts for everyone \
+✅ **Fast development** - no copy-paste needed \
 
-## Update
+### Update
 
 ```bash
 # Update prompt library to latest version
@@ -152,70 +193,32 @@ That's it! 🎯
 
 ---
 
-## Option 2: MCP Server Integration
+## Option 2: Hashtag Integration
 
-A short guide to quickly start using the Spryker Prompts MCP server.
+Auto-load expert prompts using hashtags. Instead of copy-pasting prompts, just type `#data-import` (example) and the AI automatically applies the relevant template knowledge to your request.
 
-> ⚠️ **Important**: MCP server usage can consume additional credits during operation. Consider disabling the server when not actively using prompts to avoid unnecessary credit usage.
+> **Multi-editor support:** This system works with Windsurf, Cursor, GitHub Copilot, and other AI assistants.
 
-### Quick Start
-1. Install [uv](https://docs.astral.sh/uv/#installation). \
-    When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. \
-    We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
-2. Add the following configuration to your `mcpServers`:
-    ```json
-    {
-        "mcpServers": {
-            "spryker-prompts": {
-                  "command": "path-to/uvx",
-                  "args": [
-                    "--from",
-                    "git+https://github.com/spryker-dev/prompt-library",
-                    "prompt-mcp"
-                  ]
-            }
-        }
-    }
-    ```
-3. Use it. \
-For example, you want to generate some module with spryker-prompt mcp.
-For a better experience we recommend adding `Use spryker prompts` to the end of the prompt. \
-#### Example:
-```text
-Please give me a prompt to implement a customer data import module with basic fields. Use spryker prompts.
-```
-Agent will return a prompt from mcp and modify it to fit your needs.
+### Setup
 
-### Upgrade package
-Run the command.
-```shell
-uvx --from git+https://github.com/spryker-dev/prompt-library@feature/prompt-mcp-improvements prompt-mcp
-```
-Wait until the command is finished. It should look like this:
-```text
-uvx --from git+https://github.com/spryker-dev/prompt-library prompt-mcp
-Updated https://github.com/spryker-dev/prompt-library (d2b45720795cd18522a2bd07045915def1c13d41)
-Built prompt-library @ git+https://github.com/spryker-dev/prompt-library@d2b45720795cd18522a2bd07045915def1c13d41
-Installed 34 packages in 47ms
+#### Automatic Setup (Recommended)
+Navigate to your project directory and run:
+```bash
+cd your-project-directory
+bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
 ```
 
-### Installation for development
-1. Pull the repository
-2. Install [uv](https://docs.astral.sh/uv/#installation).
-3. `cd /<path to prompt-library dir>/prompt-library && uv pip install`
-4. Add the following configuration to your `mcpServers`:
-```json
-{
-    "mcpServers": {
-        "spryker-prompts": {
-            "command": "uv",
-            "args": [
-                "--directory",
-                "/<path to prompt-library dir>/prompt-library",
-                "run",
-                "prompt-mcp"
-            ]
-        }
-    }
-}
+#### Manual Setup
+If you prefer manual installation:
+
+```bash
+# 1. Add as git submodule
+git submodule add https://github.com/spryker-dev/prompt-library ai-prompts
+
+# 2. Generate tags mapping
+bash ai-prompts/bin/generate-tags
 ```
+
+Both methods will:
+- Add prompt library as git submodule in `ai-prompts/`
+- Generate `prompt-tags.json` with available tags

@@ -12,6 +12,12 @@ This library helps engineering teams:
 
 ## ⚡ Key Capabilities
 
+### 📚 Comprehensive Prompt Library
+- **Domain-organized**: Prompts grouped by functionality (coding, testing, documentation, etc.)
+- **Battle-tested**: Real-world prompts proven in production environments
+- **Continuously updated**: Community-driven improvements and additions
+- **Template-based**: Consistent structure with context, examples, and usage guidelines
+
 ### 🔌 MCP Server Integration
 - **Intelligent prompt discovery**: AI assistant automatically searches and applies relevant prompts based on your request context
 - **Semantic matching**: No need to remember specific tags - just describe what you need
@@ -24,25 +30,19 @@ This library helps engineering teams:
 - **Fallback option**: Perfect for cases where you want explicit control over prompt selection
 - **Team consistency**: Standardized tags ensure everyone uses the same proven patterns
 
-### 📚 Comprehensive Prompt Library
-- **Domain-organized**: Prompts grouped by functionality (coding, testing, documentation, etc.)
-- **Battle-tested**: Real-world prompts proven in production environments
-- **Continuously updated**: Community-driven improvements and additions
-- **Template-based**: Consistent structure with context, examples, and usage guidelines
-
 ## 🏃‍♂️ Quick Start
 
-**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for two approaches:
-
-### Hashtag Integration
-- One-command setup with automatic AI assistant integration
-- How to use hashtags like `#data-import` to auto-load prompts
-- Support for Windsurf, Cursor, GitHub Copilot and other AI editors
+**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for detailed setup instructions:
 
 ### MCP Server Integration
 - AI assistant accesses prompts through MCP server
 - Requires MCP-compatible AI assistants
 - ⚠️ **Note**: MCP server usage can consume additional credits - consider disabling when not in use
+
+### Hashtag Integration
+- One-command setup with automatic AI assistant integration
+- How to use hashtags like `#data-import` to auto-load prompts
+- Support for Windsurf, Cursor, GitHub Copilot and other AI editors
 
 ## Structure
 
@@ -72,6 +72,8 @@ We welcome contributions from the team!
 - Include a real usage example if available.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+> 💡 **Need help choosing?** Check the [Getting Started Guide](GETTING_STARTED.md) to compare MCP vs Hashtag integration approaches.
 
 ## Issues / Suggestions
 
