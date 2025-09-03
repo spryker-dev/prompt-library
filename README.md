@@ -12,10 +12,17 @@ This library helps engineering teams:
 
 ## 🏃‍♂️ Quick Start
 
-**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for:
+**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for two approaches:
+
+### Hashtag Integration
 - One-command setup with automatic AI assistant integration
 - How to use hashtags like `#data-import` to auto-load prompts
 - Support for Windsurf, Cursor, GitHub Copilot and other AI editors
+
+### MCP Server Integration
+- AI assistant accesses prompts through MCP server
+- Requires MCP-compatible AI assistants
+- ⚠️ **Note**: MCP server usage can consume additional credits - consider disabling when not in use
 
 ## Structure
 
