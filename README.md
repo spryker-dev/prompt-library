@@ -10,6 +10,26 @@ This library helps engineering teams:
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
 
+## ⚡ Key Capabilities
+
+### 🔌 MCP Server Integration
+- **Intelligent prompt discovery**: AI assistant automatically searches and applies relevant prompts based on your request context
+- **Semantic matching**: No need to remember specific tags - just describe what you need
+- **Real-time access**: Direct integration with MCP-compatible AI assistants
+- **Dynamic adaptation**: Prompts are contextually modified to fit your specific project needs
+
+### 🏷️ Hashtag Integration
+- **Manual precision**: Use specific hashtags like `#data-import` when you know exactly which prompt to apply
+- **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
+- **Fallback option**: Perfect for cases where you want explicit control over prompt selection
+- **Team consistency**: Standardized tags ensure everyone uses the same proven patterns
+
+### 📚 Comprehensive Prompt Library
+- **Domain-organized**: Prompts grouped by functionality (coding, testing, documentation, etc.)
+- **Battle-tested**: Real-world prompts proven in production environments
+- **Continuously updated**: Community-driven improvements and additions
+- **Template-based**: Consistent structure with context, examples, and usage guidelines
+
 ## 🏃‍♂️ Quick Start
 
 **Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for two approaches:
