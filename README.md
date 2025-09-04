@@ -25,10 +25,10 @@ This library helps engineering teams:
 - **Dynamic adaptation**: Prompts are contextually modified to fit your specific project needs
 
 ### 🏷️ Hashtag Integration
-- **Manual precision**: Use specific hashtags like `#data-import` when you know exactly which prompt to apply
+- **One universal tag**: Just use `#prompts` - AI intelligently selects the right prompt for you
+- **Context-aware**: AI analyzes your request to find the most relevant prompt automatically
+- **Smart assistance**: When uncertain, AI offers 2-3 best options to choose from
 - **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
-- **Fallback option**: Perfect for cases where you want explicit control over prompt selection
-- **Team consistency**: Standardized tags ensure everyone uses the same proven patterns
 
 ## 🏃‍♂️ Quick Start
 
@@ -41,7 +41,7 @@ This library helps engineering teams:
 
 ### Hashtag Integration
 - One-command setup with automatic AI assistant integration
-- How to use hashtags like `#data-import` to auto-load prompts
+- Use single `#prompts` tag - AI intelligently selects relevant prompts
 - Support for Windsurf, Cursor, GitHub Copilot and other AI editors
 
 ## Structure
