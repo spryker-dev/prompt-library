@@ -73,8 +73,6 @@ We welcome contributions from the team!
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
-> 💡 **Need help choosing?** Check the [Getting Started Guide](GETTING_STARTED.md) to compare MCP vs Hashtag integration approaches.
-
 ## Issues / Suggestions
 
 Use the [New Prompt Suggestion form](../../issues/new?template=new_prompt_suggestion.yml) to propose:
