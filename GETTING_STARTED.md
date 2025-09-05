@@ -138,6 +138,7 @@ Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instr
 
 # AI Assistant Rules for Prompt Library Integration
 
+```markdown
 ## Intelligent Prompt Discovery with #prompts Tag
 
 When you encounter the #prompts hashtag in user messages:
@@ -208,8 +209,7 @@ File structure:
 ## File Location
 
 - Prompt mapping: prompt-tags.json (ai-prompts submodule)
-
-**📋 END COPY HERE**
+```
 
 This intelligent system eliminates the need to remember specific tags while maintaining precision through AI-assisted selection and preserving your natural, contextual approach to problem-solving.
 
