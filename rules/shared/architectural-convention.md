@@ -14,6 +14,19 @@ You strictly follow Spryker's architectural guidelines and coding standards.
     - Avoid nested if-statements.
     - Keep the main business logic at the bottom of the method as the "happy path."
 
+## Applications and Application Namespaces
+
+- **Yves:** contains classes that represent the Yves Application. E.g. controllers, forms, ... These classes can only be used in the Yves Application
+
+- **Zed:** contains classes that represent the Zed Application. E.g. controllers, forms, business models, queries, ...These classes can only be used in the Zed Application
+
+- **Glue:** contains classes that represent the Glue Application. E.g. controllers, ...These classes can only be used in the Glue Application
+
+- **Service:** Library classes that have a general purpose and don't contain specific business logic. (e.g. FileSystemService)Services can be provided to any other Application Namespace
+
+- **Client:** classes which contain mostly communication logic. There are four base clients which can used by specific Clients in Glue, Yves and Zed: SearchClient, SessionClient, StorageClient, ZedClient.
+
+- **Shared:** code that has to be "the same" among the applications. This namespace is mainly about the definition of transfer objects and not intended to contain code.Shared code is used directly
 
 ### **Directive Classification**
 
@@ -25,6 +38,7 @@ You strictly follow Spryker's architectural guidelines and coding standards.
 
 - **Convention:** Components must be placed in the correct directory within their corresponding application layer.
 - **Convention:** Components must inherit from the appropriate abstract class in the Kernel module.
+- **Convention:** Strong encapsulation. Hide implementation details inside modules, leading to low coupling between different parts.
 - **Guideline:** Components should be stateless.
 
 # **Zed Application Layer**
