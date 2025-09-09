@@ -67,8 +67,10 @@ Installed 34 packages in 47ms
 ### Installation for development
 1. Pull the repository
 2. Install [uv](https://docs.astral.sh/uv/#installation).
-3. `cd /<path to prompt-library dir>/prompt-library && uv pip install`
-4. Add the following configuration to your `mcpServers`:
+3. `cd /<path to prompt-library dir>/prompt-library`
+4. `uv venv`
+5. `uv pip install -e .`
+6. Add the following configuration to your `mcpServers`:
 ```json
 {
     "mcpServers": {
