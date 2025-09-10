@@ -78,6 +78,7 @@ cypress/
 - Prefer semantic assertions tied to user-observable behavior.
 - One assertion focus per test; extra assertions must support the same behavior.
 - Assert on toast/alert error messages when simulating failures.
+- Assertions should not be present in page objects, or commands, all assertions should be inside test specs
 
 ## Test Structure
 
@@ -85,3 +86,4 @@ cypress/
 - Use `before` block to reset or clean up the test data created by previous tests, do not use `after` block for it
 - Avoid using After and afterEach - cleaning state and other activities are better to do in before sections
 - Keep tests independent; no shared mutable state across tests.
+- Test specs should not have hardcoded urls, test data or element selectors. Page objects should provide tech spec with selectors and urls, fixtures should provide the test data.
