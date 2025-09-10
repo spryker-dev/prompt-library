@@ -3,15 +3,15 @@ globs: .cy.ts,.spec.ts,cypress/**/*.ts
 alwaysApply: false
 ---
 
-# Cypress Boilerplate Test Development Rules
+# Cypress Test Development Rules for Projects
 
 ## Basic Principles
 
 - Tests are deterministic, isolated, and readable.
 - Interact via user-visible behavior; avoid implementation details.
 - Prefer resilient, semantic selectors over brittle DOM selectors.
-- If it exists in the current repository, read and apply Test Writing Conventions 
 - Top-level describe matches user story/feature; it states a clear behavior.
+- Avoid visiting external sites directly: Instead, mock the network requests to avoid dependencies on external services and to speed up tests.
 
 ## Naming Conventions
 
@@ -21,7 +21,7 @@ alwaysApply: false
 - Use kebab-case for file and folder names: Use lowercase letters separated by hyphens (e.g., user-service.ts, order-processor.ts).
 - Avoid abbreviations: Use full words to avoid confusion (e.g., authentication instead of auth).
 
-## Project Structure
+## Test Repository Structure
 - Test specs, page objects, scenarios and commands should be logically separated into subfolders based on the business feature they belong to
 - Complex reusable actions that use more than one application page SHOULD be created as Scenarios in `cypress/support/scenarios`
 
@@ -74,6 +74,7 @@ cypress/
 
 ## Test Structure
 
-- Use beforeEach for common preconditions (routes, auth, seed).
+- Use `beforeEach` or `before` for common preconditions (routes, auth, seed).
+- Use `before` block to reset or clean up the test data created by previous tests, do not use `after` block for it
 - Avoid using After and afterEach - cleaning state and other activities are better to do in before sections
 - Keep tests independent; no shared mutable state across tests.
