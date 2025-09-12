@@ -44,7 +44,7 @@ Core Module Development Components. Only for core module development.
 - Guideline: Avoid single-item operations in plugin stack methods unless absolutely necessary.
 
 ### Convention
-- Convention: The interface must be located in an Extension module (e.g., CompanyExtension).
+- Convention: For core development the interface must be located in an Extension module (e.g., CompanyExtension).
 
 ## Plugin Interface
 
