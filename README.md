@@ -10,11 +10,38 @@ This library helps engineering teams:
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
 
+## ⚡ Key Capabilities
+
+### 📚 Comprehensive Prompt Library
+- **Domain-organized**: Prompts grouped by functionality (coding, testing, documentation, etc.)
+- **Battle-tested**: Real-world prompts proven in production environments
+- **Continuously updated**: Community-driven improvements and additions
+- **Template-based**: Consistent structure with context, examples, and usage guidelines
+
+### 🔌 MCP Server Integration
+- **Intelligent prompt discovery**: AI assistant automatically searches and applies relevant prompts based on your request context
+- **Semantic matching**: No need to remember specific tags - just describe what you need
+- **Real-time access**: Direct integration with MCP-compatible AI assistants
+- **Dynamic adaptation**: Prompts are contextually modified to fit your specific project needs
+
+### 🏷️ Hashtag Integration
+- **One universal tag**: Just use `#prompts` - AI intelligently selects the right prompt for you
+- **Context-aware**: AI analyzes your request to find the most relevant prompt automatically
+- **Smart assistance**: When uncertain, AI offers 2-3 best options to choose from
+- **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
+
 ## 🏃‍♂️ Quick Start
 
-**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for:
+**Ready to integrate with your project?** See our [Getting Started Guide](GETTING_STARTED.md) for detailed setup instructions:
+
+### MCP Server Integration
+- AI assistant accesses prompts through MCP server
+- Requires MCP-compatible AI assistants
+- ⚠️ **Note**: MCP server usage can consume additional credits - consider disabling when not in use
+
+### Hashtag Integration
 - One-command setup with automatic AI assistant integration
-- How to use hashtags like `#data-import` to auto-load prompts
+- Use single `#prompts` tag - AI intelligently selects relevant prompts
 - Support for Windsurf, Cursor, GitHub Copilot and other AI editors
 
 ## Structure
