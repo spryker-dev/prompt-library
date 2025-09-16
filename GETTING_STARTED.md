@@ -25,7 +25,7 @@ A guide to quickly start using the Spryker Prompts MCP server.
     {
         "mcpServers": {
             "spryker-prompts": {
-                  "command": "path-to/uvx",
+                  "command": "path-to/uvx (use `which uvx` to get the path to uvx)",
                   "args": [
                     "--from",
                     "git+https://github.com/spryker-dev/prompt-library",
@@ -35,10 +35,12 @@ A guide to quickly start using the Spryker Prompts MCP server.
         }
     }
     ```
-3. Use it. \
-For example, you want to generate some module with spryker-prompt mcp.
-For a better experience we recommend adding `Use spryker prompts` to the end of the prompt. \
+
 #### Example:
+For example, you want to generate some module with spryker-prompt mcp.
+For a better experience we recommend adding `Use spryker prompts` to the end of the prompt.
+
+
 ```text
 Please give me a prompt to implement a customer data import module with basic fields. Use spryker prompts.
 ```
@@ -62,29 +64,6 @@ uvx --from git+https://github.com/spryker-dev/prompt-library prompt-mcp
 Updated https://github.com/spryker-dev/prompt-library (d2b45720795cd18522a2bd07045915def1c13d41)
 Built prompt-library @ git+https://github.com/spryker-dev/prompt-library@d2b45720795cd18522a2bd07045915def1c13d41
 Installed 34 packages in 47ms
-```
-
-### Installation for development
-1. Pull the repository
-2. Install [uv](https://docs.astral.sh/uv/#installation).
-3. `cd /<path to prompt-library dir>/prompt-library`
-4. `uv venv`
-5. `uv pip install -e .`
-6. Add the following configuration to your `mcpServers`:
-```json
-{
-    "mcpServers": {
-        "spryker-prompts": {
-            "command": "uv",
-            "args": [
-                "--directory",
-                "/<path to prompt-library dir>/prompt-library",
-                "run",
-                "prompt-mcp"
-            ]
-        }
-    }
-}
 ```
 
 ---
