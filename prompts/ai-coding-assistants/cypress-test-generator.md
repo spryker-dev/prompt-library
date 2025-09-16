@@ -30,10 +30,6 @@ Please cover functionality of attaching file to different entities with Cypress 
 - Attach file to companies by import file.
 - Attach file to company business units manually.
 - Attach file to company business units by import file.
-- Attach file to company users manually.
-- Attach file to company users by import file.
-- Attach file to assets manually.
-- Attach file to assets by import file.
 ```
 
 ## Example Output
@@ -94,44 +90,6 @@ describeForSsp('File Manager Module - Files List', { tags: ['@backoffice', '@fil
     fileManagerAttachmentAttachPage.verifySuccessMessage();
   });
 
-  it('should successfully attach file to a company user manually', () => {
-    const fileManagerAttachmentAttachPage = container.get(SspFileManagementAttachPage);
-
-    fileManagerAttachmentListPage.visit();
-    fileManagerAttachmentListPage.clickAttachButton();
-
-    fileManagerAttachmentAttachPage.selectAttachmentScope('company-user');
-    fileManagerAttachmentAttachPage.selectAvailableItems('company-user', [
-      dynamicFixtures.companyUser.customer.first_name,
-    ]);
-    fileManagerAttachmentAttachPage.submitForm();
-    fileManagerAttachmentAttachPage.verifySuccessMessage();
-  });
-
-  it('should successfully attach file to an asset', () => {
-    const fileManagerAttachmentAttachPage = container.get(SspFileManagementAttachPage);
-
-    fileManagerAttachmentListPage.visit();
-    fileManagerAttachmentListPage.clickAttachButton();
-
-    fileManagerAttachmentAttachPage.selectAvailableItems('asset', [dynamicFixtures.sspAsset.name]);
-    fileManagerAttachmentAttachPage.submitForm();
-    fileManagerAttachmentAttachPage.verifySuccessMessage();
-  });
-
-  it('should successfully attach assets via CSV import', () => {
-    const fileManagerAttachmentAttachPage = container.get(SspFileManagementAttachPage);
-
-    fileManagerAttachmentListPage.visit();
-    fileManagerAttachmentListPage.clickAttachButton();
-
-    fileManagerAttachmentAttachPage.selectAttachmentScope('asset');
-
-    fileManagerAttachmentAttachPage.uploadCsvFile('asset', 'csv/assets-example.csv');
-    fileManagerAttachmentAttachPage.submitForm();
-    fileManagerAttachmentAttachPage.verifySuccessMessage();
-  });
-
   it('should successfully attach business units via CSV import', () => {
     const fileManagerAttachmentAttachPage = container.get(SspFileManagementAttachPage);
 
@@ -141,19 +99,6 @@ describeForSsp('File Manager Module - Files List', { tags: ['@backoffice', '@fil
     fileManagerAttachmentAttachPage.selectAttachmentScope('business-unit');
 
     fileManagerAttachmentAttachPage.uploadCsvFile('business-unit', 'csv/business-units-example.csv');
-    fileManagerAttachmentAttachPage.submitForm();
-    fileManagerAttachmentAttachPage.verifySuccessMessage();
-  });
-
-  it('should successfully attach company users via CSV import', () => {
-    const fileManagerAttachmentAttachPage = container.get(SspFileManagementAttachPage);
-
-    fileManagerAttachmentListPage.visit();
-    fileManagerAttachmentListPage.clickAttachButton();
-
-    fileManagerAttachmentAttachPage.selectAttachmentScope('company-user');
-
-    fileManagerAttachmentAttachPage.uploadCsvFile('company-user', 'csv/company-users-example.csv');
     fileManagerAttachmentAttachPage.submitForm();
     fileManagerAttachmentAttachPage.verifySuccessMessage();
   });

@@ -58,9 +58,9 @@ alwaysApply: false
 ### File Naming and Organization
 ```typescript
 // Good: Descriptive and grouped by feature
-cypress/e2e/auth/user-login.cy.ts
-cypress/e2e/checkout/payment-flow.cy.ts
-cypress/e2e/admin/user-management.cy.ts
+cypress/e2e/backoffice/auth/user-login.cy.ts
+cypress/e2e/backoffice/checkout/payment-flow.cy.ts
+cypress/e2e/backoffice/admin/user-management.cy.ts
 
 // Bad: Generic or unclear naming
 cypress/e2e/test1.cy.ts
