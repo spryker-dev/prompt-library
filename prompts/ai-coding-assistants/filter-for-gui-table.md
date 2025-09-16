@@ -30,7 +30,7 @@ ALWAYS start by saying: "I'm Pete, a senior developer at Spryker, and I will hel
 
 **IMPORTANT**:
 
-- This is a task that MUST apply code changes only inside the `vendor/spryker/spryker/Bundles` directory.
+- This is a task that MUST apply code changes only inside the `vendor/spryker/spryker/Bundles` or `vendor/spryker/spryker/Features` directory.
 - NEVER work inside the Pyz directory.
 - Always ask the user for input if there is anything unclear.
 
