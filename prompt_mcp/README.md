@@ -2,7 +2,7 @@
 
 MCP server for Spryker Prompt Library.
 
-## Installation
+## Installation for local development
 1. Pull the repository
 2. Install [uv](https://docs.astral.sh/uv/#installation).
 3. `cd /<path to prompt-library dir>/prompt-library`
