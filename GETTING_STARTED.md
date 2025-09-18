@@ -28,6 +28,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 > **Note:** When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
 
 #### 2. Get path to uvx
+Reopen a terminal window and run the following command.
 ```shell
 which uvx
 ```
@@ -55,7 +56,7 @@ Replace `{path-to-uvx}` with the path to uvx.
 #### How to find MCP configuration
 PhpStorm:
 Settings | Tools | GitHub Copilot | Model Context Protocol (MCP)
-Windsurf:  
+Windsurf:
 Settings | Windsurf Settings | Cascade | MCP Servers | Manage MCPc
 
 #### Example:
