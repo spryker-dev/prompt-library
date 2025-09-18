@@ -19,6 +19,10 @@ This library helps engineering teams:
 - **Template-based**: Consistent structure with context, examples, and usage guidelines
 
 ### 🔌 MCP Server Integration
+
+### What is MCP (Model Context Protocol)?
+https://modelcontextprotocol.io/docs/getting-started/intro
+
 - **Intelligent prompt discovery**: AI assistant automatically searches and applies relevant prompts based on your request context
 - **Semantic matching**: No need to remember specific tags - just describe what you need
 - **Real-time access**: Direct integration with MCP-compatible AI assistants
