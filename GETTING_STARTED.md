@@ -27,14 +27,14 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 > **Note:** When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
 
-#### 2. Get path to uvx
+#### 3. Add the following configuration to your `mcpServers`:
 Reopen a terminal window and run the following command.
 ```shell
 which uvx
 ```
+Copy the output.
 
-#### 3. Add the following configuration to your `mcpServers`:
-Replace `{path-to-uvx}` with the path to uvx.
+Replace `{path-to-uvx}` with the copied path to uvx.
 
 ```json
 {
