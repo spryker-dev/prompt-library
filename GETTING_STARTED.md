@@ -55,7 +55,7 @@ Replace `{path-to-uvx}` with the path to uvx.
 #### How to find MCP configuration
 PhpStorm:
 Settings | Tools | GitHub Copilot | Model Context Protocol (MCP)
-Windsurf:
+Windsurf:  
 Settings | Windsurf Settings | Cascade | MCP Servers | Manage MCPc
 
 #### Example:
