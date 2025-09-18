@@ -1,5 +1,8 @@
 # 🚀 Spryker Prompt Library Integration
 
+## What is MCP (Model Context Protocol)?
+https://modelcontextprotocol.io/docs/getting-started/intro
+
 ## Overview
 We provide two ways to integrate the Spryker Prompt Library with your AI development workflow:
 
@@ -17,24 +20,43 @@ A guide to quickly start using the Spryker Prompts MCP server.
 > ⚠️ **Important**: MCP server usage can consume additional credits during operation. Consider disabling the server when not actively using prompts to avoid unnecessary credit usage.
 
 ### Quick Start
-1. Install [uv](https://docs.astral.sh/uv/#installation). \
-    When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. \
-    We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
-2. Add the following configuration to your `mcpServers`:
-    ```json
-    {
-        "mcpServers": {
-            "spryker-prompts": {
-                  "command": "path-to/uvx (use `which uvx` to get the path to uvx)",
-                  "args": [
-                    "--from",
-                    "git+https://github.com/spryker-dev/prompt-library",
-                    "prompt-mcp"
-                  ]
-            }
+
+#### 1. Install [uv](https://docs.astral.sh/uv/#installation).
+```shell
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+> **Note:** When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
+
+#### 2. Get path to uvx
+```shell
+which uvx
+```
+
+#### 3. Add the following configuration to your `mcpServers`:
+Replace `{path-to-uvx}` with the path to uvx.
+
+```json
+{
+    "mcpServers": {
+        "spryker-prompts": {
+              "command": "{path-to-uvx}",
+              "args": [
+                "--from",
+                "git+https://github.com/spryker-dev/prompt-library",
+                "prompt-mcp"
+              ]
         }
     }
-    ```
+}
+```
+
+> Note: Configuration may vary for different AI assistants. But basically it will look like presented below.
+
+#### How to find MCP configuration
+PhpStorm:
+Settings | Tools | GitHub Copilot | Model Context Protocol (MCP)
+Windsurf:
+Settings | Windsurf Settings | Cascade | MCP Servers | Manage MCPc
 
 #### Example:
 For example, you want to generate some module with spryker-prompt mcp.
