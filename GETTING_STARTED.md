@@ -66,7 +66,7 @@ After running the script, you'll see a configuration like this:
 | VS Code | Extension Settings | `mcp-server` |
 | Other IDEs | Check IDE documentation | Varies |
 
-> **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `mcp-server` or check your IDE's documentation.
+> **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `servers` or check your IDE's documentation.
 
 ##### 🔗 Resources
 
