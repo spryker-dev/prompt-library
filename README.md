@@ -10,6 +10,18 @@ This library helps engineering teams:
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
 
+## 🛠️ Before You Start - IDE Setup Guides
+
+**New to AI-powered development?** We recommend checking our comprehensive IDE setup guides first. These guides will help you configure your development environment for optimal AI assistance:
+
+| IDE | Setup Guide |
+|-----|-------------|
+| 🌪️ **Windsurf** | [Setup Guide](ide_setup/windsurf-setup.md) |
+| 🎯 **Cursor** | [Setup Guide](ide_setup/cursor-setup.md) |
+| 💻 **VS Code + GitHub Copilot** | [Setup Guide](ide_setup/vscode-setup.md) |
+
+> 💡 **Why setup matters**: Proper IDE configuration ensures you get the maximum benefit from this prompt library and enables seamless integration with AI tools.
+
 ## ⚡ Key Capabilities
 
 ### 📚 Comprehensive Prompt Library

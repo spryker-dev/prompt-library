@@ -60,11 +60,13 @@ After running the script, you'll see a configuration like this:
 
 ##### Where to Add Configuration:
 
-| IDE/Tool | Configuration Location | Configuration Key |
-|----------|----------------------|-------------------|
-| Claude Desktop | Settings → MCP Servers | `mcpServers` |
-| VS Code | Extension Settings | `servers` |
-| Other IDEs | Check IDE documentation | Varies |
+| IDE/Tool | Configuration Location | Configuration Key | Setup Guide |
+|----------|----------------------|-------------------|-------------|
+| Claude Desktop | Settings → MCP Servers | `mcpServers` | - |
+| Windsurf | Settings → MCP | `mcpServers` | [MCP Setup Guide](ide_setup/windsurf-setup.md#mcp-servers-setup) |
+| Cursor | Settings → Tools & Integrations | `mcpServers` | [MCP Setup Guide](ide_setup/cursor-setup.md#mcp-servers-setup) |
+| VS Code + GitHub Copilot | Extension Settings / .vscode/mcp.json | `servers` | [MCP Setup Guide](ide_setup/vscode-setup.md#mcp-servers-setup) |
+| Other IDEs | Check IDE documentation | Varies | - |
 
 > **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `servers` or check your IDE's documentation.
 
