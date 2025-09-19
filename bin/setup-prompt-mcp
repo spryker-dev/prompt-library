@@ -11,6 +11,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
+PURPLE='\033[0;35m'
 
 # Function to print colored output
 print_step() {
@@ -31,6 +32,10 @@ print_error() {
 
 print_info() {
     echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+print_purple() {
+    echo "${PURPLE}$1${NC}"
 }
 
 # Function to detect OS
@@ -150,29 +155,29 @@ generate_mcp_config() {
     echo
     echo "Copy the following configuration to your mcpServers:"
     echo "${BLUE}"
-    echo "{"
-    echo "    \"mcpServers\": {"
-    echo "        \"spryker-prompts\": {"
-    echo "              \"command\": \"$uvx_path\","
+    print_purple "{"
+    print_purple "    \"mcpServers\": {"
+    print_purple "        \"spryker-prompts\": {"
+    print_purple "              \"command\": \"$uvx_path\","
 
     if [ "$use_uv_run" = true ]; then
-        echo "              \"args\": ["
-        echo "                \"run\","
-        echo "                \"--from\","
-        echo "                \"git+https://github.com/spryker-dev/prompt-library\","
-        echo "                \"prompt-mcp\""
-        echo "              ]"
+        print_purple "              \"args\": ["
+        print_purple "                \"run\","
+        print_purple "                \"--from\","
+        print_purple "                \"git+https://github.com/spryker-dev/prompt-library\","
+        print_purple "                \"prompt-mcp\""
+        print_purple "              ]"
     else
-        echo "              \"args\": ["
-        echo "                \"--from\","
-        echo "                \"git+https://github.com/spryker-dev/prompt-library\","
-        echo "                \"prompt-mcp\""
-        echo "              ]"
+        print_purple "              \"args\": ["
+        print_purple "                \"--from\","
+        print_purple "                \"git+https://github.com/spryker-dev/prompt-library\","
+        print_purple "                \"prompt-mcp\""
+        print_purple "              ]"
     fi
 
-    echo "        }"
-    echo "    }"
-    echo "}"
+    print_purple "        }"
+    print_purple "    }"
+    print_purple "}"
     echo "${NC}"
     echo "=================================================="
     echo
