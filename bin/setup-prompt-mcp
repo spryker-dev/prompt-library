@@ -94,9 +94,20 @@ install_uv() {
     if command_exists uv; then
         print_success "uv installed successfully at $(which uv)"
     else
-        print_error "uv installation failed"
-        print_info "Please install uv manually from: https://docs.astral.sh/uv/#installation"
-        exit 1
+         # Try one more time after a brief wait and PATH refresh
+                print_info "Refreshing command cache and checking again..."
+                sleep 1
+                hash -r 2>/dev/null || true
+                export PATH="$HOME/.cargo/bin:$PATH"
+
+                if command_exists uv; then
+                    print_success "uv installed successfully at $(which uv)"
+                else
+                    print_error "uv installation failed or not found in PATH"
+                    print_info "Try running: export PATH=\"\$HOME/.cargo/bin:\$PATH\" && uv --version"
+                    print_info "Or install manually from: https://docs.astral.sh/uv/#installation"
+                    exit 1
+                fi
     fi
 }
 
