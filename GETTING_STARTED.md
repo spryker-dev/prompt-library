@@ -63,7 +63,7 @@ After running the script, you'll see a configuration like this:
 | IDE/Tool | Configuration Location | Configuration Key |
 |----------|----------------------|-------------------|
 | Claude Desktop | Settings → MCP Servers | `mcpServers` |
-| VS Code | Extension Settings | `mcp-server` |
+| VS Code | Extension Settings | `servers` |
 | Other IDEs | Check IDE documentation | Varies |
 
 > **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `servers` or check your IDE's documentation.
