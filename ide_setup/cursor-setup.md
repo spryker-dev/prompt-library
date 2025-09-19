@@ -43,21 +43,21 @@
 
 1. Enable autosave:
 
-![Auto-save Settings](images/293f94cf-c14d-46e1-9a0d-0cb4652a9654.png)
+![Auto-save Settings](images/6b836bc3-9f0f-4f05-af47-20ae0b360438.png)
 
 2. Enable indexing of files present in .gitignore (remove all check marks):
 
-![Indexing Settings](images/349c94c8-413f-429e-bf7a-54560610ebd2.png)
+![Indexing Settings](images/6ca4a594-4aa5-426d-9190-5a4066717a29.png)
 
 ***If you face any issues with indexing files inside the vendor folder, removing "**/.git" pattern may also be an option.**
 
 ## 4. Set Up PHP Debugging
 
-1. Create `.vscode/launch.json` in your project root manually or by clicking the link as in the image:
+1. Go to `Run and Debug` section and create a `.vscode/launch.json` configuration file:
 
-![VS Code Debug Configuration](images/557d9815-574d-415a-b05a-f3efca944ee0.png)
+![VS Code Debug Configuration](images/64528034-0c6f-4933-b7e4-945496de79c4.png)
 
-2. Place this configuration inside the file:
+2. Add the following debug configurations:
 
 ```json
 {
@@ -86,18 +86,19 @@
 
 3. To start a debug session, you need to press the green Play button, and when the session is started, you can see this panel as in the image:
 
-![Debug Session Panel](images/5d923be5-686f-4a82-b541-f34b3bc50f0c.png)
+![Debug Session Panel](images/293f94cf-c14d-46e1-9a0d-0cb4652a9654.png)
 
 ## 5. AI Configuration for Efficient Development
 
 ### AI Rules
 
-- Create `.cursor/rules` directory
-  - Define your rules in .mdc files - the example of rule structure is in the image below
-  - **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository
-  - Documentation: https://docs.cursor.com/en/context/rules
+Create a `.cursor/rules` directory in your project root:
 
-![Cursor Rules Structure](images/747bf4b9-c39b-4f8f-8249-54a8bccedb42.png)
+![Cursor AI Rules](images/a7873179-282e-44d9-81ff-d0fb9e1b255c.png)
+
+Define your rules in `.mdc` files within this directory. **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository.
+
+Documentation: https://docs.cursor.com/features/rules-for-ai
 
 ### Models Configuration
 
@@ -107,14 +108,14 @@ Cursor allows you to enable/disable MAX mode, which extends the context window. 
 
 ### MCP Servers Setup
 
-- Open Cursor Settings → Tools & Integrations and click "Add custom MCP"
+1. Open Cursor Settings → Tools & Integrations and click "Add custom MCP":
 
-![Cursor MCP Tools](images/7bd25d4c-fb59-4769-a72d-f287b063a02f.png)
+![Cursor MCP Tools](images/349c94c8-413f-429e-bf7a-54560610ebd2.png)
 
-- Add the configuration of the MCP server
+2. Add the configuration of the MCP server:
 
 ![Cursor MCP Add](images/7d1e3998-a987-4b48-8bee-313f56edc048.png)
 
-- After returning back to Tools & Integrations you will find your custom MCP server with available tools. It can be managed from here.
+3. After returning back to Tools & Integrations you will find your custom MCP server with available tools. It can be managed from here:
 
-![Cursor MCP List](images/997a5146-155d-4db8-ae23-fefbfda1ebbe.png)
+![Cursor MCP List](images/7120f3b8-dc21-481a-afe0-c3400cf862bb.png)

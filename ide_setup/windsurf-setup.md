@@ -42,21 +42,21 @@
 
 1. Enable autosave:
 
-![Auto-save Settings](images/293f94cf-c14d-46e1-9a0d-0cb4652a9654.png)
+![Auto-save Settings](images/6b836bc3-9f0f-4f05-af47-20ae0b360438.png)
 
 2. Enable indexing of files present in .gitignore (remove all check marks):
 
-![Indexing Settings](images/349c94c8-413f-429e-bf7a-54560610ebd2.png)
+![Indexing Settings](images/6ca4a594-4aa5-426d-9190-5a4066717a29.png)
 
 ***If you face any issues with indexing files inside the vendor folder, removing "**/.git" pattern may also be an option.**
 
 ## 4. Set Up PHP Debugging
 
-1. Create `.vscode/launch.json` in your project root manually or by clicking the link as in the image:
+1. Go to `Run and Debug` section and create a `.vscode/launch.json` configuration file:
 
-![VS Code Debug Configuration](images/557d9815-574d-415a-b05a-f3efca944ee0.png)
+![VS Code Debug Configuration](images/64528034-0c6f-4933-b7e4-945496de79c4.png)
 
-2. Place this configuration inside the file:
+2. Add the following debug configurations:
 
 ```json
 {
@@ -85,34 +85,36 @@
 
 3. To start a debug session, you need to press the green Play button, and when the session is started, you can see this panel as in the image:
 
-![Debug Session Panel](images/5d923be5-686f-4a82-b541-f34b3bc50f0c.png)
+![Debug Session Panel](images/293f94cf-c14d-46e1-9a0d-0cb4652a9654.png)
 
 ## 5. AI Configuration for Efficient Development
 
 ### AI Rules
 
-- Create `.windsurfrules` file in project root for project-specific Spryker guidelines
-  - Configure global rules via Settings > AI Rules for consistent behavior across projects
-  - Set up coding standards, architectural patterns, and development preferences
-  - **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository
-  - Documentation: https://docs.windsurf.com/windsurf/cascade/memories#memories-and-rules
+Create a `.windsurfrules` file in the root of your project:
 
-![Windsurf AI Rules](images/5e8dadfe-2e30-44cd-9b1f-6ffaf1555fea.png)
+![Windsurf AI Rules](images/997a5146-155d-4db8-ae23-fefbfda1ebbe.png)
+
+Configure global rules via Settings > AI Rules for consistent behavior across projects. Set up coding standards, architectural patterns, and development preferences.
+
+**Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository.
+
+Documentation: https://docs.windsurf.com/windsurf/cascade/memories#memories-and-rules
 
 ### MCP Servers Setup
 
-- Go to Windsurf Settings and search for MCP and click "Manage MCP" button
+1. Go to Windsurf Settings and search for MCP and click "Manage MCP" button:
 
-![Windsurf MCP Manage](images/64528034-0c6f-4933-b7e4-945496de79c4.png)
+![Windsurf MCP Manage](images/5e8dadfe-2e30-44cd-9b1f-6ffaf1555fea.png)
 
-- Click "View Raw Config" and you will see file with the configuration
+2. Click "View Raw Config" and you will see file with the configuration:
 
-![Windsurf MCP Config](images/6b836bc3-9f0f-4f05-af47-20ae0b360438.png)
+![Windsurf MCP Config](images/bbe94912-09df-4788-b6a0-ba06164c8f05.png)
 
-- Add MCP server configuration
+3. Add MCP server configuration:
 
-![Windsurf MCP Add](images/6ca4a594-4aa5-426d-9190-5a4066717a29.png)
+![Windsurf MCP Add](images/a16abd0b-8ec7-4bf3-88e1-3f5004c735a3.png)
 
-- Go back to **Manage MCP servers** and click "Refresh" button. MCP server configuration will be available here and can be managed.
+4. Go back to Manage MCP servers and click "Refresh" button. MCP server configuration will be available here and can be managed:
 
-![Windsurf MCP List](images/7120f3b8-dc21-481a-afe0-c3400cf862bb.png)
+![Windsurf MCP List](images/7bd25d4c-fb59-4769-a72d-f287b063a02f.png)
