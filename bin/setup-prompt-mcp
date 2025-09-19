@@ -39,6 +39,8 @@ detect_os() {
         echo "linux"
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "macos"
+    elif [[ "$OSTYPE" == "linux-musl"* ]]; then
+        echo "linux"
     elif [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
         echo "windows"
     else
@@ -67,15 +69,18 @@ install_uv() {
             print_info "Downloading and installing uv using the official installer..."
             curl -LsSf https://astral.sh/uv/install.sh | sh
 
-            # Source the shell profile to make uv available in current session
-            if [ -f "$HOME/.cargo/env" ]; then
-                source "$HOME/.cargo/env"
-            fi
+           # Add both typical install paths for uv
+           for bin_path in "$HOME/.local/bin" "$HOME/.cargo/bin"; do
+               if [ -d "$bin_path" ] && [[ ":$PATH:" != *":$bin_path:"* ]]; then
+                   export PATH="$bin_path:$PATH"
+               fi
+           done
 
-            # Add to PATH for current session if not already there
-            if [[ ":$PATH:" != *":$HOME/.cargo/bin:"* ]]; then
-                export PATH="$HOME/.cargo/bin:$PATH"
-            fi
+           # Some uv installs also create an env file to source
+           if [ -f "$HOME/.local/bin/env" ]; then
+               # shellcheck disable=SC1090
+               source "$HOME/.local/bin/env"
+           fi
             ;;
         "windows")
             print_info "For Windows, please install uv manually using:"
@@ -94,8 +99,8 @@ install_uv() {
     if command_exists uv; then
         print_success "uv installed successfully at $(which uv)"
     else
-        print_error "uv installation failed"
-        print_info "Please install uv manually from: https://docs.astral.sh/uv/#installation"
+        print_error "uv installation failed or not found in PATH"
+        print_info "Install manually from: https://docs.astral.sh/uv/#installation"
         exit 1
     fi
 }
