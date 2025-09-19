@@ -39,6 +39,8 @@ detect_os() {
         echo "linux"
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         echo "macos"
+    elif [[ "$OSTYPE" == "linux-musl"* ]]; then
+        echo "linux"
     elif [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]]; then
         echo "windows"
     else
