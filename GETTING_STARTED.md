@@ -325,7 +325,7 @@ grep '".*":' ai-prompts/prompt-tags.json
 ```bash
 # Update prompt library to latest version
 git submodule update --remote ai-prompts
-bash ai-prompts/bin/generate-tags
+sh ai-prompts/bin/generate-tags
 ```
 
 That's it! 🎯
