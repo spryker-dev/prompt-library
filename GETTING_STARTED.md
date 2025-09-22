@@ -28,7 +28,7 @@ A quick guide to set up and use the Spryker Prompts MCP (Model Context Protocol)
 Run our automated setup script to install dependencies and generate your configuration:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-prompt-mcp)
+sh <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-prompt-mcp)
 ```
 
 This script will:
@@ -41,22 +41,10 @@ This script will:
 
 After running the script, you'll see a configuration like this:
 
-```json
-{
-    "mcpServers": {
-        "spryker-prompts": {
-              "command": "/path/to/uvx",
-              "args": [
-                "--from",
-                "git+https://github.com/spryker-dev/prompt-library",
-                "prompt-mcp"
-              ]
-        }
-    }
-}
-```
+![Configuration output](ide_setup/images/configuration_output.png)
 
-**Copy this configuration and add it to your IDE's MCP settings.**
+
+**Copy the configuration from terminal command output and add it to your IDE's MCP settings.**
 
 ##### Where to Add Configuration:
 
@@ -325,7 +313,7 @@ grep '".*":' ai-prompts/prompt-tags.json
 ```bash
 # Update prompt library to latest version
 git submodule update --remote ai-prompts
-sh ai-prompts/bin/generate-tags
+bash ai-prompts/bin/generate-tags
 ```
 
 That's it! 🎯
