@@ -21,22 +21,6 @@ Business\
 - Use Entity Manager for writing operations
 - Repository methods return Transfer objects, not Propel entities
 
-### Cross Module Propel Query Usage
-Use `@module` keyword in Persistence layer upon joins:
-```php
-/**
- * @module Customer
- * @module Company
- */
-public function getCompanyUserById(int $idCompanyUser): CompanyUserTransfer
-{
-    $query = $this->getFactory()
-        ->getCompanyUserQuery()
-        ->leftJoinWithCustomer() // spy_customer defined in Customer module
-        ->leftJoinWithCompany()  // spy_company defined in Company module
-}
-```
-When module lacks initial Query, inject via DependencyProvider with `PROPEL_QUERY_*` constants.
 
 ### CRUD Method Separation
 Separate CRUD methods even with known code repetition. CRUD methods should not call one another under the hood.
@@ -54,31 +38,15 @@ interface ModuleNameConstants {
     public const EXAMPLE_KEY = 'MODULE_NAME:EXAMPLE_KEY';
 }
 ```
-- **Module configuration**: Different per code deploy, use public getter methods, use `static::` everywhere to support extension
 - **Module constants**: Always the same across environments
 
-### Plugin Documentation
-All plugins must have their own specification with description of what it does:
-```php
-/**
- * Specification:
- * - Resolves quote name if it's not set
- * - Uses facade method to generate appropriate name
- * - Returns modified quote transfer
- */
-```
-Do NOT use `{@inheritdoc}` in plugin method doc blocks.
-
 ### Entity Transfers Scope
-Entity Transfers are NOT allowed for usage inside public API methods (facades, plugins).
+Entity Transfers are NOT recommended for usage inside public API methods (facades, plugins).
 
 ## Database and Performance
 
-### Table Naming Convention
-When a module provides a table, the table name must start with the source module name. This allows to raise dependency problems at an early stage and define tables scope.
-
 ### DB Bulk Operations
-Insert/update operations on a single entity while having a collection of entities to process must be forbidden. Use bulk DB operations instead of individual queries in loops when processing multiple entities.
+Insert/update/delete operations on a single entity while having a collection of entities to process must be forbidden. For such cases, `ActiveRecordBatchProcessorTrait` should be used.
 
 ### Glossary Constants and Patterns
 - Class constant must be used to declare the glossary key
@@ -138,7 +106,7 @@ Models must provide separated classes:
 ### P&S Module Structure
 ```
 + src/
-  + Spryker/
+  + Pyz/
     + Zed/
       + (module name)/
         + Business/
@@ -150,7 +118,6 @@ Models must provide separated classes:
             + Publisher/
               + (event name)/
             + Synchronization/
-        + test/
 ```
 
 ### Transfer Objects Return Types
