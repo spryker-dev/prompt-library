@@ -158,6 +158,7 @@ Navigate to your project directory:
 ```bash
 cd your-project-directory
 ```
+
 Run the setup script:
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
