@@ -89,6 +89,12 @@
 
 ## 5. AI Configuration for Efficient Development
 
+### Cascade Configuration
+
+Allow Cascade to view and edit files in `.gitignore`:
+
+![Cascade Settings](images/cascade_settings.png)
+
 ### AI Rules
 
 Create a `.windsurfrules` file in the root of your project:
