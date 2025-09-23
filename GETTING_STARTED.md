@@ -157,6 +157,8 @@ Auto-load expert prompts using the intelligent #prompts hashtag. Instead of copy
 Navigate to your project directory and run:
 ```bash
 cd your-project-directory
+```
+```bash
 bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
 ```
 
@@ -178,19 +180,14 @@ Both methods will:
 #### Configure AI Assistant Rules
 Choose your AI editor and follow the corresponding setup:
 
-**Windsurf**
-Go to: **Settings → Customizations → Rules → Global Rules**
+| IDE/Tool | Setup Guide |
+|----------|-------------|
+| Windsurf | [AI Rules Setup Guide](ide_setup/windsurf-setup.md#ai-rules) |
+| Cursor | [AI Rules Setup Guide](ide_setup/cursor-setup.md#ai-rules) |
+| VS Code + GitHub Copilot | [AI Rules Setup Guide](ide_setup/vscode-setup.md#ai-rules) |
+| PhpStorm + GitHub Copilot | Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions |
 
-**Cursor**
-Go to: **Settings → Rules** or create `.cursor/rules` files in your project
-
-**VS Code + GitHub Copilot**
-Create file: `.github/copilot-instructions.md` in your project root
-
-**PhpStorm + GitHub Copilot**
-Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions**
-
-**Copy and paste this content into your chosen location:**
+**Copy the following AI Assistant Rules content to the location specified in your IDE's setup guide above:**
 
 **📋 START COPY FROM HERE**
 
@@ -271,16 +268,22 @@ File structure:
 
 This intelligent system eliminates the need to remember specific tags while maintaining precision through AI-assisted selection and preserving your natural, contextual approach to problem-solving.
 
-### Usage
+### Usage Examples
 
-You: "Create data-import module for Review entity #prompts"
-AI: [Analyzes context, selects data-import prompt, generates complete module]
+**Example 1: Specific module creation**
+```
+Create data-import module for Review entity #prompts
+```
+*AI will analyze the context and automatically select the appropriate data-import prompt to generate the complete module.*
 
-You: "Help me write tests #prompts"
-AI: "I found several testing prompts. Which type do you need:
-     1. Unit tests with data providers
-     2. Integration tests
-     3. End-to-end tests?"
+**Example 2: Testing prompts**
+```
+Help me write tests #prompts
+```
+*AI will show available testing prompt options:*
+- Unit tests with data providers
+- Integration tests  
+- End-to-end tests
 
 ### Find Available Tags
 
