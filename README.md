@@ -9,6 +9,7 @@ This library helps engineering teams:
 - Share best practices across projects.
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
+- Standardize coding conventions with AI agent rules for Spryker development.
 
 ## 🛠️ Before You Start - IDE Setup Guides
 
@@ -29,6 +30,7 @@ This library helps engineering teams:
 - **Battle-tested**: Real-world prompts proven in production environments
 - **Continuously updated**: Community-driven improvements and additions
 - **Template-based**: Consistent structure with context, examples, and usage guidelines
+- **AI agent rules**: Comprehensive coding standards and conventions for Spryker development
 
 ### 🔌 MCP Server Integration
 
@@ -45,6 +47,29 @@ https://modelcontextprotocol.io/docs/getting-started/intro
 - **Context-aware**: AI analyzes your request to find the most relevant prompt automatically
 - **Smart assistance**: When uncertain, AI offers 2-3 best options to choose from
 - **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
+
+### 🤖 AI Agent Rules
+This library includes **AI-Coding Agent rules** covering Spryker conventions 📜, organized into:
+
+| Rule File | Description |
+|-----------|-------------|
+| [`general.md`](rules/shared/general.md) | General coding guidelines and best practices |
+| [`application-layers.md`](rules/shared/application-layers.md) | Application layer architecture rules |
+| [`components.md`](rules/shared/components.md) | Component design and implementation rules |
+| [`layers.md`](rules/shared/layers.md) | Layer separation and organization rules |
+| [`cypress-tests.md`](rules/cypress/cypress-tests.md) | Cypress testing rules |
+| [`Demo_Development_Rules.md`](rules/RFC/Demo_Development_Rules.md) | Rules for demo development |
+| [`Product_Development_Rules.md`](rules/RFC/Product_Development_Rules.md) | Rules for product development |
+| [`Project_Development_Rules.md`](rules/RFC/Project_Development_Rules.md) | Rules for project development |
+
+
+**✨ Benefits:**
+- ✅ **Consistent development** - Standardized conventions across all projects
+- ✅ **Best practices** - Proven approaches gathered from team experience
+- ✅ **Accepted RFCs** - Community-approved standards and patterns
+- ✅ **Enhanced AI assistance** - Better code generation and suggestions
+
+Use these rules in your workflows to ensure consistent and convention-compliant development! We're looking forward to your feedback and suggestions 💡.
 
 ## 🏃‍♂️ Quick Start
 
