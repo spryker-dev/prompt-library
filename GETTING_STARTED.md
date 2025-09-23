@@ -189,6 +189,8 @@ Choose your AI editor and follow the corresponding setup:
 | VS Code + GitHub Copilot | [AI Rules Setup Guide](ide_setup/vscode-setup.md#ai-rules) |
 | PhpStorm + GitHub Copilot | Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions |
 
+> ⚠️ **Important**: If you are using Windsurf, please ensure that you gave Cascade access to the .gitignore, as described [here](ide_setup/windsurf-setup.md#cascade-configuration).
+
 **Copy the following AI Assistant Rules content to the location specified in your IDE's setup guide above:**
 
 **📋 START COPY FROM HERE**
