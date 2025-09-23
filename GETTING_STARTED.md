@@ -154,10 +154,11 @@ Auto-load expert prompts using the intelligent #prompts hashtag. Instead of copy
 ### Setup
 
 #### Automatic Setup (Recommended)
-Navigate to your project directory and run:
+Navigate to your project directory:
 ```bash
 cd your-project-directory
 ```
+Run the setup script:
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
 ```
@@ -282,7 +283,7 @@ Help me write tests #prompts
 ```
 *AI will show available testing prompt options:*
 - Unit tests with data providers
-- Integration tests  
+- Integration tests
 - End-to-end tests
 
 ### Find Available Tags
