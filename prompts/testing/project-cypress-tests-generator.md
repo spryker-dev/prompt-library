@@ -41,16 +41,18 @@ Please cover functionality Convert_Shopping_List_to_Cart_User_Story.txt with Cyp
 
 ## Example Output
 For a sample user story:
-```As a Company User (B2B buyer)
+```text
+As a Company User (B2B buyer)
  I want to create, manage, share, and convert Shopping Lists into carts
- so that I can plan and execute repeat, team-based purchases efficiently.```
+ so that I can plan and execute repeat, team-based purchases efficiently.
+```
 
 And the test cases list that requests 2 tests top be created: 
 * Verify that an authenticated Company User can navigate to “My Account” → “Shopping Lists” and see the list page
 * Successfully add a concrete product from PDP to a chosen shopping list
 
 The following files will be created:
-```
+```text
 cypress/support/scenarios/storefront/storefront-shopping-lists-scenarios.ts
 cypress/support/page-objects/storefront/shopping-lists/storefront-shopping-lists-page.ts
 cypress/support/cy-commands/storefront/shopping-lists-commands.ts
@@ -58,7 +60,7 @@ cypress/fixtures/shopping-list-data.json
 cypress/e2e/storefront/shopping-lists/storefront-shopping-list-specific-tests.cy.ts
 ```
 The following files will be updated with shopping-list related locators and methods(if they are not yet ther):
-```
+```text
 cypress/support/page-objects/storefront/product/storefront-product-details-page.ts
 ```
 
