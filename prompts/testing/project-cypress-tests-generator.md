@@ -59,7 +59,7 @@ cypress/support/cy-commands/storefront/shopping-lists-commands.ts
 cypress/fixtures/shopping-list-data.json
 cypress/e2e/storefront/shopping-lists/storefront-shopping-list-specific-tests.cy.ts
 ```
-The following files will be updated with shopping-list related locators and methods(if they are not yet ther):
+The following files will be updated with shopping-list related locators and methods(if they are not yet there):
 ```text
 cypress/support/page-objects/storefront/product/storefront-product-details-page.ts
 ```
