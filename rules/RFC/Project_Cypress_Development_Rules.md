@@ -60,8 +60,25 @@ cypress/
 - All selectors that belong to one application page and methods that use them MUST be created inside the relevant page object
 - Each application page MUST exist as a separate page object in cypress/support/page-objects
 - Stub external/unstable requests with cy.intercept; avoid real third-party calls in CI.
-- Do not include `get` and `find` into the test spec file to reference page elements. They should be located in the corresponding Page object and test spec should access page elements using getters and setters of the corresponding page object. Test Spec should assert elements on the page 
 - If the new feature adds new elements on a page that already exists, e.g. shopping list feature adds `add to shopping list` button on PDP (Product Details Page), then you should update existing page object for PDP. The project should have exactly 1 page object for Shopping list details page and exactly 1 page object for PDP. There should be no additional page objects that deal with elements on either of these pages.
+
+## Test Specs
+Test specs should not have hardcoded urls, test data or element selectors. Page objects should provide tech spec with selectors and urls, fixtures should provide the test data.
+
+Test specs MUST NOT contain any direct cy.get(), cy.find(), or other Cypress element selection commands. All element interactions MUST be performed through page object getters and methods. Test specs should only contain:
+- Page object method calls (e.g., pageObject.getButton().click())
+- Assertions (e.g., pageObject.getElement().should('be.visible'))
+- Test flow logic (e.g., cy.visit(), cy.url().should())
+
+Forbidden in test specs:
+- cy.get('[data-qa="..."]')
+- cy.find('[data-qa="..."]')
+- Any direct element selection
+
+Required approach:
+- Create getters in page objects for all elements
+- Use page object methods for all interactions
+- Test specs should read like business logic, not technical implementation
 
 ## Flake Prevention
 - Hardcoded wait times MUST NOT be used in tests to improve reliability and reduce flakiness - DO NOT use `cy.wait()` where it can be avoided.
@@ -80,10 +97,10 @@ cypress/
 - Assert on toast/alert error messages when simulating failures.
 - Assertions should not be present in page objects, or commands, all assertions should be inside test specs
 
-## Test Structure
+## General Test Structure
 
 - Use `beforeEach` or `before` for common preconditions (routes, auth, seed).
 - Use `before` block to reset or clean up the test data created by previous tests, do not use `after` block for it
 - Avoid using After and afterEach - cleaning state and other activities are better to do in before sections
 - Keep tests independent; no shared mutable state across tests.
-- Test specs should not have hardcoded urls, test data or element selectors. Page objects should provide tech spec with selectors and urls, fixtures should provide the test data.
+
