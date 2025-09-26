@@ -112,57 +112,46 @@ get_ide_selection() {
 # Displays the setup instructions for the chosen IDE
 display_ide_instructions() {
     ide="$1"
-    print_color "\n--- Instructions for ${ide} ---" "yellow"
+    print_color "\n--- Global setup instructions for ${ide} ---" "yellow"
 
     case "$ide" in
         "PhpStorm+Copilot")
-            print_color "To permanently add the rules to Copilot's context:" "yellow"
-            echo "1. Go to: Settings / Preferences -> Tools -> GitHub Copilot -> Customizations."
-            echo "2. Click the '+' icon to add a new context source."
-            echo "3. Select 'File Path' and add the full path to your '${OUTPUT_FILE}'."
-            echo "4. Copilot will now automatically use these rules for its suggestions and chat responses."
-            echo ""
-            print_color "For quick, temporary context in a chat session:" "yellow"
-            echo "- Type '@workspace' to make Copilot aware of your project."
-            echo "- Type '#' and select '${OUTPUT_FILE}' to reference it directly."
+            print_color "Set up global rules in PhpStorm with GitHub Copilot:" "yellow"
+            echo "1. Open: Settings / Preferences -> Tools -> GitHub Copilot -> Customizations."
+            echo "2. Click the '+' icon to add a new customization."
+            echo "3. Choose 'Custom Rules'."
+            echo "4. Open '${OUTPUT_FILE}' in your editor, copy its content."
+            echo "5. Paste the copied text into the customization rules field."
+            echo "6. Save. Copilot will now always apply these rules globally."
             ;;
         "VSCode+Copilot")
-            print_color "To permanently add the rules to Copilot's context:" "yellow"
-            echo "1. Create a '.vscode' directory in your project root if it doesn't exist."
-            echo "2. Create or open the 'settings.json' file inside '.vscode'."
-            echo "3. Add the following setting to the JSON file:"
-            echo '   "github.copilot.chat.include": {'
-            echo '       "spryker_rules": {'
-            echo '           "path": "./spryker_prompt_rules.md",'
-            echo '           "isGenie": true'
-            echo '       }'
-            echo '   }'
-            echo "4. Save the file. Copilot will now use the rules as context for all chat sessions in this workspace."
-            echo ""
-            print_color "For quick, temporary context in a chat session:" "yellow"
-            echo "- Type '@workspace' or '#' and select '${OUTPUT_FILE}'."
+            print_color "Set up global rules in VSCode with GitHub Copilot:" "yellow"
+            echo "1. Open global VSCode settings (user-level, not workspace)."
+            echo "2. Search for 'Copilot Chat: Custom Instructions'."
+            echo "3. Open 'settings.json' (user)."
+            echo "4. Open '${OUTPUT_FILE}' and copy its content."
+            echo "5. Paste everything inside the 'github.copilot.chat.instructions' section."
+            echo "6. Save the file. These rules are now globally applied to all projects."
             ;;
         "Cursor")
-            print_color "To add the rules to your project's permanent AI Context:" "yellow"
-            echo "1. Open the Command Palette (Cmd+K on Mac, Ctrl+K on Windows/Linux)."
-            echo "2. Type 'Add file to context' and select the command."
-            echo "3. Choose the '${OUTPUT_FILE}' from the file list."
-            echo "4. The rules file is now part of the permanent context for this project."
-            echo ""
-            print_color "For quick, temporary context in a chat session:" "yellow"
-            echo "- Type '@' in the chat prompt and select '${OUTPUT_FILE}'."
+            print_color "Set up global rules in Cursor:" "yellow"
+            echo "1. Open Command Palette (Cmd+K / Ctrl+K)."
+            echo "2. Type 'Preferences: Open User Settings (JSON)'."
+            echo "3. Locate AI / Copilot / Assistant section."
+            echo "4. Open '${OUTPUT_FILE}' and copy its content."
+            echo "5. Paste the copied text into the global 'instructions' or 'rules' field."
+            echo "6. Save. Cursor will now always use these rules across all workspaces."
             ;;
         "Windsurf")
-            print_color "Instructions for 'Windsurf' (assumed generic IDE):" "yellow"
-            echo "Most AI-assisted IDEs allow you to provide context files."
-            echo "1. Look for a 'Context' or 'Customization' section in your AI tool's settings."
-            echo "2. Add the '${OUTPUT_FILE}' to the context settings if possible."
-            echo "3. If settings are not available, you may need to copy and paste the content of '${OUTPUT_FILE}'"
-            echo "   at the beginning of your prompts."
+            print_color "Set up global rules in Windsurf (generic instruction):" "yellow"
+            echo "1. Open Settings -> AI / Copilot / Assistant configuration."
+            echo "2. Look for 'Global Instructions' or 'Custom Rules'."
+            echo "3. Open '${OUTPUT_FILE}' and copy its content."
+            echo "4. Paste it into the global rules field."
+            echo "5. Save changes. The rules will apply to all projects automatically."
             ;;
     esac
 }
-
 # --- Main Execution ---
 main() {
     print_color "===============================================" "green"
