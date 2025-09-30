@@ -94,6 +94,16 @@ Required approach:
 - Create getters in page objects for all elements
 - Use page object methods for all interactions
 - Test specs should read like business logic, not technical implementation
+- All URLs MUST be defined in page objects, never hardcoded in test specs. Test specs should only call pageObject.visit().
+
+> ```typescript
+> // GOOD - preferred approach
+> const customerOverviewPage = new StorefrontCustomerOverviewPage()
+> customerOverviewPage.visit()
+>
+> // BAD - do not use
+> cy.visit('/en/customer/overview')
+> ```
 
 ## Flake Prevention
 - Hardcoded wait times MUST NOT be used in tests to improve reliability and reduce flakiness - DO NOT use `cy.wait()` where it can be avoided.

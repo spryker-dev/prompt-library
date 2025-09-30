@@ -71,6 +71,7 @@ import { StorefrontShoppingListsScenarios } from '../../../support/scenarios/sto
 import { StorefrontShoppingListsPage } from '../../../support/page-objects/storefront/shopping-lists/storefront-shopping-lists-page'
 import { StorefrontProductDetailsPage } from '../../../support/page-objects/storefront/product/storefront-product-details-page'
 import { StorefrontLoginPage } from '../../../support/page-objects/storefront/login/storefront-login-page'
+import { StorefrontCustomerOverviewPage } from '../../../support/page-objects/storefront/customer/storefront-customer-overview-page'
 
 // Specific test cases from Cypress Tests.md document
 
@@ -78,6 +79,7 @@ const scenarios = new StorefrontShoppingListsScenarios()
 const shoppingListsPage = new StorefrontShoppingListsPage()
 const productDetailsPage = new StorefrontProductDetailsPage()
 const loginPage = new StorefrontLoginPage()
+const customerOverviewPage = new StorefrontCustomerOverviewPage()
 
 describe('Shopping Lists - Specific Test Cases', () => {
   beforeEach(() => {
@@ -87,7 +89,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
   describe('My Account – Shopping Lists (List Page)', () => {
     it('should verify that an authenticated Company User can navigate to "My Account" → "Shopping Lists" and see the list page', () => {
       // Navigate to My Account
-      cy.visit('/en/customer/overview')
+      customerOverviewPage.visit()
 
       // Click on Shopping Lists menu item
       shoppingListsPage.getMyAccountMenuShoppingLists().click()
@@ -151,6 +153,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
     })
   })
 })
+
 
 
 ```
