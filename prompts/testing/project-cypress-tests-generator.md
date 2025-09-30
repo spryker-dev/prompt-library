@@ -65,7 +65,7 @@ cypress/support/page-objects/storefront/product/storefront-product-details-page.
 Here is an example of the test specification file:
 
 ```ts
-import shoppingListData from '../../../fixtures/shopping-list-data.json'
+\import shoppingListData from '../../../fixtures/shopping-list-data.json'
 import userCredentials from '../../../fixtures/user-data.json'
 import { StorefrontShoppingListsScenarios } from '../../../support/scenarios/storefront/storefront-shopping-lists-scenarios'
 import { StorefrontShoppingListsPage } from '../../../support/page-objects/storefront/shopping-lists/storefront-shopping-lists-page'
@@ -127,7 +127,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
       const { name: listName } = shoppingListData.shoppingLists.validList
 
       // Navigate to PDP
-      cy.visit(`/en/product/${sku}`)
+      productDetailsPage.visitProduct(sku)
 
       // Verify product information is displayed
       productDetailsPage.getProductName().should('contain.text', productName)
@@ -142,7 +142,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
       )
 
       // Verify item was added to the list
-      cy.visit('/en/customer/shopping-lists')
+      shoppingListsPage.visit()
       shoppingListsPage.viewShoppingList(0)
 
       // Check that the item appears in the shopping list
@@ -153,6 +153,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
     })
   })
 })
+
 
 
 
