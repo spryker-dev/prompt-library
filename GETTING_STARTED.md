@@ -1,5 +1,8 @@
 # 🚀 Spryker Prompt Library Integration
 
+## What is MCP (Model Context Protocol)?
+https://modelcontextprotocol.io/docs/getting-started/intro
+
 ## Overview
 We provide two ways to integrate the Spryker Prompt Library with your AI development workflow:
 
@@ -17,32 +20,108 @@ A guide to quickly start using the Spryker Prompts MCP server.
 > ⚠️ **Important**: MCP server usage can consume additional credits during operation. Consider disabling the server when not actively using prompts to avoid unnecessary credit usage.
 
 ### Quick Start
-1. Install [uv](https://docs.astral.sh/uv/#installation). \
-    When using [uv](https://docs.astral.sh/uv/) no specific installation is needed. \
-    We will use [uvx](https://docs.astral.sh/uv/guides/tools/) to directly run prompt_mcp.
-2. Add the following configuration to your `mcpServers`:
-    ```json
-    {
-        "mcpServers": {
-            "spryker-prompts": {
-                  "command": "path-to/uvx",
-                  "args": [
-                    "--from",
-                    "git+https://github.com/spryker-dev/prompt-library",
-                    "prompt-mcp"
-                  ]
-            }
-        }
-    }
-    ```
-3. Use it. \
+
+A quick guide to set up and use the Spryker Prompts MCP (Model Context Protocol) server with your IDE.
+
+#### 🚀 Step 1: Install with Script
+
+Run our automated setup script to install dependencies and generate your configuration:
+
+```bash
+sh <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-prompt-mcp)
+```
+
+This script will:
+- ✅ Install `uv` if not already present
+- ✅ Detect the correct paths automatically
+- ✅ Generate ready-to-use MCP configuration
+- ✅ Test the installation
+
+#### 📋 Step 2: Copy Configuration to IDE Settings
+
+After running the script, you'll see a configuration like this:
+
+![Configuration output](ide_setup/images/configuration_output.png)
+
+
+**Copy the configuration from terminal command output and add it to your IDE's MCP settings.**
+
+##### Where to Add Configuration:
+
+| IDE/Tool | Configuration Location | Configuration Key | Setup Guide |
+|----------|----------------------|-------------------|-------------|
+| Claude Desktop | Settings → MCP Servers | `mcpServers` | - |
+| Windsurf | Settings → MCP | `mcpServers` | [MCP Setup Guide](ide_setup/windsurf-setup.md#mcp-servers-setup) |
+| Cursor | Settings → Tools & Integrations | `mcpServers` | [MCP Setup Guide](ide_setup/cursor-setup.md#mcp-servers-setup) |
+| VS Code + GitHub Copilot | Extension Settings / .vscode/mcp.json | `servers` | [MCP Setup Guide](ide_setup/vscode-setup.md#mcp-servers-setup) |
+| Other IDEs | Check IDE documentation | Varies | - |
+
+> **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `servers` or check your IDE's documentation.
+
+##### 🔗 Resources
+
+- [Spryker Prompt Library Repository](https://github.com/spryker-dev/prompt-library)
+- [uv Installation Guide](https://docs.astral.sh/uv/#installation)
+- [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
+
+##### 💡 Tips
+
+- **First Run**: The first time you use the server, it may take a moment to download dependencies
+- **Credit Management**: MCP server usage may consume additional credits - consider disabling when not in use
+- **Updates**: Restart the MCP server periodically to get the latest prompts
+- **Team Sharing**: Save your configuration file to share with team members
+- **Path Issues**: Always use the full path to `uvx` or `uv` as provided by the script
+
+##### ⚠️ Configuration Not Working?
+
+##### Different Configuration Keys
+If your IDE doesn't recognize `mcpServers`, try these alternatives:
+- `mcp-server`
+- `mcpConfig`
+- `servers`
+
+##### Common Issues
+- **Wrong Key**: Replace `mcpServers` with your IDE's expected key
+- **JSON Syntax**: Ensure no trailing commas and proper quotes
+- **Path Problems**: Verify the command path is correct and executable
+- **Permissions**: Make sure the `uvx`/`uv` binary has execute permissions
+
+##### 🧪 Testing Your Setup
+
+To verify your MCP server is working:
+
+1. **Restart your IDE** after adding the configuration
+2. **Check Server List**: Look for "spryker-prompts" in your MCP servers list
+3. **Access Prompts**: Try browsing available prompts through your IDE interface
+4. **Test a Prompt**: Run a simple prompt to ensure it's working
+
+##### Quick Test
+If your IDE supports it, you should see:
+- ✅ Spryker Prompts server listed as connected
+- ✅ Available prompts in the prompt library
+- ✅ Ability to execute prompts successfully
+
+##### Still Not Working?
+1. **Re-run the setup script** to verify installation
+2. **Check the [repository issues](https://github.com/spryker-dev/prompt-library/issues)** for known problems
+3. **Create a new issue** with your specific error message and IDE details
+
+---
+
+#### How to use:
 For example, you want to generate some module with spryker-prompt mcp.
-For a better experience we recommend adding `Use spryker prompts` to the end of the prompt. \
-#### Example:
+For a better experience we recommend adding `Use spryker prompts` to the end of the prompt.
+
 ```text
 Please give me a prompt to implement a customer data import module with basic fields. Use spryker prompts.
 ```
 Agent will return a prompt from mcp and modify it to fit your needs.
+
+```text
+Please implement a customer data import module with basic fields. Use spryker prompts.
+```
+Agent will implement module using a prompt from mcp.
+
 
 ### Benefits
 
@@ -64,27 +143,6 @@ Built prompt-library @ git+https://github.com/spryker-dev/prompt-library@d2b4572
 Installed 34 packages in 47ms
 ```
 
-### Installation for development
-1. Pull the repository
-2. Install [uv](https://docs.astral.sh/uv/#installation).
-3. `cd /<path to prompt-library dir>/prompt-library && uv pip install`
-4. Add the following configuration to your `mcpServers`:
-```json
-{
-    "mcpServers": {
-        "spryker-prompts": {
-            "command": "uv",
-            "args": [
-                "--directory",
-                "/<path to prompt-library dir>/prompt-library",
-                "run",
-                "prompt-mcp"
-            ]
-        }
-    }
-}
-```
-
 ---
 
 ## Option 2: Hashtag Integration
@@ -96,9 +154,13 @@ Auto-load expert prompts using the intelligent #prompts hashtag. Instead of copy
 ### Setup
 
 #### Automatic Setup (Recommended)
-Navigate to your project directory and run:
+Navigate to your project directory:
 ```bash
 cd your-project-directory
+```
+
+Run the setup script:
+```bash
 bash <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/setup-project)
 ```
 
@@ -120,24 +182,22 @@ Both methods will:
 #### Configure AI Assistant Rules
 Choose your AI editor and follow the corresponding setup:
 
-**Windsurf**
-Go to: **Settings → Customizations → Rules → Global Rules**
+| IDE/Tool | Setup Guide |
+|----------|-------------|
+| Windsurf | [AI Rules Setup Guide](ide_setup/windsurf-setup.md#ai-rules) |
+| Cursor | [AI Rules Setup Guide](ide_setup/cursor-setup.md#ai-rules) |
+| VS Code + GitHub Copilot | [AI Rules Setup Guide](ide_setup/vscode-setup.md#ai-rules) |
+| PhpStorm + GitHub Copilot | Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions |
 
-**Cursor**
-Go to: **Settings → Rules** or create `.cursor/rules` files in your project
+> ⚠️ **Important**: If you are using Windsurf, please ensure that you gave Cascade access to the .gitignore, as described [here](ide_setup/windsurf-setup.md#cascade-configuration).
 
-**VS Code + GitHub Copilot**
-Create file: `.github/copilot-instructions.md` in your project root
-
-**PhpStorm + GitHub Copilot**
-Go to: **Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions**
-
-**Copy and paste this content into your chosen location:**
+**Copy the following AI Assistant Rules content to the location specified in your IDE's setup guide above:**
 
 **📋 START COPY FROM HERE**
 
 # AI Assistant Rules for Prompt Library Integration
 
+```markdown
 ## Intelligent Prompt Discovery with #prompts Tag
 
 When you encounter the #prompts hashtag in user messages:
@@ -208,21 +268,26 @@ File structure:
 ## File Location
 
 - Prompt mapping: prompt-tags.json (ai-prompts submodule)
-
-**📋 END COPY HERE**
+```
 
 This intelligent system eliminates the need to remember specific tags while maintaining precision through AI-assisted selection and preserving your natural, contextual approach to problem-solving.
 
-### Usage
+### Usage Examples
 
-You: "Create data-import module for Review entity #prompts"
-AI: [Analyzes context, selects data-import prompt, generates complete module]
+**Example 1: Specific module creation**
+```
+Create data-import module for Review entity #prompts
+```
+*AI will analyze the context and automatically select the appropriate data-import prompt to generate the complete module.*
 
-You: "Help me write tests #prompts"
-AI: "I found several testing prompts. Which type do you need:
-     1. Unit tests with data providers
-     2. Integration tests
-     3. End-to-end tests?"
+**Example 2: Testing prompts**
+```
+Help me write tests #prompts
+```
+*AI will show available testing prompt options:*
+- Unit tests with data providers
+- Integration tests
+- End-to-end tests
 
 ### Find Available Tags
 

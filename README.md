@@ -9,6 +9,19 @@ This library helps engineering teams:
 - Share best practices across projects.
 - Keep prompt knowledge centralized and searchable.
 - Reduce repeated prompt crafting.
+- Standardize coding conventions with AI agent rules for Spryker development.
+
+## 🛠️ Before You Start - IDE Setup Guides
+
+**New to AI-powered development?** We recommend checking our comprehensive IDE setup guides first. These guides will help you configure your development environment for optimal AI assistance:
+
+| IDE | Setup Guide |
+|-----|-------------|
+| 🌪️ **Windsurf** | [Setup Guide](ide_setup/windsurf-setup.md) |
+| 🎯 **Cursor** | [Setup Guide](ide_setup/cursor-setup.md) |
+| 💻 **VS Code + GitHub Copilot** | [Setup Guide](ide_setup/vscode-setup.md) |
+
+> 💡 **Why setup matters**: Proper IDE configuration ensures you get the maximum benefit from this prompt library and enables seamless integration with AI tools.
 
 ## ⚡ Key Capabilities
 
@@ -17,8 +30,13 @@ This library helps engineering teams:
 - **Battle-tested**: Real-world prompts proven in production environments
 - **Continuously updated**: Community-driven improvements and additions
 - **Template-based**: Consistent structure with context, examples, and usage guidelines
+- **AI agent rules**: Comprehensive coding standards and conventions for Spryker development
 
 ### 🔌 MCP Server Integration
+
+### What is MCP (Model Context Protocol)?
+https://modelcontextprotocol.io/docs/getting-started/intro
+
 - **Intelligent prompt discovery**: AI assistant automatically searches and applies relevant prompts based on your request context
 - **Semantic matching**: No need to remember specific tags - just describe what you need
 - **Real-time access**: Direct integration with MCP-compatible AI assistants
@@ -29,6 +47,29 @@ This library helps engineering teams:
 - **Context-aware**: AI analyzes your request to find the most relevant prompt automatically
 - **Smart assistance**: When uncertain, AI offers 2-3 best options to choose from
 - **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
+
+### 🤖 AI Agent Rules
+This library includes **AI-Coding Agent rules** covering Spryker conventions 📜, organized into:
+
+| Rule File | Description |
+|-----------|-------------|
+| [`general.md`](rules/shared/general.md) | General coding guidelines and best practices |
+| [`application-layers.md`](rules/shared/application-layers.md) | Application layer architecture rules |
+| [`components.md`](rules/shared/components.md) | Component design and implementation rules |
+| [`layers.md`](rules/shared/layers.md) | Layer separation and organization rules |
+| [`cypress-tests.md`](rules/cypress/cypress-tests.md) | Cypress testing rules |
+| [`Demo_Development_Rules.md`](rules/RFC/Demo_Development_Rules.md) | Rules for demo development |
+| [`Product_Development_Rules.md`](rules/RFC/Product_Development_Rules.md) | Rules for product development |
+| [`Project_Development_Rules.md`](rules/RFC/Project_Development_Rules.md) | Rules for project development |
+
+
+**✨ Benefits:**
+- ✅ **Consistent development** - Standardized conventions across all projects
+- ✅ **Best practices** - Proven approaches gathered from team experience
+- ✅ **Accepted RFCs** - Community-approved standards and patterns
+- ✅ **Enhanced AI assistance** - Better code generation and suggestions
+
+Use these rules in your workflows to ensure consistent and convention-compliant development! We're looking forward to your feedback and suggestions 💡.
 
 ## 🏃‍♂️ Quick Start
 
