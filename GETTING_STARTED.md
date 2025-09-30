@@ -38,6 +38,7 @@ This script will:
 - ✅ Test the installation
 
 #### 📋 Step 2: Copy Configuration to IDE Settings
+> If you are using claude code, you can skip this step. Claude code will automatically detect the configuration.
 
 After running the script, you'll see a configuration like this:
 
