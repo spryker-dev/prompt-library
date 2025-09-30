@@ -105,6 +105,19 @@ Required approach:
 - Test data MUST NOT be hardcoded inside the test
 - Never commit secrets; use Cypress.env().
 
+```typescript
+// Good: Use fixtures and cleanup
+beforeEach(() => {
+  cy.task('db:seed');
+  cy.fixture('users').as('userData');
+});
+
+beforeEach(() => {
+  cy.task('db:cleanup');
+});
+
+```
+
 ## Assertions
 - Test assertions MUST be kept short, and concise, and verifying a single specific business case.
 - Prefer semantic assertions tied to user-observable behavior.
