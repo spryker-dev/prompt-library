@@ -25,18 +25,16 @@ Please cover functionality {FUNCTIONALITY_DESCRIPTION} with Cypress tests. Test 
 ## Example Usage With Plain Text
 
 ```text
-Please cover functionality of attaching file to different entities with Cypress tests. The starting point - AttachFileController::indexAction(). Test cases:
-- Attach file to companies manually.
-- Attach file to companies by import file.
-- Attach file to company business units manually.
-- Attach file to company business units by import file.
-- Attach file to company users manually.
+Please cover functionality of adding customer address on Storefront with Cypress tests. Test cases that you should cover:
+- Creating new customer address in Storefront
+- Viewing created address
+Do not write any tests that are not requested.
 ```
 
 ## Example Usage With Files
 
 ```text
-Please cover functionality Convert_Shopping_List_to_Cart_User_Story.txt with Cypress tests. Test cases that you should cover: List_of_Testcases.txt
+Please cover functionality Convert_Shopping_List_to_Cart_User_Story.txt with Cypress tests. Test cases that you should cover: List_of_Testcases.txt. Do not write any tests that are not requested.
 ```
 
 ## Example Output
