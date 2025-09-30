@@ -62,6 +62,21 @@ cypress/
 - Stub external/unstable requests with cy.intercept; avoid real third-party calls in CI.
 - If the new feature adds new elements on a page that already exists, e.g. shopping list feature adds `add to shopping list` button on PDP (Product Details Page), then you should update existing page object for PDP. The project should have exactly 1 page object for Shopping list details page and exactly 1 page object for PDP. There should be no additional page objects that deal with elements on either of these pages.
 
+```typescript
+// Good: Use data-qa attributes
+cy.get('[data-qa="submit-button"]').click();
+cy.get('[data-qa="user-name-input"]').type('john@example.com');
+
+// Acceptable: Stable selectors
+cy.get('#login-form input[type="email"]');
+cy.get('.user-profile [data-testid="name"]');
+
+// Bad: Fragile selectors
+cy.get('div > div > button:nth-child(3)');
+cy.get('.css-1234567');
+cy.contains('Click here'); // text-based, language-dependent
+```
+
 ## Test Specs
 Test specs should not have hardcoded urls, test data or element selectors. Page objects should provide tech spec with selectors and urls, fixtures should provide the test data.
 
