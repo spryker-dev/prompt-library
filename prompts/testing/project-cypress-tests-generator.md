@@ -66,19 +66,22 @@ Here is an example of the test specification file:
 
 ```ts
 import shoppingListData from '../../../fixtures/shopping-list-data.json'
+import userCredentials from '../../../fixtures/user-data.json'
 import { StorefrontShoppingListsScenarios } from '../../../support/scenarios/storefront/storefront-shopping-lists-scenarios'
 import { StorefrontShoppingListsPage } from '../../../support/page-objects/storefront/shopping-lists/storefront-shopping-lists-page'
 import { StorefrontProductDetailsPage } from '../../../support/page-objects/storefront/product/storefront-product-details-page'
+import { StorefrontLoginPage } from '../../../support/page-objects/storefront/login/storefront-login-page'
 
 // Specific test cases from Cypress Tests.md document
 
 const scenarios = new StorefrontShoppingListsScenarios()
 const shoppingListsPage = new StorefrontShoppingListsPage()
 const productDetailsPage = new StorefrontProductDetailsPage()
+const loginPage = new StorefrontLoginPage()
 
 describe('Shopping Lists - Specific Test Cases', () => {
   beforeEach(() => {
-    cy.loginAsCompanyUser()
+    loginPage.login(userCredentials.backofficeUser.email, userCredentials.backofficeUser.password)
   })
 
   describe('My Account – Shopping Lists (List Page)', () => {
@@ -148,6 +151,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
     })
   })
 })
+
 
 ```
 

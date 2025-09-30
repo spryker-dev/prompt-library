@@ -117,6 +117,11 @@ beforeEach(() => {
 });
 
 ```
+## Reusing the existing page objects, methods and commands
+- Before creating any new page object method, you MUST search the existing codebase for similar functionality. If it already exists that serves the same purpose, you MUST reuse and update it instead of creating a duplicate.
+- Before creating any new command, you MUST search the existing codebase for the existing methods or commands that serve the same purpose. If it already exists that serves the same purpose, you MUST reuse and update it instead of creating a duplicate.
+- Always perform a codebase search using codebase_search or grep tools before creating any new method, command, or functionality. Document what you found and explain why you're creating something new instead of reusing existing code.
+
 
 ## Assertions
 - Test assertions MUST be kept short, and concise, and verifying a single specific business case.
