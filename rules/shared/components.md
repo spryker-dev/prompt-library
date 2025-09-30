@@ -18,21 +18,6 @@
 - The `Entity` suffix is reserved for auto-generated `EntityTransfers` and must not be used in manual transfer definitions (for both module and core module development).
 - Transfers must be defined in a `transfer.xml` file.
 
-## Bridge
-Core Module Development Components. Only for core module development.
-
-### Responsibility
-- Decouples modules by wrapping external dependencies (Facades, Clients, Services) and implementing a module-specific interface.
-
-### Convention
-- A Bridge class must implement an interface that defines its public methods. The interface name should not have the "Bridge" suffix.
-- The Bridge class needs to define and implement an interface that holds the specification of each public method. Mind the missing bridge suffix word in the interface name (For module development and core module development)
-
-### Guideline
-- Bridge versus adapter: for simplification, we keep using bridge pattern even when adapting the earlier version of a core facade. Adapters are used when the remote class' life cycle is independent to the core or there is a huge technical difference between the adaptee and adaptor
-- During Bridge definitions, type definition mistakes in remote facades become more visible. In these cases, be aware of the cascading effect of changing or restricting an argument type in facades when you consider such changes
-- QueryContainer and Facade dependencies are available only in the Glue application layers that have access to the database
-
 ## Plugin
 ### Responsibility
 - Responsibility: Implements Inversion of Control, allowing modules to provide optional, configurable extensions to other modules. They are instantiated via the Dependency Provider.
