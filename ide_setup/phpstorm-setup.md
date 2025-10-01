@@ -34,11 +34,21 @@
 
 ### MCP Servers Setup
 
-- Click on the GitHub Copilot icon at the bottom and choose `Edit Settings`.
-- Go to `Model Context Protocol (MCP)` and click `Configure` button.
+There are two options on how to configure MCP server for PHPStorm + GitHub Copilot.
 
-![GitHub Copilot Settings MCP Image](images/phpstorm_github_copilot_settings_mcp.png)
+1. **Use GitHub Copilot Settings**:
+   
+   - Click on the GitHub Copilot icon at the bottom and choose `Edit Settings`.
+   - Go to `Model Context Protocol (MCP)` and click `Configure` button.
+   
+   ![GitHub Copilot Settings MCP Image](images/phpstorm_github_copilot_settings_mcp.png)
 
-- The file with MCP configuration will be opened, you can start MCP server from here, adjust configuration or add another one.
+2. **Use Configure Tools in Chat**:
+   
+   - Click on `Configure tools` button in the chat.
+   
+   ![GitHub Copilot Settings MCP Alt Image](images/phpstorm_github_copilot_settings_mcp_alt.png)
 
-![GitHub Copilot Settings MCP Image](images/phpstorm_github_copilot_settings_mcp_config.png)
+The file with MCP configuration will be opened, you can start MCP server from here, adjust configuration or add another one.
+
+![GitHub Copilot Settings MCP Config Image](images/phpstorm_github_copilot_settings_mcp_config.png)
