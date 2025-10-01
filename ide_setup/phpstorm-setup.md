@@ -10,7 +10,7 @@
 ## 1. Install GitHub Copilot Plugin
 
 - [Install the PHPStorm plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot)
-- Authorize yourself as a GitHub user in the Preferences->Languages and Frameworks-> GitHub Copilot:
+- Authorize yourself as a GitHub user in the `Preferences->Languages and Frameworks-> GitHub Copilot`:
 
 ![GitHub Copilot Auth](images/1d7088d1-83ee-4c32-9a3e-fff0879c98c2.avif)
 
@@ -22,11 +22,11 @@
 
 ### AI Rules
 
-- Click on the GitHub Copilot icon at the bottom and choose 'Edit Settings'.
+- Click on the GitHub Copilot icon at the bottom and choose `Edit Settings`.
 
 ![GitHub Copilot Settings Image](images/phpstorm_github_copilot_settings.png)
 
-- Go to 'Customizations', here you can setup Global and Workspace instructions and also add specific instruction files for different tasks.
+- Go to `Customizations`, here you can set up `Global` and `Workspace` instructions and also add specific instruction files for different tasks.
 
 - **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository
 
@@ -34,8 +34,8 @@
 
 ### MCP Servers Setup
 
-- Click on the GitHub Copilot icon at the bottom and choose 'Edit Settings'.
-- Go to 'Model Context Protocol (MCP)' and click 'Configure' button.
+- Click on the GitHub Copilot icon at the bottom and choose `Edit Settings`.
+- Go to `Model Context Protocol (MCP)` and click `Configure` button.
 
 ![GitHub Copilot Settings MCP Image](images/phpstorm_github_copilot_settings_mcp.png)
 
