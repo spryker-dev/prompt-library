@@ -56,113 +56,13 @@ You'll see the Claude Code welcome screen with your session information, recent 
 
 After logging in (Step 2), your credentials are stored on your system. Learn more in [Credential Management](https://docs.claude.com/en/docs/claude-code/iam#credential-management).
 
-## Step 4: Ask your first question
+## Step 4: Common workflows
 
-Let's start with understanding your codebase. Try one of these commands:
-
-```
-> what does this project do?
-```
-
-Claude will analyze your files and provide a summary. You can also ask more specific questions:
+**Write code**
 
 ```
-> what technologies does this project use?
+> Provide dependencies that I use in @SomeBusinessModelFile to @ModuleFolder and create factory methods.
 ```
-
-```
-> where is the main entry point?
-```
-
-```
-> explain the folder structure
-```
-
-You can also ask Claude about its own capabilities:
-
-```
-> what can Claude Code do?
-```
-
-```
-> how do I use slash commands in Claude Code?
-```
-
-```
-> can Claude Code work with Docker?
-```
-
-Claude Code reads your files as needed - you don't have to manually add context. Claude also has access to its own documentation and can answer questions about its features and capabilities.
-
-## Step 5: Make your first code change
-
-Now let's make Claude Code do some actual coding. Try a simple task:
-
-```
-> add a hello world function to the main file
-```
-
-Claude Code will:
-
-1. Find the appropriate file
-2. Show you the proposed changes
-3. Ask for your approval
-4. Make the edit
-
-Claude Code always asks for permission before modifying files. You can approve individual changes or enable "Accept all" mode for a session.
-
-## Step 6: Use Git with Claude Code
-
-Claude Code makes Git operations conversational:
-
-```
-> what files have I changed?
-```
-
-```
-> commit my changes with a descriptive message
-```
-
-You can also prompt for more complex Git operations:
-
-```
-> create a new branch called feature/quickstart
-```
-
-```
-> show me the last 5 commits
-```
-
-```
-> help me resolve merge conflicts
-```
-
-## Step 7: Fix a bug or add a feature
-
-Claude is proficient at debugging and feature implementation.
-
-Describe what you want in natural language:
-
-```
-> add input validation to the user registration form
-```
-
-Or fix existing issues:
-
-```
-> there's a bug where users can submit empty forms - fix it
-```
-
-Claude Code will:
-
-* Locate the relevant code
-* Understand the context
-* Implement a solution
-* Run tests if available
-
-## Step 8: Test out other common workflows
-
-There are a number of ways to work with Claude:
 
 **Refactor code**
 
@@ -176,19 +76,17 @@ There are a number of ways to work with Claude:
 > write unit tests for the calculator functions
 ```
 
-**Update documentation**
-
-```
-> update the README with installation instructions
-```
-
 **Code review**
 
 ```
 > review my changes and suggest improvements
 ```
 
-**Remember**: Claude Code is your AI pair programmer. Talk to it like you would a helpful colleague - describe what you want to achieve, and it will help you get there.
+**Git**
+
+```
+> commit my changes with a descriptive message
+```
 
 ## Essential commands
 
@@ -210,7 +108,6 @@ See the [CLI reference](/en/docs/claude-code/cli-reference) for a complete list 
 
 ## Getting help
 
-* **In Claude Code**: Type `/help` or ask "how do I..."
-* **Documentation**: You're here! Browse other guides
-* **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support
 * **Official documentation**: [Claude Code documentation](https://docs.claude.com/en/docs/claude-code/overview)
+* **In Claude Code**: Type `/help` or ask "how do I..."
+* **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support
