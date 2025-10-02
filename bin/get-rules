@@ -51,8 +51,6 @@ fetch_and_combine_rules() {
             print_color "Error: Failed to download rule file from ${url}" "red"
             exit 1
         fi
-        # Add a separator for better readability between merged files
-        printf "\n\n---\n\n" >> "$OUTPUT_FILE"
     done
     print_color "Successfully combined all rules into '${OUTPUT_FILE}'." "green"
 }
@@ -113,42 +111,24 @@ get_ide_selection() {
 display_ide_instructions() {
     ide="$1"
     print_color "\n--- Global setup instructions for ${ide} ---" "yellow"
+    echo "Use the following link to set up global rules in your IDE:"
 
     case "$ide" in
         "PhpStorm+Copilot")
-            print_color "Set up global rules in PhpStorm with GitHub Copilot:" "yellow"
-            echo "1. Open: Settings / Preferences -> Tools -> GitHub Copilot -> Customizations."
-            echo "2. Click the '+' icon to add a new customization."
-            echo "3. Choose 'Custom Rules'."
-            echo "4. Open '${OUTPUT_FILE}' in your editor, copy its content."
-            echo "5. Paste the copied text into the customization rules field."
-            echo "6. Save. Copilot will now always apply these rules globally."
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/phpstorm-setup.md#ai-rules"
+
             ;;
         "VSCode+Copilot")
-            print_color "Set up global rules in VSCode with GitHub Copilot:" "yellow"
-            echo "1. Open global VSCode settings (user-level, not workspace)."
-            echo "2. Search for 'Copilot Chat: Custom Instructions'."
-            echo "3. Open 'settings.json' (user)."
-            echo "4. Open '${OUTPUT_FILE}' and copy its content."
-            echo "5. Paste everything inside the 'github.copilot.chat.instructions' section."
-            echo "6. Save the file. These rules are now globally applied to all projects."
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/vscode-setup.md#ai-rules"
+
             ;;
         "Cursor")
-            print_color "Set up global rules in Cursor:" "yellow"
-            echo "1. Open Command Palette (Cmd+K / Ctrl+K)."
-            echo "2. Type 'Preferences: Open User Settings (JSON)'."
-            echo "3. Locate AI / Copilot / Assistant section."
-            echo "4. Open '${OUTPUT_FILE}' and copy its content."
-            echo "5. Paste the copied text into the global 'instructions' or 'rules' field."
-            echo "6. Save. Cursor will now always use these rules across all workspaces."
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/cursor-setup.md#ai-rules"
+
             ;;
         "Windsurf")
-            print_color "Set up global rules in Windsurf (generic instruction):" "yellow"
-            echo "1. Open Settings -> AI / Copilot / Assistant configuration."
-            echo "2. Look for 'Global Instructions' or 'Custom Rules'."
-            echo "3. Open '${OUTPUT_FILE}' and copy its content."
-            echo "4. Paste it into the global rules field."
-            echo "5. Save changes. The rules will apply to all projects automatically."
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/windsurf-setup.md#ai-rules"
+
             ;;
     esac
 }
@@ -167,7 +147,11 @@ main() {
 
     echo ""
     print_color "Setup complete! Your customized rules file is ready at '${OUTPUT_FILE}'." "blue"
-    print_color "You can now use this file as context for your AI assistant." "blue"
+    echo ""
+    echo "Run: (it will copy the content of the file to your clipboard)"
+    print_color "  cat ${OUTPUT_FILE} | pbcopy" "yellow"
+    echo "When you finish, delete the file by running:"
+    print_color "  rm ${OUTPUT_FILE}" "yellow"
 }
 
 # Run the main function
