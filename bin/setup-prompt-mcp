@@ -146,7 +146,52 @@ generate_mcp_config() {
         use_uv_run=true
     fi
 
-    print_step "Generating MCP server configuration..."
+    print_step "Checking MCP setup method..."
+
+    # Ask if user is using Claude Code
+    echo
+    read -p "Are you using Claude Code? (y/n): " -n 1 -r
+    echo
+
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+        print_step "Setting up MCP server for Claude Code..."
+
+        # Build the claude mcp add command
+        local claude_cmd="claude mcp add spryker-prompts --scope user -- $uvx_path"
+
+        if [ "$use_uv_run" = true ]; then
+            claude_cmd="$claude_cmd run --from git+https://github.com/spryker-dev/prompt-library prompt-mcp"
+        else
+            claude_cmd="$claude_cmd --from git+https://github.com/spryker-dev/prompt-library prompt-mcp"
+        fi
+
+        print_info "Running: $claude_cmd"
+
+        # Execute the command
+        if eval "$claude_cmd"; then
+            print_success "MCP server has been added to Claude Code user scope!"
+            echo
+            print_info "The Spryker Prompts MCP server is now available in Claude Code."
+            print_info "You can start using the prompts immediately."
+        else
+            print_error "Failed to add MCP server to Claude Code."
+            print_info "Please make sure Claude Code CLI is installed and try again."
+            echo
+            print_info "Falling back to manual configuration..."
+            echo
+            generate_manual_config "$uvx_path" "$use_uv_run"
+        fi
+    else
+        generate_manual_config "$uvx_path" "$use_uv_run"
+    fi
+}
+
+# Function to generate manual MCP configuration
+generate_manual_config() {
+    local uvx_path=$1
+    local use_uv_run=$2
+
+    print_step "Generating manual MCP server configuration..."
 
     echo
     echo "=================================================="
