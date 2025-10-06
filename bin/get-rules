@@ -1,0 +1,158 @@
+#!/bin/sh
+
+# ==============================================================================
+# Spryker Prompt Rules Generator (sh compatible)
+#
+# This script fetches the latest prompting rules from the spryker-dev repository,
+# combines them into a single file, customizes it based on user input (team role),
+# and provides instructions for integrating it with a chosen IDE.
+#
+# Usage:
+#   sh get-rules.sh
+# ==============================================================================
+
+# --- Configuration ---
+# Space-separated string of remote URLs for the rule files (POSIX compatible)
+RULE_URLS="https://raw.githubusercontent.com/spryker-dev/prompt-library/main/rules/shared/general.md https://raw.githubusercontent.com/spryker-dev/prompt-library/main/rules/shared/application-layers.md https://raw.githubusercontent.com/spryker-dev/prompt-library/main/rules/shared/layers.md https://raw.githubusercontent.com/spryker-dev/prompt-library/main/rules/shared/components.md"
+# The final output file name
+OUTPUT_FILE="spryker_prompt_rules.md"
+
+# --- Helper Functions ---
+
+# Function to print colored text
+# Usage: print_color "TEXT" "COLOR"
+print_color() {
+    text="$1"
+    color_name="$2"
+    color_code=""
+    case "$color_name" in
+        green) color_code="\033[0;32m" ;;
+        red)   color_code="\033[0;31m" ;;
+        yellow)color_code="\033[0;33m" ;;
+        blue)  color_code="\033[0;34m" ;;
+        *)     color_code="\033[0m" ;; # Default/Reset
+    esac
+    reset_code="\033[0m"
+    # Using printf for better portability than 'echo -e'
+    printf "%b\n" "${color_code}${text}${reset_code}"
+}
+
+# Fetches and combines the rule files from the remote repository
+fetch_and_combine_rules() {
+    print_color "Fetching and combining Spryker prompting rules..." "blue"
+    # Ensure the output file is empty before we start
+    > "$OUTPUT_FILE"
+
+    # Loop over space-separated string, which is POSIX compliant
+    for url in $RULE_URLS; do
+        echo " -> Downloading from ${url}"
+        # Use curl to fetch the content and check for errors
+        if ! curl -sL "$url" >> "$OUTPUT_FILE"; then
+            print_color "Error: Failed to download rule file from ${url}" "red"
+            exit 1
+        fi
+    done
+    print_color "Successfully combined all rules into '${OUTPUT_FILE}'." "green"
+}
+
+# Prompts the user to select their team role (Core or Project)
+get_team_role() {
+    print_color "Which team are you on?" "blue"
+    echo "  1) Core"
+    echo "  2) Project"
+
+    ROLE=""
+    while [ -z "$ROLE" ]; do
+        printf "Enter number and press [ENTER]: "
+        read -r choice
+        case "$choice" in
+            1) ROLE="Core" ;;
+            2) ROLE="Project" ;;
+            *) print_color "Invalid selection. Please enter 1 or 2." "red" ;;
+        esac
+    done
+
+    # Replace the placeholder in the generated file
+    # Uses a temporary file for safety
+    sed "s/{Core\/Project}/${ROLE}/g" "$OUTPUT_FILE" > "${OUTPUT_FILE}.tmp" && mv "${OUTPUT_FILE}.tmp" "$OUTPUT_FILE"
+
+    print_color "Role updated to '${ROLE}' in the rules file." "green"
+}
+
+# Prompts the user to select their IDE
+get_ide_selection() {
+    print_color "\nPlease select your IDE for setup instructions:" "blue"
+    echo "  1) PhpStorm+Copilot"
+    echo "  2) VSCode+Copilot"
+    echo "  3) Cursor"
+    echo "  4) Windsurf"
+    echo "  5) Skip"
+
+    ide=""
+    while [ -z "$ide" ]; do
+        printf "Enter number and press [ENTER]: "
+        read -r choice
+        case "$choice" in
+            1) ide="PhpStorm+Copilot" ;;
+            2) ide="VSCode+Copilot" ;;
+            3) ide="Cursor" ;;
+            4) ide="Windsurf" ;;
+            5) ide="Skip" ;;
+            *) print_color "Invalid selection. Please try again." "red" ;;
+        esac
+    done
+
+    if [ "$ide" != "Skip" ]; then
+        display_ide_instructions "$ide"
+    fi
+}
+
+# Displays the setup instructions for the chosen IDE
+display_ide_instructions() {
+    ide="$1"
+    print_color "\n--- Global setup instructions for ${ide} ---" "yellow"
+    echo "Use the following link to set up global rules in your IDE:"
+
+    case "$ide" in
+        "PhpStorm+Copilot")
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/phpstorm-setup.md#ai-rules"
+
+            ;;
+        "VSCode+Copilot")
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/vscode-setup.md#ai-rules"
+
+            ;;
+        "Cursor")
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/cursor-setup.md#ai-rules"
+
+            ;;
+        "Windsurf")
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/windsurf-setup.md#ai-rules"
+
+            ;;
+    esac
+}
+# --- Main Execution ---
+main() {
+    print_color "===============================================" "green"
+    print_color "  Spryker AI Prompt Rules Setup Utility" "green"
+    print_color "===============================================" "green"
+    echo ""
+
+    fetch_and_combine_rules
+    echo ""
+    get_team_role
+    echo ""
+    get_ide_selection
+
+    echo ""
+    print_color "Setup complete! Your customized rules file is ready at '${OUTPUT_FILE}'." "blue"
+    echo ""
+    echo "Run: (it will copy the content of the file to your clipboard)"
+    print_color "  cat ${OUTPUT_FILE} | pbcopy" "yellow"
+    echo "When you finish, delete the file by running:"
+    print_color "  rm ${OUTPUT_FILE}" "yellow"
+}
+
+# Run the main function
+main

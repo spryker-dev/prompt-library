@@ -55,6 +55,7 @@ After running the script, you'll see a configuration like this:
 | Windsurf | Settings → MCP | `mcpServers` | [MCP Setup Guide](ide_setup/windsurf-setup.md#mcp-servers-setup) |
 | Cursor | Settings → Tools & Integrations | `mcpServers` | [MCP Setup Guide](ide_setup/cursor-setup.md#mcp-servers-setup) |
 | VS Code + GitHub Copilot | Extension Settings / .vscode/mcp.json | `servers` | [MCP Setup Guide](ide_setup/vscode-setup.md#mcp-servers-setup) |
+| PhpStorm + GitHub Copilot | GitHub Copilot Settings → MCP | `servers` | [MCP Setup Guide](ide_setup/phpstorm-setup.md#mcp-servers-setup) |
 | Other IDEs | Check IDE documentation | Varies | - |
 
 > **Important**: Some IDEs use different configuration keys. If `mcpServers` doesn't work, try `servers` or check your IDE's documentation.
@@ -188,7 +189,7 @@ Choose your AI editor and follow the corresponding setup:
 | Windsurf | [AI Rules Setup Guide](ide_setup/windsurf-setup.md#ai-rules) |
 | Cursor | [AI Rules Setup Guide](ide_setup/cursor-setup.md#ai-rules) |
 | VS Code + GitHub Copilot | [AI Rules Setup Guide](ide_setup/vscode-setup.md#ai-rules) |
-| PhpStorm + GitHub Copilot | Settings → Languages & Frameworks → GitHub Copilot → Custom Instructions |
+| PhpStorm + GitHub Copilot | [AI Rules Setup Guide](ide_setup/phpstorm-setup.md#ai-rules) |
 
 > ⚠️ **Important**: If you are using Windsurf, please ensure that you gave Cascade access to the .gitignore, as described [here](ide_setup/windsurf-setup.md#cascade-configuration).
 
