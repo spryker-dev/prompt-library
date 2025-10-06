@@ -5,6 +5,7 @@
 1. [Install GitHub Copilot Plugin](#1-install-github-copilot-plugin)
 2. [AI Configuration for Efficient Development](#2-ai-configuration-for-efficient-development)
    - [AI Rules](#ai-rules)
+     - [Copilot Instructions](#copilot-instructions)
    - [MCP Servers Setup](#mcp-servers-setup)
 
 ## 1. Install GitHub Copilot Plugin
@@ -31,6 +32,17 @@
 - **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository
 
 ![GitHub Copilot Settings Rules Image](images/phpstorm_github_copilot_rules.png)
+
+#### Copilot Instructions
+
+- **Global Instructions**: Add rules that can be applicable for all projects you're working on. These are applied across all workspaces.
+  
+- **Workspace Instructions**: Add rules specific to the current project only. These are applied only to the current workspace.
+  
+
+- **Instruction Files**: Use these for rules that should be applied in specific cases. For example:
+  - Specific rules for writing `.twig` files or `.ts` files
+  - For the prompt library, cypress-specific rules can be placed here
 
 ### MCP Servers Setup
 
