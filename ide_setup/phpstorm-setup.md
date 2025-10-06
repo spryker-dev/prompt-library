@@ -5,7 +5,6 @@
 1. [Install GitHub Copilot Plugin](#1-install-github-copilot-plugin)
 2. [AI Configuration for Efficient Development](#2-ai-configuration-for-efficient-development)
    - [AI Rules](#ai-rules)
-     - [Copilot Instructions](#copilot-instructions)
    - [MCP Servers Setup](#mcp-servers-setup)
 
 ## 1. Install GitHub Copilot Plugin
@@ -36,7 +35,7 @@
 
 ![GitHub Copilot Settings Rules Image](images/phpstorm_github_copilot_rules.png)
 
-#### Copilot Instructions
+**Custom Instructions**
 
 - **Global Instructions**: Add rules that can be applicable for all projects you're working on. These are applied across all workspaces.
   
