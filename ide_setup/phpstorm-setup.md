@@ -29,7 +29,10 @@
 
 - Go to `Customizations`, here you can set up `Global` and `Workspace` instructions and also add specific instruction files for different tasks.
 
-- **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository
+- **Use rules from this prompt library as a base**: You can find ready-to-use AI rules in the [`rules/`](../rules/) directory of this repository. These rules can be:
+  - Combined in one file and added as either Global or Workspace instructions depending on their scope
+  - Used individually as instruction files for specific file types or development scenarios
+  - Mixed and matched based on your project needs
 
 ![GitHub Copilot Settings Rules Image](images/phpstorm_github_copilot_rules.png)
 
@@ -37,8 +40,7 @@
 
 - **Global Instructions**: Add rules that can be applicable for all projects you're working on. These are applied across all workspaces.
   
-- **Workspace Instructions**: Add rules specific to the current project only. These are applied only to the current workspace.
-  
+- **Workspace Instructions**: Add rules specific to the current project only. These are applied only to the current workspace. 
 
 - **Instruction Files**: Use these for rules that should be applied in specific cases. For example:
   - Specific rules for writing `.twig` files or `.ts` files
