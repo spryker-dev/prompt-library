@@ -1,5 +1,32 @@
 # 🚀 Spryker Prompt Library Integration
 
+## Table of Contents
+
+- [What is MCP (Model Context Protocol)?](#what-is-mcp-model-context-protocol)
+- [Overview](#overview)
+- [Option 1: MCP Server Integration](#option-1-mcp-server-integration)
+  - [Quick Start](#quick-start)
+    - [🚀 Step 1: Install with Script](#-step-1-install-with-script)
+    - [📋 Step 2: Copy Configuration to IDE Settings](#-step-2-copy-configuration-to-ide-settings)
+    - [🔗 Resources](#-resources)
+    - [💡 Tips](#-tips)
+    - [⚠️ Configuration Not Working?](#️-configuration-not-working)
+    - [🧪 Testing Your Setup](#-testing-your-setup)
+  - [How to use](#how-to-use)
+  - [Benefits](#benefits)
+  - [Upgrade package](#upgrade-package)
+- [Option 2: Hashtag Integration](#option-2-hashtag-integration)
+  - [Setup](#setup)
+    - [Automatic Setup (Recommended)](#automatic-setup-recommended)
+    - [Manual Setup](#manual-setup)
+    - [Configure AI Assistant Rules](#configure-ai-assistant-rules)
+  - [Usage Examples](#usage-examples)
+  - [Find Available Tags](#find-available-tags)
+  - [How It Works](#how-it-works)
+  - [Benefits](#benefits-1)
+  - [Update](#update)
+
+
 ## What is MCP (Model Context Protocol)?
 https://modelcontextprotocol.io/docs/getting-started/intro
 

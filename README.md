@@ -2,6 +2,25 @@
 
 Welcome to the Spryker Prompt Library! This is a shared knowledge base of **proven and reusable prompts** to accelerate your development workflows using AI tools like ChatGPT, GitHub Copilot, Cursor, Windsurfe, and more.
 
+## Table of Contents
+
+- [🚀 Purpose](#-purpose)
+- [🛠️ Before You Start - IDE Setup Guides](#️-before-you-start---ide-setup-guides)
+- [⚡ Key Capabilities](#-key-capabilities)
+  - [📚 Comprehensive Prompt Library](#-comprehensive-prompt-library)
+  - [🔌 MCP Server Integration](#-mcp-server-integration)
+  - [🏷️ Hashtag Integration](#️-hashtag-integration)
+  - [🤖 AI Agent Rules](#-ai-agent-rules)
+    - [Overview](#overview)
+    - [Download rules](#download-rules)
+- [🏃‍♂️ Quick Start](#️-quick-start)
+  - [MCP Server Integration](#mcp-server-integration)
+  - [Hashtag Integration](#hashtag-integration)
+- [Structure](#structure)
+- [Contributing](#contributing)
+- [Issues / Suggestions](#issues--suggestions)
+
+
 ## 🚀 Purpose
 
 This library helps engineering teams:
@@ -50,6 +69,9 @@ https://modelcontextprotocol.io/docs/getting-started/intro
 - **Multi-editor support**: Works with Windsurf, Cursor, GitHub Copilot, and other AI assistants
 
 ### 🤖 AI Agent Rules
+
+#### Overview
+
 This library includes **AI-Coding Agent rules** covering Spryker conventions 📜, organized into:
 
 | Rule File | Description |
@@ -71,6 +93,13 @@ This library includes **AI-Coding Agent rules** covering Spryker conventions �
 - ✅ **Enhanced AI assistance** - Better code generation and suggestions
 
 Use these rules in your workflows to ensure consistent and convention-compliant development! We're looking forward to your feedback and suggestions 💡.
+
+#### Download rules.
+
+It will save rules to the local file. Where you can copy them and set tot you tool.
+```shell
+sh <(curl -s https://raw.githubusercontent.com/spryker-dev/prompt-library/main/bin/get-rules)
+```
 
 ## 🏃‍♂️ Quick Start
 
