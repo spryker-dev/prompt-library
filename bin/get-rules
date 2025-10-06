@@ -81,12 +81,13 @@ get_team_role() {
 
 # Prompts the user to select their IDE
 get_ide_selection() {
-    print_color "\nPlease select your IDE for setup instructions:" "blue"
+    print_color "\nPlease select your IDE/Agent for setup instructions:" "blue"
     echo "  1) PhpStorm+Copilot"
     echo "  2) VSCode+Copilot"
     echo "  3) Cursor"
     echo "  4) Windsurf"
-    echo "  5) Skip"
+    echo "  5) Claude Code"
+    echo "  6) Skip"
 
     ide=""
     while [ -z "$ide" ]; do
@@ -97,7 +98,8 @@ get_ide_selection() {
             2) ide="VSCode+Copilot" ;;
             3) ide="Cursor" ;;
             4) ide="Windsurf" ;;
-            5) ide="Skip" ;;
+            5) ide="Claude Code" ;;
+            6) ide="Skip" ;;
             *) print_color "Invalid selection. Please try again." "red" ;;
         esac
     done
@@ -115,19 +117,23 @@ display_ide_instructions() {
 
     case "$ide" in
         "PhpStorm+Copilot")
-            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/phpstorm-setup.md#ai-rules"
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/tools_setup/phpstorm-setup.md#ai-rules"
 
             ;;
         "VSCode+Copilot")
-            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/vscode-setup.md#ai-rules"
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/tools_setup/vscode-setup.md#ai-rules"
 
             ;;
         "Cursor")
-            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/cursor-setup.md#ai-rules"
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/tools_setup/cursor-setup.md#ai-rules"
 
             ;;
         "Windsurf")
-            echo "https://github.com/spryker-dev/prompt-library/blob/main/ide_setup/windsurf-setup.md#ai-rules"
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/tools_setup/windsurf-setup.md#ai-rules"
+
+            ;;
+        "Claude Code")
+            echo "https://github.com/spryker-dev/prompt-library/blob/main/tools_setup/claude-code-setup.md#ai-rules"
 
             ;;
     esac
