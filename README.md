@@ -17,10 +17,10 @@ This library helps engineering teams:
 
 | IDE | Setup Guide |
 |-----|-------------|
-| 🌪️ **Windsurf** | [Setup Guide](ide_setup/windsurf-setup.md) |
-| 🎯 **Cursor** | [Setup Guide](ide_setup/cursor-setup.md) |
-| 💻 **VS Code + GitHub Copilot** | [Setup Guide](ide_setup/vscode-setup.md) |
-| 🧠 **PHPStorm + GitHub Copilot** | [Setup Guide](ide_setup/phpstorm-setup.md) |
+| 🌪️ **Windsurf** | [Setup Guide](tools_setup/windsurf-setup.md) |
+| 🎯 **Cursor** | [Setup Guide](tools_setup/cursor-setup.md) |
+| 💻 **VS Code + GitHub Copilot** | [Setup Guide](tools_setup/vscode-setup.md) |
+| 🧠 **PHPStorm + GitHub Copilot** | [Setup Guide](tools_setup/phpstorm-setup.md) |
 
 > 💡 **Why setup matters**: Proper IDE configuration ensures you get the maximum benefit from this prompt library and enables seamless integration with AI tools.
 

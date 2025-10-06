@@ -1,5 +1,16 @@
 # How to setup Claude Code for development
 
+## Table of Contents
+
+- [Before you begin](#before-you-begin)
+- [Step 1: Install Claude Code](#step-1-install-claude-code)
+- [Step 2: Log in to your account](#step-2-log-in-to-your-account)
+- [Step 3: Start your first session](#step-3-start-your-first-session)
+- [Common workflows](#common-workflows)
+- [AI Rules](#ai-rules)
+- [Essential commands](#essential-commands)
+- [Getting help](#getting-help)
+
 This quickstart guide will have you using AI-powered coding assistance in just a few minutes. By the end, you'll understand how to use Claude Code for common development tasks.
 
 ## Before you begin
@@ -39,9 +50,7 @@ You can log in using either account type:
 
 Once logged in, your credentials are stored and you won't need to log in again.
 
-<Note>
-  When you first authenticate Claude Code with your Claude Console account, a workspace called "Claude Code" is automatically created for you. This workspace provides centralized cost tracking and management for all Claude Code usage in your organization.
-</Note>
+When you first authenticate Claude Code with your Claude Console account, a workspace called "Claude Code" is automatically created for you. This workspace provides centralized cost tracking and management for all Claude Code usage in your organization.
 
 ## Step 3: Start your first session
 
@@ -56,7 +65,18 @@ You'll see the Claude Code welcome screen with your session information, recent 
 
 After logging in (Step 2), your credentials are stored on your system. Learn more in [Credential Management](https://docs.claude.com/en/docs/claude-code/iam#credential-management).
 
-## Step 4: Common workflows
+### Use plugins (recommended)
+Jetbrains IDE \[beta]: https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+
+VS Code: https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code
+
+In PhpStorm you will see claude button in the top right corner. Click it and start coding with AI.
+
+![Auto-save Settings](images/claude-code-plugin-btn-storm.01.34.png)
+
+In VS Code it will be the same.
+
+## Common workflows
 
 **Write code**
 
@@ -88,6 +108,9 @@ After logging in (Step 2), your credentials are stored on your system. Learn mor
 > commit my changes with a descriptive message
 ```
 
+## AI Rules
+Create CLAUDE.md file in your project root and write your rules there.
+
 ## Essential commands
 
 Here are the most important commands for daily use:
@@ -111,3 +134,4 @@ See the [CLI reference](/en/docs/claude-code/cli-reference) for a complete list 
 * **Official documentation**: [Claude Code documentation](https://docs.claude.com/en/docs/claude-code/overview)
 * **In Claude Code**: Type `/help` or ask "how do I..."
 * **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support
+* **Install MCP servers**: https://docs.claude.com/en/docs/claude-code/mcp#installing-mcp-servers
