@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import List, Dict, Any, Optional
+import frontmatter
 
 PROMPTS_DIR = Path(__file__).parent.parent / "prompts"
 
@@ -24,42 +25,23 @@ class PromptLoader:
         self.prompts = []
         self.filename_map = {}
         for file in self.prompts_dir.glob("**/*.md"):
-            with open(file, "r", encoding="utf-8") as f:
-                content = f.read()
-                title = ""
-                description = ""
-                tags = []
-                lines = content.splitlines()
-                description_lines = []
-                parsing_description = False
-                for line in lines:
-                    if line.startswith("# "):
-                        title = line[2:].strip()
-                    elif line.startswith("## Description"):
-                        parsing_description = True
-                    elif line.startswith("## Tags (comma-separated)"):
-                        parsing_description = False
-                    elif line.startswith("##"):
-                        parsing_description = False
-                    elif parsing_description and line.strip():
-                        description_lines.append(line.strip())
-                try:
-                    tags_heading_index = lines.index("## Tags (comma-separated)")
-                    if tags_heading_index + 1 < len(lines):
-                        tags_line = lines[tags_heading_index + 1]
-                        tags = [tag.strip() for tag in tags_line.split(",") if tag.strip()]
-                except ValueError:
-                    pass  # No tags section found
-                description = " ".join(description_lines)
+            try:
+                with open(file, "r", encoding="utf-8") as f:
+                    post = frontmatter.load(f)
+
                 prompt = {
                     "filename": file.name,
-                    "content": content,
-                    "title": title,
-                    "description": description,
-                    "tags": tags,
+                    "content": post.content,
+                    "title": post.metadata.get("title", ""),
+                    "description": post.metadata.get("description", ""),
+                    "tags": post.metadata.get("tags", []) if isinstance(post.metadata.get("tags"), list) else [],
+                    "when_to_use": post.metadata.get("when_to_use"),
+                    "author": post.metadata.get("author"),
                 }
                 self.prompts.append(prompt)
                 self.filename_map[file.name] = prompt
+            except Exception as e:
+                print(f"Error parsing {file.name}: {e}")
 
     def get_all_prompts(self) -> List[Dict[str, Any]]:
         """Return all parsed prompts."""
