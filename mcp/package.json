@@ -12,7 +12,7 @@
     "start": "node dist/cli.js",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
-    "format": "prettier --write src/**/*.ts",
+    "format": "prettier --write src/*.ts src/**/*.ts",
     "prepare": "npm run build"
   },
   "keywords": [
