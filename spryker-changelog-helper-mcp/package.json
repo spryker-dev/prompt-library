@@ -5,7 +5,8 @@
   "main": "dist/cli.js",
   "bin": {
     "spryker-changelog": "./dist/cli.js",
-    "spryker-changelog-mcp": "./dist/mcp-server.js"
+    "spryker-changelog-mcp": "ts-node ./dist/mcp-server.js",
+    "mcp-server": "ts-node src/mcp-server.ts"
   },
   "scripts": {
     "build": "tsc",
