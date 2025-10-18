@@ -4,7 +4,7 @@ exports.InheritDocResolver = void 0;
 const canonical_1 = require("../../../utils/canonical");
 class InheritDocResolver {
     resolve(methods, classImplements) {
-        const { AnalyzerConfig } = require('../../../orchestrator/config/analyzer-config');
+        const { AnalyzerConfig } = require('../../../analysis/constants/analyzer-config');
         for (const [_key, metadata] of methods.entries()) {
             if (this.needsInheritance(metadata, AnalyzerConfig)) {
                 this.inheritFromInterface(metadata, classImplements, methods, AnalyzerConfig);

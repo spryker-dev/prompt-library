@@ -1,6 +1,4 @@
 "use strict";
-// Backward compatibility wrapper - re-exports all constants
-// This allows old code to keep working while we migrate to direct imports
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AnalyzerConfig = void 0;
 const git_constants_1 = require("./git-constants");

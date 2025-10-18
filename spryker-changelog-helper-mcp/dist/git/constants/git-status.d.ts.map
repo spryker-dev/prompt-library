@@ -1,1 +1,0 @@
-{"version":3,"file":"git-status.d.ts","sourceRoot":"","sources":["../../../src/git/constants/git-status.ts"],"names":[],"mappings":"AAAA,eAAO,MAAM,SAAS;;;;;;CAMZ,CAAC;AAEX,eAAO,MAAM,WAAW;;;;CAId,CAAC;AAEX,eAAO,MAAM,YAAY;;;;;;CAMf,CAAC;AAEX,eAAO,MAAM,YAAY;;CAEf,CAAC;AAEX,MAAM,MAAM,aAAa,GAAG,OAAO,SAAS,CAAC,MAAM,OAAO,SAAS,CAAC,CAAC;AACrE,OAAO,EAA2C,SAAS,EAAE,MAAM,cAAc,CAAC"}

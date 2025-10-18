@@ -3,6 +3,8 @@ node_modules/
 
 # Build output
 dist/
+!dist/cli.js
+!dist/mcp-server.js
 
 # Logs
 *.log
@@ -14,10 +16,6 @@ npm-debug.log*
 # Source maps
 *.js.map
 
-# Output directories (generated)
-impact-report/
-12345/
-
 # IDE
 .vscode/
 .idea/
@@ -26,3 +24,4 @@ impact-report/
 
 # Test output
 coverage/
+/dist/

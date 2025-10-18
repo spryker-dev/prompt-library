@@ -6,8 +6,8 @@ export class InheritDocResolver {
     methods: Map<CanonicalKey, MethodMetadata>,
     classImplements: Map<FullyQualifiedName, Set<FullyQualifiedName>>
   ): void {
-    const { AnalyzerConfig } = require('../../../orchestrator/config/analyzer-config');
-    
+    const { AnalyzerConfig } = require('../../../analysis/constants/analyzer-config');
+
     for (const [_key, metadata] of methods.entries()) {
       if (this.needsInheritance(metadata, AnalyzerConfig)) {
         this.inheritFromInterface(metadata, classImplements, methods, AnalyzerConfig);
@@ -31,7 +31,7 @@ export class InheritDocResolver {
     for (const interfaceFqn of interfaces) {
       const interfaceKey = canonKey(interfaceFqn, metadata.name);
       const interfaceMetadata = methods.get(interfaceKey);
-      
+
       if (this.isValidInheritanceSource(interfaceMetadata, config)) {
         this.copyMetadata(metadata, interfaceMetadata!);
         break;
@@ -43,8 +43,8 @@ export class InheritDocResolver {
     interfaceMetadata: MethodMetadata | undefined,
     config: any
   ): boolean {
-    return !!interfaceMetadata && 
-           !!interfaceMetadata.description && 
+    return !!interfaceMetadata &&
+           !!interfaceMetadata.description &&
            interfaceMetadata.description !== config.phpDocAnnotations.inheritDoc;
   }
 

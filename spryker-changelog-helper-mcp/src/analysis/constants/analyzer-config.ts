@@ -1,6 +1,3 @@
-// Backward compatibility wrapper - re-exports all constants
-// This allows old code to keep working while we migrate to direct imports
-
 import { GitStatus, DiffMarkers, DiffPrefixes, DiffSettings } from './git-constants';
 import { FileExtension, FilePattern, RelevantNonPhpExtensions } from './file-constants';
 import { ChangeType, InternalChangeType, VersionChangeType, ConstraintChangeType, TransferChangeType } from './change-constants';
@@ -32,7 +29,7 @@ export class AnalyzerConfig {
     transferSchema: new RegExp(FilePattern.TRANSFER_XML.replace(/\./g, '\\.')),
     sprykerFilePath: PublicApiPattern.SPRYKER_FILE_PATH,
   };
-  
+
   static readonly spryker = {
     vendors: SprykerVendors,
     layers: SprykerLayers,
@@ -48,11 +45,11 @@ export class AnalyzerConfig {
       table: CommunicationLayerClass.TABLE,
     },
   };
-  
+
   static readonly phpKeywords = {
     static: 'static',
   };
-  
+
   static readonly filePatterns = {
     composerJson: FilePattern.COMPOSER_JSON,
     config: FilePattern.CONFIG,
@@ -63,7 +60,7 @@ export class AnalyzerConfig {
     yamlExt: '.yml',
     yamlExtAlt: '.yaml',
   };
-  
+
   static readonly changeTypes = {
     ...ChangeType,
     new: ChangeType.NEW,
@@ -151,26 +148,26 @@ export class AnalyzerConfig {
     adjusted: ChangelogAction.ADJUSTED,
     deprecated: ChangelogAction.DEPRECATED,
   };
-  
+
   static readonly visibility = {
     public: 'public' as const,
     protected: 'protected' as const,
     private: 'private' as const,
   };
-  
+
   static readonly visibilityModifiers = {
     public: 'public' as const,
     protected: 'protected' as const,
     private: 'private' as const,
   };
-  
+
   static readonly diffBlockMarker = DiffMarkers.BLOCK_MARKER;
-  
+
   static readonly skipReasons = {
     emptyDiff: 'Empty diff',
     noClassName: 'No class name found',
     unknownError: 'Unknown error',
   };
-  
+
   static getEntrypointPattern = getEntrypointPattern;
 }
