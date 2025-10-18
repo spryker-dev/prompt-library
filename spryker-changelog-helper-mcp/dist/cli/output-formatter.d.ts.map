@@ -1,1 +1,0 @@
-{"version":3,"file":"output-formatter.d.ts","sourceRoot":"","sources":["../../src/cli/output-formatter.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,cAAc,EAAE,MAAM,uBAAuB,CAAC;AAEvD,qBAAa,eAAe;IAC1B,MAAM,CAAC,UAAU,CAAC,MAAM,EAAE,cAAc,EAAE,OAAO,CAAC,EAAE,MAAM,EAAE,IAAI,CAAC,EAAE,MAAM,GAAG,IAAI;IAOhF,MAAM,CAAC,UAAU,CAAC,MAAM,EAAE,cAAc,GAAG,IAAI;CAiBhD"}

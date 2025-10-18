@@ -1,1 +1,0 @@
-{"version":3,"file":"factory-method-detector.d.ts","sourceRoot":"","sources":["../../../src/indexing/factory/factory-method-detector.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,MAAM,0BAA0B,CAAC;AAG9D,qBAAa,qBAAqB;IAChC,MAAM,CAAC,cAAc,CAAC,GAAG,EAAE,kBAAkB,GAAG,OAAO;IAIvD,MAAM,CAAC,eAAe,CAAC,UAAU,EAAE,MAAM,GAAG,OAAO;CAOpD"}
