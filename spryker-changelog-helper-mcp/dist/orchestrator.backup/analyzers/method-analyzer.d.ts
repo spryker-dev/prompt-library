@@ -1,0 +1,40 @@
+import { PHPParser } from '../../parser/php-parser';
+import { DiffAnalysisResult } from '../diff-analyzer';
+export declare class MethodAnalyzer {
+    private phpParser;
+    constructor(phpParser: PHPParser, _root?: string);
+    analyzeDiff(file: string, diffText: string): DiffAnalysisResult;
+    private filterOutRemovedFromModified;
+    private processRemovedMethods;
+    private createEmptyResult;
+    private createSkippedFileForNoClassName;
+    private processBlocks;
+    private processBlock;
+    private findMethodSignaturesInBlock;
+    private processBlockWithoutMethodContext;
+    private buildMethodSignatureTracker;
+    private processSignatureLine;
+    private ensureMethodInTracker;
+    private updateMethodSignature;
+    private extractMethodNameFromBlock;
+    private hasConstructorChanges;
+    private findMethodNameInChanges;
+    private findMethodNameInAdditions;
+    private findMethodNameInBlockLines;
+    private blockHasChanges;
+    private extractMethodDetails;
+    private determineChangeType;
+    private createNewMethodChange;
+    private createModifiedMethodChange;
+    private hasParameterChanges;
+    private parseDiffBlocks;
+    private isBlockHeader;
+    private startNewBlock;
+    private finalizeBlock;
+    private extractMethodNameFromContext;
+    private addLineToBlock;
+    private removeDiffPrefix;
+    private isAddition;
+    private isRemoval;
+}
+//# sourceMappingURL=method-analyzer.d.ts.map
