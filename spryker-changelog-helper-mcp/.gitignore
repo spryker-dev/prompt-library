@@ -1,11 +1,6 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
-!dist/cli.js
-!dist/mcp-server.js
-
 # Logs
 *.log
 npm-debug.log*
