@@ -1,0 +1,3 @@
+# Ignore nothing for npm pack
+!dist/
+!dist/**
