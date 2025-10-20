@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_js_1 = require("@modelcontextprotocol/sdk/server/index.js");
@@ -123,7 +122,14 @@ server.setRequestHandler(types_js_1.CallToolRequestSchema, async (request) => {
         if (name === 'analyze_spryker_changes') {
             if (!args)
                 throw new Error('Missing arguments');
-            const service = new analysis_service_1.ImpactAnalysisService();
+            // Load module patterns if provided, otherwise use defaults
+            let modulePatterns;
+            if (args.modulePatterns) {
+                const fs = require('fs');
+                const patternsData = fs.readFileSync(args.modulePatterns, 'utf-8');
+                modulePatterns = JSON.parse(patternsData);
+            }
+            const service = new analysis_service_1.ImpactAnalysisService(modulePatterns);
             const analysisResult = await service.analyze({
                 root: args.root,
                 diff: args.diff,
@@ -136,6 +142,30 @@ server.setRequestHandler(types_js_1.CallToolRequestSchema, async (request) => {
             const { ChangelogFormatter } = require('./reporting/formatters/changelog-formatter');
             const formatter = new ChangelogFormatter();
             const changelog = formatter.format(report, report.moduleReports);
+            // Filter by requested modules if specified
+            if (args.modules) {
+                const requestedModules = new Set(args.modules.split(',').map(m => m.trim()));
+                if (changelog.modules instanceof Map) {
+                    const filteredModules = new Map();
+                    for (const [moduleName, moduleData] of changelog.modules.entries()) {
+                        if (requestedModules.has(moduleName)) {
+                            filteredModules.set(moduleName, moduleData);
+                        }
+                    }
+                    changelog.modules = filteredModules;
+                }
+                else {
+                    const filteredModules = {};
+                    for (const [moduleName, moduleData] of Object.entries(changelog.modules)) {
+                        if (requestedModules.has(moduleName)) {
+                            filteredModules[moduleName] = moduleData;
+                        }
+                    }
+                    changelog.modules = filteredModules;
+                }
+                changelog.summary.totalModules = changelog.modules instanceof Map ?
+                    changelog.modules.size : Object.keys(changelog.modules).length;
+            }
             const json = formatter.formatAsJson(changelog);
             return {
                 content: [

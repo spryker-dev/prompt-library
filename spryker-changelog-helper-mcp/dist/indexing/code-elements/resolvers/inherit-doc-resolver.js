@@ -4,10 +4,14 @@ exports.InheritDocResolver = void 0;
 const canonical_1 = require("../../../utils/canonical");
 class InheritDocResolver {
     resolve(methods, classImplements) {
-        const { AnalyzerConfig } = require('../../../analysis/constants/analyzer-config');
+        const config = {
+            phpDocAnnotations: {
+                inheritDoc: '{@inheritDoc}'
+            }
+        };
         for (const [_key, metadata] of methods.entries()) {
-            if (this.needsInheritance(metadata, AnalyzerConfig)) {
-                this.inheritFromInterface(metadata, classImplements, methods, AnalyzerConfig);
+            if (this.needsInheritance(metadata, config)) {
+                this.inheritFromInterface(metadata, classImplements, methods, config);
             }
         }
     }

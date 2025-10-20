@@ -152,7 +152,17 @@ class ImpactAnalysisService {
                 debug: false,
                 logger,
             });
-            const result = await analyzer.analyze();
+            // Add timeout to prevent hanging
+            let timeoutId;
+            const timeoutPromise = new Promise((_, reject) => {
+                timeoutId = setTimeout(() => reject(new Error('Impact analysis timeout after 30 seconds')), 30000);
+            });
+            const result = await Promise.race([
+                analyzer.analyze(),
+                timeoutPromise
+            ]);
+            // Clear the timeout if analysis completed successfully
+            clearTimeout(timeoutId);
             for (const targetKey of Object.keys(result.impacted)) {
                 const impacted = result.impacted[targetKey] || [];
                 if (impacted.length > 0) {

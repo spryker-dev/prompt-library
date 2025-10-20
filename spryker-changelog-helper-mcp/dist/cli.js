@@ -94,6 +94,30 @@ async function runDiffMode(options) {
         const { ChangelogFormatter } = require('./reporting/formatters/changelog-formatter');
         const changelogFormatter = new ChangelogFormatter();
         const changelogReport = changelogFormatter.format(report, report.moduleReports);
+        // Filter by requested modules if specified
+        if (options.modules && options.modules.length > 0) {
+            const requestedModules = new Set(options.modules);
+            if (changelogReport.modules instanceof Map) {
+                const filteredModules = new Map();
+                for (const [moduleName, moduleData] of changelogReport.modules.entries()) {
+                    if (requestedModules.has(moduleName)) {
+                        filteredModules.set(moduleName, moduleData);
+                    }
+                }
+                changelogReport.modules = filteredModules;
+            }
+            else {
+                const filteredModules = {};
+                for (const [moduleName, moduleData] of Object.entries(changelogReport.modules)) {
+                    if (requestedModules.has(moduleName)) {
+                        filteredModules[moduleName] = moduleData;
+                    }
+                }
+                changelogReport.modules = filteredModules;
+            }
+            changelogReport.summary.totalModules = changelogReport.modules instanceof Map ?
+                changelogReport.modules.size : Object.keys(changelogReport.modules).length;
+        }
         const changelogJson = changelogFormatter.formatAsJson(changelogReport);
         console.log(changelogJson);
     }
