@@ -4,9 +4,9 @@
     "private": true,
     "description": "Launcher for spryker-changelog-helper-mcp subpackage",
     "bin": {
-        "spryker-changelog-helper-mcp": "./spryker-changelog-helper-mcp/dist/mcp-server.js"
+        "spryker-changelog-helper-mcp": "./cli/spryker-changelog-helper-mcp.js"
     },
     "scripts": {
-        "spryker-changelog-helper-mcp start": "node ./spryker-changelog-helper-mcp/dist/mcp-server.js"
+        "spryker-changelog-helper-mcp start": "node ./cli/spryker-changelog-helper-mcp.js"
     }
 }
