@@ -1,0 +1,12 @@
+{
+    "name": "prompt-library-launcher",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Launcher for spryker-changelog-helper-mcp subpackage",
+    "bin": {
+        "spryker-changelog-helper-mcp": "./spryker-changelog-helper-mcp/dist/mcp-server.js"
+    },
+    "scripts": {
+        "spryker-changelog-helper-mcp start": "node ./spryker-changelog-helper-mcp/dist/mcp-server.js"
+    }
+}
