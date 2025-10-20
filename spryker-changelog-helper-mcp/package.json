@@ -9,6 +9,10 @@
         "spryker-changelog-mcp": "./dist/mcp-server.js",
         "mcp-server": "./dist/mcp-server.js"
     },
+    "files": [
+        "dist/",
+        "package.json"
+    ],
     "scripts": {
         "build": "tsc",
         "start": "node dist/mcp-server.js",
