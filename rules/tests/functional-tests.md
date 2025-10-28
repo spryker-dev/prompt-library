@@ -178,14 +178,14 @@ Creating new data builders is only necessary when you need to test with specific
 
 Test helpers in Spryker are located in several places:
 
-1. **Core Testify Module**: `/vendor/spryker/spryker/Bundles/Testify/tests/SprykerTest/Shared/Testify/_support/Helper/`
+1. **Core Testify Module**: `src/Spryker/Testify/tests/SprykerTest/Shared/Testify/_support/Helper/`
    - Contains base helpers used across all modules
 
-2. **Module-Specific Helpers**: `/vendor/spryker/spryker/Bundles/ModuleName/tests/SprykerTest/Shared/ModuleName/_support/Helper/`
+2. **Module-Specific Helpers**: `src/Spryker/ModuleName/tests/SprykerTest/Shared/ModuleName/_support/Helper/`
    - Contains helpers specific to a particular module
 
 3. **Layer-Specific Helpers**:
-   - Zed/Client/Yves: `/vendor/spryker/spryker/Bundles/Testify/tests/SprykerTest/{Layer}/Testify/_support/Helper/`
+   - Zed/Client/Yves: `src/Spryker/Testify/tests/SprykerTest/{Layer}/Testify/_support/Helper/`
 
 4. **Project-Specific Helpers**: `/tests/PyzTest/Shared/Testify/_support/Helper/`
    - Contains custom helpers for project-specific testing needs

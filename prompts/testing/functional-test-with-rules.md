@@ -33,10 +33,10 @@ Create a single Functional test for {COMPONENT_TYPE}::{METHOD_NAME}() following 
 ```text
 Create a single Functional test for SalesOrderAmendmentFacade::getSalesOrderAmendmentQuoteCollection() following these requirements:
 
-1. Place the test in vendor/spryker/spryker/Bundles/SalesOrderAmendment/tests/SprykerTest/Zed/SalesOrderAmendment/Business/Facade/
+1. Place the test in src/Spryker/SalesOrderAmendment/tests/SprykerTest/Zed/SalesOrderAmendment/Business/Facade/
 2. Do not mock anything - use prepared with helpers data from database.
 3. Use a data provider to test all scenarios, including negative
-4. Use databuilders if required, example: vendor/spryker/spryker/Bundles/Sales/tests/_data/sales.databuilder.xml. Use functional test rules: {ruleFile}.
+4. Use databuilders if required, example: src/Spryker/Sales/tests/_data/sales.databuilder.xml. Use functional test rules: {ruleFile}.
 ```
 
 ## Example Output

@@ -38,15 +38,15 @@ Create a single Functional test for {COMPONENT_TYPE}::{METHOD_NAME}() following 
 ```text
 Create a single Functional test for SalesOrderAmendmentFacade::expandQuoteWithOriginalOrder() following these requirements:
 
-1. Place the test in vendor/spryker/spryker/Bundles/SalesOrderAmendment/tests/SprykerTest/Zed/SalesOrderAmendment/Business/Facade/
+1. Place the test in src/Spryker/SalesOrderAmendment/tests/SprykerTest/Zed/SalesOrderAmendment/Business/Facade/
 2. To prepare data use existing testing helpers where possible, e.g. \SprykerTest\Shared\Sales\Helper\SalesDataHelper, if not possible - create a method in Tester class. If method can be reused - introduce helper.
 3. Do not mock anything - use data prepared with helpers.
 4. Run 'docker/sdk testing codecept build' to generate Tester actions from configuration.
 5. If possible - use a data provider to test all scenarios, including negative.
 6. Follow the Arrange/Act/Assert pattern with real database interaction instead of mocks
-7.Before implementation check how tests are implemented in vendor/spryker/spryker/Bundles/Sales/tests/SprykerTest/Zed/Sales/Business/SalesFacadeTest.php
-8. Use databuilders if required, example: vendor/spryker/spryker/Bundles/Sales/tests/_data/sales.databuilder.xml. They require running "docker/sdk cli console transfer:databuilder:generate".
-9. To validate test is ok, run: "docker/sdk testing codecept run", provide test name as a group and module codeception.yml as a config (reference vendor/spryker/spryker/Bundles/Sales/codeception.yml).
+7.Before implementation check how tests are implemented in src/Spryker/Sales/tests/SprykerTest/Zed/Sales/Business/SalesFacadeTest.php
+8. Use databuilders if required, example: src/Spryker/Sales/tests/_data/sales.databuilder.xml. They require running "docker/sdk cli console transfer:databuilder:generate".
+9. To validate test is ok, run: "docker/sdk testing codecept run", provide test name as a group and module codeception.yml as a config (reference src/Spryker/Sales/codeception.yml).
 ```
 
 ## Example Output
