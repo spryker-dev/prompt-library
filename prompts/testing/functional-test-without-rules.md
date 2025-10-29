@@ -66,6 +66,7 @@ use Generated\Shared\DataBuilder\QuoteBuilder;
 use Generated\Shared\Transfer\CustomerTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Shared\Kernel\Transfer\Exception\NullValueException;
+use SprykerTest\Zed\SalesOrderAmendment\SalesOrderAmendmentBusinessTester;
 
 /**
  * Auto-generated group annotations
@@ -80,14 +81,8 @@ use Spryker\Shared\Kernel\Transfer\Exception\NullValueException;
  */
 class ExpandQuoteWithOriginalOrderTest extends Unit
 {
-    /**
-     * @var \SprykerTest\Zed\SalesOrderAmendment\SalesOrderAmendmentBusinessTester
-     */
-    protected $tester;
+    protected SalesOrderAmendmentBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -97,13 +92,6 @@ class ExpandQuoteWithOriginalOrderTest extends Unit
 
     /**
      * @dataProvider expandQuoteWithOriginalOrderDataProvider
-     *
-     * @param array $quoteData
-     * @param bool $shouldFindOrder
-     * @param string|null $expectedExceptionClass
-     * @param string|null $expectedExceptionMessage
-     *
-     * @return void
      */
     public function testExpandQuoteWithOriginalOrder(
         array $quoteData,
@@ -158,9 +146,6 @@ class ExpandQuoteWithOriginalOrderTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQuoteWithOriginalOrderSuccessWithExistingOrder(): void
     {
         // Arrange
@@ -184,9 +169,6 @@ class ExpandQuoteWithOriginalOrderTest extends Unit
         $this->assertSame($orderTransfer->getOrderReference(), $resultQuoteTransfer->getOriginalOrder()->getOrderReference());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQuoteWithOriginalOrderReturnsNullWhenOrderNotFound(): void
     {
         // Arrange
@@ -203,9 +185,6 @@ class ExpandQuoteWithOriginalOrderTest extends Unit
         $this->assertNull($resultQuoteTransfer->getOriginalOrder());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandQuoteWithOriginalOrderReturnsNullWhenCustomerMismatch(): void
     {
         // Arrange
@@ -229,9 +208,6 @@ class ExpandQuoteWithOriginalOrderTest extends Unit
         $this->assertNull($resultQuoteTransfer->getOriginalOrder());
     }
 
-    /**
-     * @return array
-     */
     protected function expandQuoteWithOriginalOrderDataProvider(): array
     {
         return [
