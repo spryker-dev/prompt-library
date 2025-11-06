@@ -30,6 +30,7 @@ When you need to create a set of unit tests for a newly created or existing TF m
    - For each module you test, validate which outputs the module creates and only test for those
    - ARNs are not available during test/plan phase, only check for expected names
    - When using paths anywhere, use relative paths from the root directory of the git repository, don't use absolute paths
+   - No readme files should be created for tests, any documentation should be inside the tests as comments. Add comments only for non-trivial things. 
 ```
 
 ## Example Usage
@@ -44,6 +45,10 @@ When you need to create a set of unit tests for a newly created or existing TF m
    - In assertions use the specific resource name instead of 'this', because a module can create several resources. 
    - If you are not sure if you used correct resource name, indicate it in your answer and ask for the developer to provide it. 
    - All test files should be placed in the root of tests folder inside the module. Add instructions on how to run and setup tests.
+   - For each module you test, validate which outputs the module creates and only test for those
+   - ARNs are not available during test/plan phase, only check for expected names
+   - When using paths anywhere, use relative paths from the root directory of the git repository, don't use absolute paths
+   - No readme files should be created for tests, any documentation should be inside the tests as comments. Add comments only for non-trivial things. 
 ```
 
 ## Example Output
