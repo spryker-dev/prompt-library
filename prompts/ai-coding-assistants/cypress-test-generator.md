@@ -1,36 +1,27 @@
-# Cypress Test Generator
+---
+title: Cypress Test Generator
 
-## Description
+description: A prompt for generating Cypress tests for provided functionality. This prompt helps developers cover functionality with Cypress tests. It focuses on understanding the context of the functionality.
 
-A prompt for generating Cypress tests for provided functionality.
+when_to_use: When you need to cover functionality with Cypress tests.
 
-## Prompt Description
+tags: ['test', 'cypress']
 
-This prompt helps developers cover functionality with Cypress tests. It focuses on understanding the context of the functionality.
+author: @kraal-spryker
+---
 
-## Tags (comma-separated)
-test, cypress
+# Generate Cypress Test
 
-## When to Use
-
-When you need to cover functionality with Cypress tests.
-
-## Prompt
-
-```text
 Please cover functionality {FUNCTIONALITY_DESCRIPTION} with Cypress tests. The starting point - {CONTROLLER_ACTION}. Test cases:
 {TEST_CASES}
-```
 
 ## Example Usage
 
-```text
 Please cover functionality of attaching file to different entities with Cypress tests. The starting point - AttachFileController::indexAction(). Test cases:
 - Attach file to companies manually.
 - Attach file to companies by import file.
 - Attach file to company business units manually.
 - Attach file to company business units by import file.
-```
 
 ## Example Output
 
@@ -121,12 +112,3 @@ function describeForSsp(title: string, options: { tags: string[] }, fn: () => vo
   (['suite', 'b2b'].includes(Cypress.env('repositoryId')) ? describe : describe.skip)(title, options, fn);
 }
 ```
-
-### LLM
-Claude 4 Sonnet
-
-### AI Assistant
-Cursor
-
-### Author
-@kraal-spryker

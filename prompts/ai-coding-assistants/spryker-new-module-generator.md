@@ -1,35 +1,18 @@
-# Spryker new module prompt
+---
+title: Spryker New Module Generator
 
-## Overview
+description: A prompt for creating new Spryker modules with standardized structure and required components, ensuring consistent module creation following Spryker's architectural principles and coding standards.
 
-This prompt is designed to help you create a new module for the Spryker platform.
-It guides you through the process of defining the module's purpose, functionality, and integration with existing systems.
+when_to_use: When creating a new module in the Spryker Zed application, implementing new business functionality that requires database persistence, extending existing Spryker functionality with custom features, or adding new API endpoints or services to your Spryker application.
 
-## Description
+tags: [spryker, module-creation, zed, persistence-layer, business-logic, transfer-objects, php, propel-orm]
 
-This prompt will assist you in creating a new module for the Spryker platform by guiding you through the necessary steps and considerations.
-It will help you define the module's purpose, functionality, and how it integrates with existing systems.
+author: @shveider
+---
 
-## Prompt Description
+# Spryker New Module Generator
 
-This prompt helps generate a new Spryker module with standardized structure and required components. It ensures
-consistent module creation following Spryker's architectural principles and coding standards.
-
-## Tags (comma-separated)
-
-spryker, module-creation, zed, persistence-layer, business-logic, transfer-objects, php, propel-orm
-
-## When to Use
-
-- When creating a new module in the Spryker Zed (back-end) application
-- When implementing new business functionality that requires database persistence
-- When extending existing Spryker functionality with custom features
-- When adding new API endpoints or services to your Spryker application
-
-## Prompt
-
-```text
-ModuleName: {YourModuleName}  
+ModuleName: {YourModuleName}
 EntityName: ModuleName
 
 Entity fields:
@@ -65,11 +48,9 @@ Create a transfer object definition for entity in `src/Shared/[ModuleName]/Trans
 
 ## Similar Module Example
 Check src/Zed/Sales as an example of a module with a similar structure.
-```
 
 ## Example Usage
 
-```text
 ModuleName: ProductReview
 EntityName: ProductReview
 
@@ -116,7 +97,6 @@ Create a transfer object definition for entity in `src/Shared/[ModuleName]/Trans
 
 ## Similar Module Example
 Check src/Zed/Sales as an example of a module with a similar structure.
-```
 
 ## Example Output
 
@@ -147,10 +127,3 @@ src/
         └── Transfer/
             └── product_review.transfer.xml
 ```
-
-### Technical Details
-
-- **LLM**: Claude 3.7 Sonnet
-- **AI Assistant**: Windsurf
-- **Author**: @shveider
-- **Last Updated**: 2025-07-18

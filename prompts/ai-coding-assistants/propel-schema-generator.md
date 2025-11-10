@@ -1,35 +1,33 @@
+---
+title: Propel Schema Generator
+
+description: A prompt for generating Propel schema definitions for database tables based on feature requirements. It creates properly structured XML schema files with table definitions, columns, behaviors, and relationships while following Propel ORM conventions.
+
+when_to_use: When you need to create database schema definitions for new features
+
+tags: [propel, schema, database, orm]
+
+author: @geronica90
+---
+
 # Propel Schema Generator
 
-## Generate Propel Schema Definition for Database Tables
-
-### Prompt Description
-This prompt helps generate Propel schema definitions for database tables based on feature requirements. It creates properly structured XML schema files with table definitions, columns, behaviors, and relationships while following Propel ORM conventions.
-
-## Tags (comma-separated)
-propel, schema, database, orm
-
-### When to Use
-Use this prompt when you need to create database schema definitions for new features.
-
-### Prompt
-```text
-Create propel schema definition for table(tables) for the feature {FEATURE_NAME}. 
-{FEATURE_DESCRIPTION}. 
-{TABLE_NAME} must have {REQUIRED_FIELDS} (use {BEHAVIOR_NAME} behavior). 
-{ENTITY_A} can have {RELATIONSHIP_TYPE} {ENTITY_B} with {RELATIONSHIP_DETAILS}. 
+Create propel schema definition for table(tables) for the feature {FEATURE_NAME}.
+{FEATURE_DESCRIPTION}.
+{TABLE_NAME} must have {REQUIRED_FIELDS} (use {BEHAVIOR_NAME} behavior).
+{ENTITY_A} can have {RELATIONSHIP_TYPE} {ENTITY_B} with {RELATIONSHIP_DETAILS}.
 Please, do not add any additional indexes or behaviors.
-```
 
-### Example Usage
-```text
-Create propel schema definition for table(tables) for the feature Company Catalog. 
-Company users see their own categories, assigned to company catalog. 
-Catalog must have name, is_active and created/updated at (use timestampable behavior). 
-Company can have many catalogs with assigned categories. 
+## Example Usage
+
+Create propel schema definition for table(tables) for the feature Company Catalog.
+Company users see their own categories, assigned to company catalog.
+Catalog must have name, is_active and created/updated at (use timestampable behavior).
+Company can have many catalogs with assigned categories.
 Please, do not add any additional indexes or behaviors.
-```
 
-### Example Output
+## Example Output
+
 ```xml
 <database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="zed"
     xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
@@ -82,12 +80,3 @@ Please, do not add any additional indexes or behaviors.
 
 </database>
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf
-
-### Author
-@geronica90

@@ -1,36 +1,26 @@
+---
+title: Specific Refactoring Instructions
+
+description: A prompt for providing specific, detailed refactoring instructions that help AI understand exactly what changes to make to improve code structure, readability, and maintainability.
+
+when_to_use: When you have complex methods that need to be broken down into smaller, focused functions, or when you want to improve code readability and maintainability through extraction.
+
+tags: [refactoring, code-quality, maintainability, readability]
+
+author: @geronica90
+---
+
 # Specific Refactoring Instructions
 
-## Description
-
-A prompt for providing specific, detailed refactoring instructions that help AI understand exactly what changes to make to improve code structure, readability, and maintainability.
-
-## Prompt Description
-
-This prompt emphasizes the importance of being specific and detailed when asking for code refactoring. Instead of vague requests, it provides clear instructions about what should be extracted, how methods should be named, and what the expected outcome should look like.
-
-## Tags (comma-separated)
-refactoring, code-quality, maintainability, readability
-
-## When to Use
-
-- When you have complex methods that need to be broken down into smaller, focused functions
-- When you want to improve code readability and maintainability through extraction
-
-## Prompt
-
-```text
-Refactor this method: improve readability by {READABILITY_IMPROVEMENT}, 
-improve performance by {PERFORMANCE_IMPROVEMENT}, 
+Refactor this method: improve readability by {READABILITY_IMPROVEMENT},
+improve performance by {PERFORMANCE_IMPROVEMENT},
 {ADDITIONAL_REQUIREMENTS}.
-```
 
 ## Example Usage
 
-```text
-Refactor this method: improve readability by splitting into smaller methods, where possible, but avoid one-line methods, 
-improve performance by using method from facade to retrieve multiple products at once, 
+Refactor this method: improve readability by splitting into smaller methods, where possible, but avoid one-line methods,
+improve performance by using method from facade to retrieve multiple products at once,
 get rid of if/else.
-```
 
 ## Example Output
 
@@ -97,12 +87,3 @@ protected function setProductAttributesToItems(array $skuToItemMap, array $produ
     }
 }
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf
-
-### Author
-@geronica90

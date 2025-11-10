@@ -1,19 +1,17 @@
-# Comprehensive Git Diff review
+---
+title: Comprehensive Git Diff Review
 
-## Prompt Title
-A prompt that provides detailed instruction on how to perform a code review by a provided git diff.
+description: A prompt that provides detailed instruction on how to perform a code review by a provided git diff against Spryker Guidelines and provides detailed review information.
 
-## Prompt Description
-This prompt will check a git diff against Spryker Guidelines and provides a detailed review information that can be used to further validate the changes made
+when_to_use: When a review on a changeset must be performed
 
-## Tags (comma-separated)
-review, architecture
+tags: [review, architecture]
 
-## When to Use
-This prompt should be used when a review on a changeset must be performed
+author: René Klatt
+---
 
-## Prompt
-```text
+# Comprehensive Git Diff Review
+
 Do a comprehensive review of the diff that gets attached as argument. Take the content of the following files into account:
 
 - ./prompts/context/spryker-architecture-guide-api.md
@@ -34,18 +32,8 @@ When needed, provide a list of possible improvements ideally with cites to the g
 
 When there is something unclear ask the user for his input.
 
-```
-
 ## Example Output
+
 > "**Summary**: The change provides a feature for importing a new entity into the system."
 > "The provided diff matches the requirements, non-functional requirements, and acceptance criteria and has a rating of 7/10."
 > "**Possible improvements**: - Performance; while not mentioned in the ticket the foreach loop does a database call which is a performance issue."
-
-## LLM
-Claude 3.7 Sonnet, Gemini 2.5 Pro
-
-## AI Assistant
-GitHub Copilot
-
-## Author
-René Klatt

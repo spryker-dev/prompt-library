@@ -1,43 +1,33 @@
+---
+title: Project Cypress Test Generator
+
+description: A prompt for generating Cypress tests in Spryker Projects for provided functionality.
+
+when_to_use: When you need to cover functionality with Cypress tests for your project
+
+tags: [test, cypress]
+
+author: @olena.krivtsova
+---
+
 # Project Cypress Test Generator
 
-## Description
-
-A prompt for generating Cypress tests in Spryker Projects for provided functionality.
-
-## Prompt Description
-
-This prompt helps developers cover project functionality with Cypress tests. It focuses on understanding the context of the functionality.
-
-## Tags (comma-separated)
-test, cypress
-
-## When to Use
-
-When you need to cover functionality with Cypress tests for your project.
-
-## Prompt
-
-```text
 Please cover functionality {FUNCTIONALITY_DESCRIPTION} with Cypress tests. Test cases that you should cover:
 {TEST_CASES}. Do not write any tests that are not requested.
-```
 
 ## Example Usage With Plain Text
 
-```text
 Please cover functionality of adding customer address on Storefront with Cypress tests. Test cases that you should cover:
 - Creating new customer address in Storefront
 - Viewing created address
 Do not write any tests that are not requested.
-```
 
 ## Example Usage With Files
 
-```text
 Please cover functionality Convert_Shopping_List_to_Cart_User_Story.txt with Cypress tests. Test cases that you should cover: List_of_Testcases.txt. Do not write any tests that are not requested.
-```
 
 ## Example Output
+
 For a sample user story:
 ```text
 As a Company User (B2B buyer)
@@ -45,8 +35,8 @@ As a Company User (B2B buyer)
  so that I can plan and execute repeat, team-based purchases efficiently.
 ```
 
-And the test cases list that requests 2 tests top be created: 
-* Verify that an authenticated Company User can navigate to “My Account” → “Shopping Lists” and see the list page
+And the test cases list that requests 2 tests top be created:
+* Verify that an authenticated Company User can navigate to "My Account" → "Shopping Lists" and see the list page
 * Successfully add a concrete product from PDP to a chosen shopping list
 
 The following files will be created:
@@ -65,7 +55,7 @@ cypress/support/page-objects/storefront/product/storefront-product-details-page.
 Here is an example of the test specification file:
 
 ```ts
-\import shoppingListData from '../../../fixtures/shopping-list-data.json'
+import shoppingListData from '../../../fixtures/shopping-list-data.json'
 import userCredentials from '../../../fixtures/user-data.json'
 import { StorefrontShoppingListsScenarios } from '../../../support/scenarios/storefront/storefront-shopping-lists-scenarios'
 import { StorefrontShoppingListsPage } from '../../../support/page-objects/storefront/shopping-lists/storefront-shopping-lists-page'
@@ -137,7 +127,7 @@ describe('Shopping Lists - Specific Test Cases', () => {
       productDetailsPage.addToList(listName, quantity, note)
 
       // Expected Outcome: Item with correct SKU and quantity is added to the target list
-      productDetailsPage.getSuccessMessage().should('contain.text', 
+      productDetailsPage.getSuccessMessage().should('contain.text',
         shoppingListData.validationMessages.successAddToList
       )
 
@@ -158,13 +148,3 @@ describe('Shopping Lists - Specific Test Cases', () => {
 
 
 ```
-
-
-### LLM
-Claude 4 Sonnet
-
-### AI Assistant
-Cursor
-
-### Author
-@olena.krivtsova

@@ -1,35 +1,26 @@
+---
+title: Symfony Form Generator
+
+description: A prompt for creating Symfony forms based on transfer object properties, including appropriate field types, constants, and data providers for complex form handling.
+
+when_to_use: When you need to create a new Symfony form based on a transfer object with proper field mapping and type handling
+
+tags: [symfony, form, generator, validation]
+
+author: @geronica90
+---
+
 # Symfony Form Generator
 
-## Description
-
-A prompt for creating Symfony forms based on transfer object properties, including appropriate field types, constants, and data providers for complex form handling.
-
-## Prompt Description
-
-This prompt helps developers generate Symfony form classes that correspond to transfer objects in Spryker applications. It focuses on creating forms with proper field mapping and type handling.
-
-## Tags (comma-separated)
-symfony, form, generator, validation
-
-## When to Use
-
-When you need to create a new Symfony form based on a transfer object with proper field mapping and type handling
-
-## Prompt
-
-```text
-please introduce new Symfony form in {MODULE_NAME} module based on {TRANSFER_NAME}. 
-please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. 
+please introduce new Symfony form in {MODULE_NAME} module based on {TRANSFER_NAME}.
+please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select.
 Use transfer property names as a filed names.
-```
 
 ## Example Usage
 
-```text
-please introduce new Symfony form in ProductManagement module based on ProductTemplateTransfer. 
-please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select. 
+please introduce new Symfony form in ProductManagement module based on ProductTemplateTransfer.
+please, consider that some fields depending on their type and names may have different input types, like radio, multiselect or select.
 Use transfer property names as a filed names.
-```
 
 ## Example Output
 
@@ -85,12 +76,3 @@ class ProductTemplateForm extends AbstractType
     }
 }
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf
-
-### Author
-@geronica90
