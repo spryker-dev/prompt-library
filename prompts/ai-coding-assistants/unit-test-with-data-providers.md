@@ -1,43 +1,30 @@
+---
+title: Unit Test with Data Providers
+
+description: A prompt for writing comprehensive unit tests using data providers to cover all possible conditions and edge cases in a structured, maintainable way.
+
+when_to_use: When you need comprehensive test coverage for a method with multiple conditions, testing methods that need to handle various input scenarios, or when you want to avoid repetitive test code and use data-driven testing.
+
+tags: [unit-test, phpunit, data-providers, testing]
+
+author: @geronica90
+---
+
 # Unit Test with Data Providers
 
-## Description
-
-A prompt for writing comprehensive unit tests using data providers to cover all possible conditions and edge cases in a structured, maintainable way.
-
-## Prompt Description
-
-This prompt helps developers create thorough unit tests that utilize data providers to systematically test different scenarios, including positive cases, negative cases, and edge conditions. It emphasizes avoiding code duplication and organizing tests in a clean, readable manner.
-
-## Tags (comma-separated)
-unit-test, phpunit, data-providers, testing
-
-## When to Use
-
-- When you need comprehensive test coverage for a method with multiple conditions
-- When testing methods that need to handle various input scenarios
-- When you want to avoid repetitive test code and use data-driven testing
-- When you need to test both positive and negative scenarios systematically
-- When testing methods that should throw exceptions under certain conditions
-
-## Prompt
-
-```text
-Write a unit test for {CLASS_NAME}::{METHOD_NAME}() using a data provider. 
-Each condition should be covered in a separate case. 
-Include all possible both positive and negative scenarios. 
-Also do not forget to cover edge cases and expected exceptions (e.g. missing {EXCEPTION_CONTEXT}). 
+Write a unit test for {CLASS_NAME}::{METHOD_NAME}() using a data provider.
+Each condition should be covered in a separate case.
+Include all possible both positive and negative scenarios.
+Also do not forget to cover edge cases and expected exceptions (e.g. missing {EXCEPTION_CONTEXT}).
 Avoid code duplication and try to combine everything in 1–2 test methods.
-```
 
 ## Example Usage
 
-```text
-Write a unit test for DiscountEligibilityChecker::isEligible() using a data provider. 
-Each condition should be covered in a separate case. 
-Include all possible both positive and negative scenarios. 
-Also do not forget to cover edge cases and expected exceptions (e.g. missing store in QuoteTransfer). 
+Write a unit test for DiscountEligibilityChecker::isEligible() using a data provider.
+Each condition should be covered in a separate case.
+Include all possible both positive and negative scenarios.
+Also do not forget to cover edge cases and expected exceptions (e.g. missing store in QuoteTransfer).
 Avoid code duplication and try to combine everything in 1–2 test methods.
-```
 
 ## Example Output
 
@@ -149,12 +136,3 @@ class DiscountEligibilityCheckerTest extends Unit
     }
 }
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf
-
-### Author
-@geronica90

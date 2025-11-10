@@ -2,17 +2,17 @@
   "name": "@spryker-dev/prompts-mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol server for Spryker prompt library - Node.js implementation",
-  "main": "dist/index.js",
+  "main": "mcp/dist/index.js",
   "bin": {
-    "spryker-prompts-mcp": "dist/cli.js"
+    "spryker-prompts-mcp": "mcp/dist/cli.js"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx src/cli.ts",
-    "start": "node dist/cli.js",
-    "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "format": "prettier --write src/*.ts src/**/*.ts",
+    "build": "mcp/node_modules/.bin/tsc",
+    "dev": "mcp/node_modules/.bin/tsx src/cli.ts",
+    "start": "node mcp/dist/cli.js",
+    "test": "mcp/node_modules/.bin/jest",
+    "lint": "mcp/node_modules/.bin/eslint src/**/*.ts",
+    "format": "mcp/node_modules/.bin/prettier --write src/*.ts src/**/*.ts",
     "prepare": "npm run build"
   },
   "keywords": [
@@ -53,6 +53,6 @@
   },
   "files": [
     "dist/**/*",
-    "README.md"
+    "mcp/README.md"
   ]
 }

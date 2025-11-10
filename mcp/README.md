@@ -1,4 +1,4 @@
-# Spryker Prompts MCP Server (Node.js)
+# Spryker Prompts MCP Server (Node.js) BETA
 
 A Model Context Protocol (MCP) server implementation for the Spryker Prompt Library, written in Node.js/TypeScript.
 

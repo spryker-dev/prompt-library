@@ -40,7 +40,6 @@ def get_prompt(filename: str) -> dict:
             "description": prompt["description"],
             "tags": prompt["tags"],
             "when_to_use": prompt.get("when_to_use"),
-            "author": prompt.get("author"),
             "content": prompt["content"],
         }
     except Exception as e:
@@ -63,7 +62,6 @@ def list_prompts() -> dict:
                     "description": p["description"],
                     "tags": p["tags"],
                     "when_to_use": p.get("when_to_use"),
-                    "author": p.get("author"),
                 }
                 for p in all_prompts
             ]
@@ -101,19 +99,17 @@ def search_prompts(query: str) -> dict:
 
         matching_prompts = []
         for prompt in all_prompts:
-            # Search in title, description, tags, when_to_use, and author
+            # Search in title, description, tags, when_to_use
             if (query_lower in prompt["title"].lower() or
                 query_lower in prompt["description"].lower() or
                 any(query_lower in tag.lower() for tag in prompt.get("tags", [])) or
-                (prompt.get("when_to_use") and query_lower in prompt["when_to_use"].lower()) or
-                (prompt.get("author") and query_lower in prompt["author"].lower())):
+                (prompt.get("when_to_use") and query_lower in prompt["when_to_use"].lower())):
                 matching_prompts.append({
                     "filename": prompt["filename"],
                     "title": prompt["title"],
                     "description": prompt["description"],
                     "tags": prompt["tags"],
                     "when_to_use": prompt.get("when_to_use"),
-                    "author": prompt.get("author"),
                 })
 
         return {

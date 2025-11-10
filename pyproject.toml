@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "mcp[cli]>=1.12.0",
+    "python-frontmatter>=1.1.0"
 ]
 authors = [
     { name = "Spryker AI Team", email = "vitalii.shveider@spryker.com" },

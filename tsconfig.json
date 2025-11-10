@@ -3,8 +3,8 @@
     "target": "ES2022",
     "module": "commonjs",
     "lib": ["ES2022"],
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "./mcp/dist",
+    "rootDir": "./mcp/src",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -16,11 +16,12 @@
     "moduleResolution": "node"
   },
   "include": [
-    "src/**/*"
+    "mcp/src/**/*",
+    "prompts"
   ],
   "exclude": [
-    "node_modules",
+    "mcp",
     "dist",
-    "**/*.test.ts"
+    "mcp/**/*.test.ts"
   ]
 }
