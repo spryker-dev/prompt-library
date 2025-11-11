@@ -1,5 +1,8 @@
 # How to Set Up VS Code for Backend Development
 
+This guide helps you configure VS Code for local development.
+If you want to integrate Prompt library, please check [Readme](README.md) first, since some sections of this document might not be needed.
+
 ## Table of Contents
 
 1. [Install VS Code](#1-install-vs-code)

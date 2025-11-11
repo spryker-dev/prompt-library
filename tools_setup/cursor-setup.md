@@ -1,4 +1,7 @@
 # How to Set Up Cursor for Backend Development
+This guide helps you configure Cursor for local development.
+If you want to integrate Prompt library, please check [Readme](README.md) first, since some sections of this document might not be needed.
+
 
 ## Table of Contents
 

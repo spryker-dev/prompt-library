@@ -1,5 +1,8 @@
 # How to Set Up Windsurf for Backend Development
 
+This guide helps you configure Windsurf for local development.
+If you want to integrate Prompt library, please check [Readme](README.md) first, since some sections of this document might not be needed.
+
 ## Table of Contents
 
 1. [Install Windsurf](#1-install-windsurf)
