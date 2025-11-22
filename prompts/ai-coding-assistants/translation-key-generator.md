@@ -1,31 +1,22 @@
+---
+title: Translation Key Generator
+
+description: A prompt for generating translations for specific keys across multiple locales in CSV format, ensuring consistent and contextually appropriate translations.
+
+when_to_use: When you need to add translations for new keys across multiple locales
+
+tags: [translation, i18n, localization, key-generator]
+
+author: @geronica90
+---
+
 # Translation Key Generator
 
-## Description
-
-A prompt for generating translations for specific keys across multiple locales in CSV format, ensuring consistent and contextually appropriate translations.
-
-## Prompt Description
-
-This prompt helps developers add translations for missing keys in translation files. It focuses on understanding the context of the keys and providing accurate translations that maintain consistency with existing translation patterns in the project.
-
-## Tags (comma-separated)
-translation, i18n, localization, key-generator
-
-## When to Use
-
-When you need to add translations for new keys across multiple locales
-
-## Prompt
-
-```text
 Can you please add translations for those keys for {LOCALE_LIST} locales
-```
 
 ## Example Usage
 
-```text
 Can you please add translations for those keys for de_DE, es_ES and fr_FR locales?
-```
 
 ## Example Output
 
@@ -56,12 +47,3 @@ permission.name.UnassignSspAssetPermissionPlugin,Geschäftseinheit-SSP-Assets au
 permission.name.UnassignSspAssetPermissionPlugin,Desasignar activos ssp de la unidad de negocio,es_ES
 permission.name.UnassignSspAssetPermissionPlugin,Annuler l'attribution des actifs ssp de l'unité commerciale,fr_FR
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf
-
-### Author
-@geronica90

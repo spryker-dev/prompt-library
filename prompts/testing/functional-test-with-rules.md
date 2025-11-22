@@ -1,23 +1,17 @@
-# Spryker Functional Test Generator with Existing Rules/Instructions
+---
+title: Spryker Functional Test Generator with Existing Rules/Instructions
 
-## Description
+description: A lighter version of the functional test generator prompt for creating comprehensive functional tests for Spryker components (facades, plugins, etc.) without mocking, using real database interactions and testing helpers. This version can be used together with specific functional test rules provided separately. This prompt helps developers create complete functional tests for Spryker components including facades, plugins, and other entities. It follows the Arrange/Act/Assert pattern with real database interaction instead of mocks, utilizing existing testing helpers where possible. This is a simplified version of the functional test generator that can be used in conjunction with specific rule files that are provided separately.
 
-A lighter version of the functional test generator prompt for creating comprehensive functional tests for Spryker components (facades, plugins, etc.) without mocking, using real database interactions and testing helpers. This version can be used together with specific functional test rules provided separately.
+when_to_use: "
+    When you need to create functional tests for Spryker components (facades, plugins, or other entities) that interact with the database and require real data preparation instead of mocks. This prompt is particularly useful when you have specific rule files that you want to apply to your tests, as it provides a simpler template that can be combined with those rules.
+    Note: If data builders or helpers with data preparation are not needed for your test case, you can exclude those parts from the implementation.
+"
 
-## Prompt Description
+tags: [tag1, tag2, tag3]
 
-This prompt helps developers create complete functional tests for Spryker components including facades, plugins, and other entities. It follows the Arrange/Act/Assert pattern with real database interaction instead of mocks, utilizing existing testing helpers where possible. This is a simplified version of the functional test generator that can be used in conjunction with specific rule files that are provided separately.
-
-## Tags (comma-separated)
-functional-testing, codeception, spryker, facade-testing, plugin-testing, integration-testing
-
-## When to Use
-
-When you need to create functional tests for Spryker components (facades, plugins, or other entities) that interact with the database and require real data preparation instead of mocks. This prompt is particularly useful when you have specific rule files that you want to apply to your tests, as it provides a simpler template that can be combined with those rules.
-
-Note: If data builders or helpers with data preparation are not needed for your test case, you can exclude those parts from the implementation.
-
-## Prompt
+author: Your Name
+---
 
 ```text
 Create a single Functional test for {COMPONENT_TYPE}::{METHOD_NAME}() following these requirements:
@@ -340,12 +334,3 @@ suites:
                 - \SprykerTest\Zed\SalesOrderAmendment\Helper\SalesOrderAmendmentHelper
 
 ```
-
-### LLM
-Claude 3.7 Sonnet
-
-### AI Assistant
-Windsurf Cascade
-
-### Author
-@geronica

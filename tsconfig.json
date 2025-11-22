@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "lib": ["ES2022"],
+    "outDir": "./mcp/dist",
+    "rootDir": "./mcp/src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
+  },
+  "include": [
+    "mcp/src/**/*",
+    "prompts"
+  ],
+  "exclude": [
+    "mcp",
+    "dist",
+    "mcp/**/*.test.ts"
+  ]
+}

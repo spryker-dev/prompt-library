@@ -1,23 +1,17 @@
-# Spryker Functional Test Generator Without Additional Rules/Instructions
+---
+title: Spryker Functional Test Generator Without Additional Rules/Instructions
 
-## Description
+description: A prompt for creating comprehensive functional tests for Spryker components (facades, plugins, etc.) without mocking, using real database interactions and testing helpers.  This prompt helps developers create complete functional tests for Spryker components including facades, plugins, and other entities. It follows the Arrange/Act/Assert pattern with real database interaction instead of mocks, utilizing existing testing helpers where possible. Use this prompt when no specific testing rules or instructions are provided for the model being tested.
 
-A prompt for creating comprehensive functional tests for Spryker components (facades, plugins, etc.) without mocking, using real database interactions and testing helpers.
+when_to_use: "
+    When you need to create functional tests for Spryker components (facades, plugins, or other entities) that interact with the database and require real data preparation instead of mocks. This prompt is particularly useful when no specific testing rules or instructions are provided for the component being tested.
+    Note: If data builders or helpers with data preparation are not needed for your test case, you can exclude those parts from the implementation.
+"
 
-## Prompt Description
+tags: [tag1, tag2, tag3]
 
-This prompt helps developers create complete functional tests for Spryker components including facades, plugins, and other entities. It follows the Arrange/Act/Assert pattern with real database interaction instead of mocks, utilizing existing testing helpers where possible. Use this prompt when no specific testing rules or instructions are provided for the model being tested.
-
-## Tags (comma-separated)
-functional-testing, codeception, spryker, facade-testing, plugin-testing, integration-testing
-
-## When to Use
-
-When you need to create functional tests for Spryker components (facades, plugins, or other entities) that interact with the database and require real data preparation instead of mocks. This prompt is particularly useful when no specific testing rules or instructions are provided for the component being tested.
-
-Note: If data builders or helpers with data preparation are not needed for your test case, you can exclude those parts from the implementation.
-
-## Prompt
+author: Your Name
+---
 
 ```text
 Create a single Functional test for {COMPONENT_TYPE}::{METHOD_NAME}() following these requirements:
@@ -273,12 +267,3 @@ suites:
                 - \SprykerTest\Zed\SalesOrderAmendment\Helper\SalesOrderAmendmentHelper
 
 ```
-
-### LLM
-Claude 4 Sonnet
-
-### AI Assistant
-VS Code + GitHub Copilot
-
-### Author
-@geronica
