@@ -1,0 +1,17 @@
+ai-coding-assistants/cypress-test-generator.md
+ai-coding-assistants/plugin-introduction-with-context.md
+ai-coding-assistants/prepare-for-release.prompt.md
+ai-coding-assistants/propel-schema-generator.md
+ai-coding-assistants/specific-refactoring-instructions.md
+ai-coding-assistants/spryker-data-import-generator.md
+ai-coding-assistants/spryker-feature-glue-api-generation.md
+ai-coding-assistants/spryker-new-module-generator.md
+ai-coding-assistants/symfony-form-generator.md
+ai-coding-assistants/translation-key-generator.md
+ai-coding-assistants/unit-test-with-data-providers.md
+code-review/comprehensive-diff-review.md
+testing/functional-test-with-rules.md
+testing/functional-test-without-rules.md
+testing/project-cypress-tests-generator.md
+testing/tf-integration-tests-generator.md
+testing/tf-unit-tests-generator.md
