@@ -1,4 +1,6 @@
 # How to Set Up PHPStorm for Backend Development
+This guide helps you configure PhpStorm to use Copilot.
+If you want to integrate Prompt library, please check [Readme](README.md) first, since some sections of this document might not be needed.
 
 ## Table of Contents
 
