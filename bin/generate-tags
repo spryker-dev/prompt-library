@@ -14,18 +14,28 @@ import re
 from pathlib import Path
 
 def extract_tags_from_file(file_path):
-    '''Extract tags from markdown file'''
+    '''Extract tags from markdown file YAML frontmatter'''
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
 
-        # Find tags section
-        match = re.search(r'^## Tags.*?\n(.+?)$', content, re.MULTILINE | re.IGNORECASE)
+        # Find YAML frontmatter between --- markers
+        match = re.search(r'^---\s*\n(.*?)\n---\s*\n', content, re.MULTILINE | re.DOTALL)
         if match:
-            tags_line = match.group(1).strip()
-            # Split by comma and clean up
-            tags = [tag.strip().lower() for tag in tags_line.split(',') if tag.strip()]
-            return tags
+            frontmatter = match.group(1)
+            # Find tags line in frontmatter
+            tags_match = re.search(r'^tags:\s*(.+)$', frontmatter, re.MULTILINE)
+            if tags_match:
+                tags_line = tags_match.group(1).strip()
+                # Parse YAML array format: [tag1, tag2, tag3]
+                if tags_line.startswith('[') and tags_line.endswith(']'):
+                    # Remove brackets and split by comma
+                    tags_content = tags_line[1:-1]
+                    tags = [tag.strip().strip('\"').strip(\"'\").lower() for tag in tags_content.split(',') if tag.strip()]
+                    return tags
+                else:
+                    # Single tag or space-separated
+                    return [tags_line.lower()]
     except Exception as e:
         print(f'Error reading {file_path}: {e}')
     return []
@@ -36,9 +46,13 @@ def main():
     # Find all markdown files (excluding templates and README)
     prompts_dir = Path('prompts')
     if not prompts_dir.exists():
-        prompts_dir = Path('prompts')  # Fallback for direct execution
+        print('Error: prompts directory not found')
+        return
 
-    for md_file in prompts_dir.rglob('*.md'):
+    md_files = list(prompts_dir.rglob('*.md'))
+    print(f'Found {len(md_files)} markdown files')
+
+    for md_file in md_files:
         # Skip templates and README files
         if 'templates' in md_file.parts or md_file.name == 'README.md':
             continue
@@ -48,7 +62,7 @@ def main():
 
         for tag in tags:
             if tag:
-                print(f'Found tag: {tag} -> {relative_path}')
+                print(f'Found tag: \"{tag}\" -> {relative_path}')
 
                 if tag in tags_mapping:
                     # Tag already exists
@@ -76,6 +90,10 @@ def main():
 
     if multi_prompts > 0:
         print(f'📊 {single_prompts} tags with single prompt, {multi_prompts} tags with multiple prompts')
+    
+    # Show tags summary
+    if tags_mapping:
+        print(f'\\n📋 Tags found: {', '.join(sorted(tags_mapping.keys()))}')
 
 if __name__ == '__main__':
     main()
